@@ -25,7 +25,7 @@ const About = () => {
 
   return (
     <div className='about'>
-      <div className="about-title">
+      <div className="title-box">
         <h1>About me</h1>
         <img src={theme_pattern} alt="Pattern" />
       </div>
@@ -37,6 +37,7 @@ const About = () => {
           <div className="about-para">
             <p>I am a dedicated Full-Stack Developer with a strong focus on creating scalable and intuitive digital solutions. Skilled in technologies like React.js, Node.js, and MongoDB, I excel in both front-end and back-end development.</p>
             <p>I am passionate about solving complex challenges and thrive in collaborative environments, contributing to impactful, user-focused applications while continuously advancing my expertise.</p>
+            <p>Beyond coding, I am always ready to talk about movies, video games, and exploring creative ways to solve problems using technology.</p>
           </div>
           <div className="about-skills">
             <div className="about-skill">
