@@ -9,7 +9,7 @@ const Milestones = () => {
     <div className='milestones'>
         <div className="title-box">
             <h1>My Milestones</h1>
-            <img src={theme_pattern} alt="Pattern" />
+            <img src={theme_pattern} alt="" />
         </div>
         <div className="milestones-container">
             {Milestones_Data.map((milestone, index) => {

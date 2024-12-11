@@ -1,11 +1,11 @@
-.navbar{
+.navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 20px 10%;
 }
 
-.nav-menu{
+.nav-menu {
     display: flex;
     align-items: center;
     list-style: none;
@@ -13,15 +13,59 @@
     font-size: 16px;
 }
 
-.nav-connect{
+/* New container for nav-connect and icons */
+.nav-connect-icons {
+    display: flex; /* Ensures horizontal alignment */
+    align-items: center;
+    gap: 20px; /* Space between nav-connect and icons */
+}
+
+.nav-connect {
     padding: 15px 20px;
     border-radius: 50px;
     background: linear-gradient(267deg, #DA7C25 0.36%, #B923E1 102.06%);
     font-size: 16px;
     cursor: pointer;
     transition: 0.5s;
+
 }
 
-.nav-connect:hover{
+.nav-connect:hover {
     transform: scale3d(1.05, 1.05, 1.05);
 }
+
+/* Icons Section */
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between icons */
+    font-size: 24px;
+}
+
+.icons a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.icons a:hover {
+    color: #B923E1; 
+    transform: scale(1.1);
+}
+
+/* Responsive Adjustments */
+/* @media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-menu {
+        gap: 20px;
+    }
+
+    .nav-connect-icons {
+        flex-wrap: wrap; /* Stack nav-connect and icons vertically on smaller screens */
+        gap: 10px; /* Reduce gap for smaller screens */
+    }
+} */
