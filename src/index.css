@@ -30,6 +30,17 @@ body{
   z-index: -1;
 }
 
+@keyframes fadeIn_scrollToTop {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @keyframes slideLeftFade {
   0% {
     transform: translateX(-25px);

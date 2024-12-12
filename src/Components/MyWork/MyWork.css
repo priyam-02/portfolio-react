@@ -15,7 +15,7 @@
   font-weight: bold; /* Font weight */
   text-align: center; /* Center the text */
   text-decoration: none; /* Remove underline */
-  border-radius: 25px; /* Rounded corners */
+  border-radius: 16px; /* Rounded corners */
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Add shadow */
   transition: all 0.3s ease; 
 
@@ -125,7 +125,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    border-radius: 50px;
+    border-radius: 20px;
     border: 2px solid white;
     padding: 20px 40px;
     font-size: 20px;

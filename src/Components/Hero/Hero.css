@@ -56,7 +56,7 @@
 .hero-connect {
   background: linear-gradient(264deg, #DF8908 -5.09%, #B415FF 106.28%);
   border: 2px solid black;
-  border-radius: 50px;
+  border-radius: 20px;
   padding: 20px 30px;
   font-size: 16px;
   font-weight: bold;
@@ -83,7 +83,7 @@
 
 .hero-connect:hover::before {
   top: -29%;
-  left: -40%;
+  left: -35%;
   width: 200%;
   height: 300%;
   background: #0D1117;
@@ -95,8 +95,8 @@
 .hero-resume {
   background: #0D1117;
   border: 2px solid white;
-  border-radius: 50px;
-  padding: 20px 55px;
+  border-radius: 20px;
+  padding: 15px 50px;
   font-size: 16px;
   font-weight: bold;
   color: white;
@@ -122,7 +122,7 @@
 
 .hero-resume:hover::before {
   top: -55%;
-  right: -55%;
+  right: -60%;
   width: 200%;
   height: 300%;
   background: linear-gradient(264deg, #DF8908 35.09%, #B415FF 96.28%);
