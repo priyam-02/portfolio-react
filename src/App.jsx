@@ -7,6 +7,7 @@ import MyWork from './Components/MyWork/MyWork'
 import Contact from './Components/Contact/Contact'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop'
+import Footer from './Components/Footer/Footer'
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <Milestones />
       <Contact />
       <ScrollToTop />
+      <Footer />
     </div>
   )
 }

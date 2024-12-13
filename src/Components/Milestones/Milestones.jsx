@@ -6,7 +6,7 @@ import Milestones_Data from '../../assets/milestones_data';
 
 const Milestones = () => {
   return (
-    <div className='milestones'>
+    <div id='milestones' className='milestones'>
         <div className="title-box">
             <h1>My Milestones</h1>
             <img src={theme_pattern} alt="" />

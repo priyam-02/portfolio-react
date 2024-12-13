@@ -28,17 +28,17 @@ const MyWork = () => {
   };
 
   return (
-    <div className="mywork">
+    <div id='projects' className="mywork">
       <div className="title-box">
         <h1>My Latest Works</h1>
-        <img src={theme_pattern} alt="Pattern" />
+        <img loading='lazy' src={theme_pattern} alt="Pattern" />
       </div>
       <div className="mywork-container">
         {mywork_data.slice(0, visibleProjects).map((work, index) => (
           <a href={work.w_link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }} key={index}>
             <div className={`mywork-format ${animationClass}`}>
               <div className="mywork-image-wrapper">
-                <img src={work.w_img} alt={work.w_name} className="mywork-image" />
+                <img loading='lazy' src={work.w_img} alt={work.w_name} className="mywork-image" />
               </div>
               <h2>{work.w_name}</h2>
               <p>{work.w_desc}</p>

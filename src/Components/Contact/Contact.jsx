@@ -7,7 +7,7 @@ import mail_icon from '../../assets/mail_icon.svg'
 
 const Contact = () => {
   return (
-    <div className='contact'>
+    <div id='contact' className='contact'>
         <div className="title-box">
             <h1>Get in touch </h1>
             <img src={theme_pattern} alt="" />
@@ -22,22 +22,22 @@ const Contact = () => {
                         <img src={mail_icon} alt="" /> <a style={{textDecoration: 'none'}} href="mailto:priyam10302@gmail.com">priyam10302@gmail.com</a>
                     </div>
                     <div className="contact-detail">
-                        <img src={call_icon} alt="" /> <p>+1(704)337-9395</p>
+                        <img src={call_icon} alt="" /> <a style={{textDecoration: 'none'}} href="tel:+1(704)337-9395">+1 (704) 337-9395</a>
                     </div>
                     <div className="contact-detail">
-                        <img src={location_icon} alt="" /> <p>NC, United States</p>
+                        <img src={location_icon} alt="" /> <a style={{textDecoration: 'none'}} href="https://maps.app.goo.gl/AgroZM2CbKgHjaSZ9" target="_blank" rel="noopener noreferrer">NC, United States</a>
                     </div>
                 </div>
             </div>
             <form className='contact-right'>
-                    <label htmlFor=""> Your Name </label>
+                    <label htmlFor=""> Name </label>
                     <input type="text" placeholder='Enter your name' name='name' />
 
-                    <label htmlFor=""> Your Email </label>
+                    <label htmlFor=""> Email </label>
                     <input type="email" placeholder='Enter your email' name='email' />
 
-                    <label htmlFor=""> Write your message here </label>
-                    <textarea name="message" rows='8' placeholder='Enter your message'></textarea>
+                    <label htmlFor=""> Message </label>
+                    <textarea name="message" rows='8' placeholder='Write your message here...'></textarea>
 
                     <button type='submit' className='contact-submit'>Submit now</button>
                 </form>

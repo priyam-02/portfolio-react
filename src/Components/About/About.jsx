@@ -24,14 +24,14 @@ const About = () => {
   }, []);
 
   return (
-    <div className='about'>
+    <div id='about' className='about'>
       <div className="title-box">
         <h1>About me</h1>
-        <img src={theme_pattern} alt="" />
+        <img loading='lazy' src={theme_pattern} alt="" />
       </div>
       <div className="about-sections">
         <div className="about-left">
-          <img src={profile_img} alt="Profile" />
+          <img loading='lazy' src={profile_img} alt="Profile" />
         </div>
         <div className="about-right">
           <div className="about-para">
