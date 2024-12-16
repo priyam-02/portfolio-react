@@ -1,5 +1,3 @@
-import project1_img from '../assets/project_1.svg'
-import project2_img from '../assets/project_2.svg'
 import Vital_Tech from '../assets/Vital_Tech.svg'
 import Planet_Escape from '../assets/Planet_Escape.svg'
 import Music_Web from '../assets/Music_Web1.svg'
