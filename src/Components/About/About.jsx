@@ -38,7 +38,7 @@ const About = () => {
           <div className="about-para">
             <p>I’m a Full-Stack Developer specializing in React.js, Node.js, and MongoDB, with a focus on building scalable, user-friendly applications. My passion lies in using innovative technologies to solve problems and create impactful real-world solutions.</p>
             <p>Currently, I am pursuing my Master of Science in Computer Science at the University of North Carolina at Charlotte, where I am honing my skills and deepening my knowledge. </p>
-            <p>I’m naturally curious and always eager to explore new ideas, whether in tech or other fields. Staying up to date and trying new things keeps me excited and ready to adapt in a fast-changing world. I love collaborating with others, bouncing around ideas, and turning them into something meaningful.</p>
+            <p>I’m naturally curious and always eager to explore new things, whether in tech or other fields. Staying up to date and trying new things keeps me excited and ready to adapt in a fast-changing world.</p>
             <p>When I’m not coding, you’ll find me chatting about movies, diving into video games, or brainstorming creative tech solutions. I love staying curious, learning, and building things that make a difference.</p>
           </div>
           <div className="about-skills">
