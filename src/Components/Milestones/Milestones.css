@@ -16,7 +16,6 @@
     border-radius: 10px;
     border: 2px solid white;
     transition: .4s;
-    cursor: pointer;
 }
 
 .milestones-container {
@@ -40,8 +39,6 @@
     margin: 0; 
     line-height: 1.5;
     background: linear-gradient(270deg,#FF4B4E 50%,#37CDFF 100%);
-
-
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

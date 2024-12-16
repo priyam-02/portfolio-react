@@ -36,35 +36,37 @@ const About = () => {
         </div>
         <div className="about-right">
           <div className="about-para">
-            <p>I am a dedicated Full-Stack Developer with a strong focus on creating scalable and intuitive digital solutions. Skilled in technologies like React.js, Node.js, and MongoDB, I excel in both front-end and back-end development.</p>
-            <p>I am passionate about solving complex challenges and thrive in collaborative environments, contributing to impactful, user-focused applications while continuously advancing my expertise.</p>
-            <p>Beyond coding, I am always ready to talk about movies, video games, and exploring creative ways to solve problems using technology.</p>
+            <p>I’m a Full-Stack Developer specializing in React.js, Node.js, and MongoDB, with a focus on building scalable, user-friendly applications. My passion lies in using innovative technologies to solve problems and create impactful real-world solutions.</p>
+            <p>Currently, I am pursuing my Master of Science in Computer Science at the University of North Carolina at Charlotte, where I am honing my skills and deepening my knowledge. </p>
+            <p>I’m naturally curious and always eager to explore new ideas, whether in tech or other fields. Staying up to date and trying new things keeps me excited and ready to adapt in a fast-changing world. I love collaborating with others, bouncing around ideas, and turning them into something meaningful.</p>
+            <p>When I’m not coding, you’ll find me chatting about movies, diving into video games, or brainstorming creative tech solutions. I love staying curious, learning, and building things that make a difference.</p>
           </div>
           <div className="about-skills">
             <div className="about-skill">
               <p>HTML & CSS</p>
-              <hr style={{ width: animate ? "60%" : "0%", transition: "width 0.6s ease-in-out" }} />
+              <hr style={{ width: animate ? "70%" : "0%", transition: "width 0.6s ease-in-out" }} />
             </div>
             <div className="about-skill">
               <p>JavaScript</p>
-              <hr style={{ width: animate ? "50%" : "0%", transition: "width 0.6s ease-in-out" }} />
+              <hr style={{ width: animate ? "60%" : "0%", transition: "width 0.6s ease-in-out" }} />
             </div>
             <div className="about-skill">
               <p>React.js</p>
-              <hr style={{ width: animate ? "40%" : "0%", transition: "width 0.6s ease-in-out" }} />
-            </div>
-            <div className="about-skill">
-              <p>MongoDB</p>
-              <hr style={{ width: animate ? "40%" : "0%", transition: "width 0.6s ease-in-out" }} />
+              <hr style={{ width: animate ? "53%" : "0%", transition: "width 0.6s ease-in-out" }} />
             </div>
             <div className="about-skill">
               <p>Node.js</p>
-              <hr style={{ width: animate ? "30%" : "0%", transition: "width 0.6s ease-in-out" }} />
+              <hr style={{ width: animate ? "51%" : "0%", transition: "width 0.6s ease-in-out" }} />
             </div>
             <div className="about-skill">
               <p>Express.js</p>
-              <hr style={{ width: animate ? "30%" : "0%", transition: "width 0.6s ease-in-out" }} />
+              <hr style={{ width: animate ? "45%" : "0%", transition: "width 0.6s ease-in-out" }} />
             </div>
+            <div className="about-skill">
+              <p>MongoDB</p>
+              <hr style={{ width: animate ? "39%" : "0%", transition: "width 0.6s ease-in-out" }} />
+            </div>
+            
           </div>
         </div>
       </div>

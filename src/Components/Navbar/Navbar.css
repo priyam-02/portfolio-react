@@ -156,7 +156,7 @@
     }
 
     .nav-mob-open:hover {
-        color: #B923E1;
+        color: #00bfffd0;
         transform: scale(1.1);
     }
 
@@ -170,7 +170,7 @@
     }
 
     .nav-mob-close:hover {
-        color: #B923E1;
+        color: #00bfffd0;
         transform: scale(1.1);
     }
 
@@ -193,7 +193,7 @@
         align-items: start;
         top: 0;
         gap: 30px;
-        background-color: #1f0016;
+        background-color: #1f0007;
         width: 300px;
         height: 100%;
         z-index: 2;
@@ -252,7 +252,7 @@
     }
 
     .nav-mob-open:hover {
-        color: #B923E1;
+        color: #00bfffd0;
         transform: scale(1.1);
     }
 
@@ -266,7 +266,7 @@
     }
 
     .nav-mob-close:hover {
-        color: #B923E1;
+        color: #00bfffd0;
         transform: scale(1.1);
     }
 
@@ -330,7 +330,7 @@
     }
 
     .nav-mob-open:hover {
-        color: #B923E1;
+        color: #00bfffd0;
         transform: scale(1.1);
     }
 
@@ -344,7 +344,7 @@
     }
 
     .nav-mob-close:hover {
-        color: #B923E1;
+        color: #00bfffd0;
         transform: scale(1.1);
     }
 
