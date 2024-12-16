@@ -1,7 +1,7 @@
 import React from 'react'
 import './Milestones.css'
 import Milestones_Data from '../../assets/milestones_data';
-import underline from "../../assets/nav_underline1.svg";
+import underline from "../../assets/nav_underline3.svg";
 
 
 

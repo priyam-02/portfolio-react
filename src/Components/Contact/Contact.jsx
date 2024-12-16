@@ -3,7 +3,7 @@ import './Contact.css'
 import location_icon from '../../assets/location_icon.svg'
 import call_icon from '../../assets/call_icon.svg'
 import mail_icon from '../../assets/mail_icon.svg'
-import underline from "../../assets/nav_underline1.svg";
+import underline from "../../assets/nav_underline3.svg";
 
 
 const Contact = () => {

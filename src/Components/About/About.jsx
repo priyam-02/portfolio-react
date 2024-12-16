@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './About.css';
 import profile_img from '../../assets/about_profile1.svg';
-import underline from "../../assets/nav_underline1.svg";
+import underline from "../../assets/nav_underline3.svg";
 
 
 const About = () => {

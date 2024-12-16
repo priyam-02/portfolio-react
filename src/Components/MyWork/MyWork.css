@@ -87,7 +87,7 @@
     font-weight: bold;
     margin: 10px 0;
     line-height: 1.5;
-    background: linear-gradient(270deg, #DF8908 50%, #B415FF 100%);
+    background: linear-gradient(270deg, #37CDFF 15%, #FF4B4E 75%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -119,8 +119,7 @@
 }
 
 .tag:hover {
-    background-image: linear-gradient(264deg,#DF8908 -5.09%,#B415FF 106.28%)
-
+    background-image: linear-gradient(270deg, #37CDFF 15%, #FF4B4E 75%);
 }
 
 .mywork-showmore {
@@ -144,7 +143,7 @@
 .mywork-showmore:hover {
     gap: 30px;
     transition: .6s;
-    border: 2px solid #ff00ff;
+    border: 2px solid #37CDFF;
 }
 
 
@@ -169,7 +168,7 @@
 .mywork-showless:hover {
     gap: 10px;
     transition: .6s;
-    border: 2px solid #ff00ff;
+    border: 2px solid #FF4B4E
 
 }
 
