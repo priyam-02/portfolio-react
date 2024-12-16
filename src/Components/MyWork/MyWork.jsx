@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './MyWork.css';
-import theme_pattern from '../../assets/theme_pattern.svg';
 import mywork_data from '../../assets/mywork_data';
 import arrow_icon from '../../assets/arrow_icon.svg';
+import underline from "../../assets/nav_underline1.svg";
+
 
 const MyWork = () => {
   const [visibleProjects, setVisibleProjects] = useState(6); // Initially show 6 projects
@@ -31,7 +32,7 @@ const MyWork = () => {
     <div id='projects' className="mywork">
       <div className="title-box">
         <h1>My Latest Works</h1>
-        <img loading='lazy' src={theme_pattern} alt="Pattern" />
+        <img loading='lazy' src={underline} alt="Pattern" />
       </div>
       <div className="mywork-container">
         {mywork_data.slice(0, visibleProjects).map((work, index) => (
@@ -40,13 +41,11 @@ const MyWork = () => {
               <div className="mywork-image-wrapper">
                 <img loading='lazy' src={work.w_img} alt={work.w_name} className="mywork-image" />
               </div>
-              <h2>{work.w_name}</h2>
-              <p>{work.w_desc}</p>
-              {work.w_live ? (
-                <a id="play" href={work.w_live} target="_blank" rel="noopener noreferrer">
+              <h2>{work.w_name}  {work.w_live ? (<span className='play'><a href={work.w_live} target="_blank" rel="noopener noreferrer">
                   Play
                 </a>
-              ) : null}
+              </span>) : null}</h2>
+              <p>{work.w_desc}</p>
               <div className="tags">
                 {work.w_tags.map((tag, tagIndex) => (
                   <span className="tag" key={tagIndex}>

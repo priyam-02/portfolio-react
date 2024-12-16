@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     gap: 80px;
-    margin: 70px 10%;
+    margin: 80px 8%;
 }
 
 .milestones-format {
@@ -61,3 +61,62 @@
     transition: .4s
 }
 
+
+
+
+@media (max-width: 768px) {
+    .milestones {
+        align-items:center;
+        gap: 70px;
+        margin: 20px 6%;
+    }
+
+    .milestones-format {
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .milestones-format h2 {
+        font-size: 20px
+    }
+
+    .milestones-format p {
+        font-size: 16px;
+        line-height: 26px;
+        max-width: 300px
+    }
+
+    .milestones-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .milestones {
+        align-items: center;
+        gap: 50px; /* Reduce gap for smaller screens */
+        margin: 15px 4%; /* Smaller margins */
+    }
+
+    .milestones-format {
+        gap: 15px;
+        padding: 45px 45px; /* Compact padding */
+    }
+
+    .milestones-format h2 {
+        font-size: 24px; /* Adjust heading size */
+    }
+
+    .milestones-format p {
+        font-size: 18px; /* Smaller text for better fit */
+        max-width: 250px; /* Reduce width for smaller screens */
+    }
+
+    .milestones-container {
+        justify-content: center; /* Center the container horizontally */
+        grid-template-columns: 1fr; /* Single-column layout for small screens */
+        gap: 25px; /* Adjust gap for compact spacing */
+        margin: 0 auto;
+    }
+}

@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     gap: 80px;
-    margin: 80px 10%
+    margin: 80px 8%
 }
 
 .contact-section {
@@ -103,4 +103,36 @@
 .contact-submit:hover {
     transform: scale(1.1);
     transition: 0.3s
+}
+
+@media (max-width: 768px) {
+    .contact {
+        gap:40px;
+        margin: 60px 6%;
+        align-items: center;
+    }
+
+    .contact-section {
+        flex-direction: column
+    }
+
+    .contact-left h1 {
+        font-size: 35px
+    }
+
+    .contact-detail {
+        gap: 12px
+    }
+
+    .contact-detail img {
+        width: 20px
+    }
+
+    .contact-left {
+        margin-bottom: 30px
+    }
+
+    .contact-right label {
+        font-size: 14px
+    }
 }

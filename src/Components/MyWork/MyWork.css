@@ -4,10 +4,10 @@
     align-items: center;
     justify-content: center;
     gap: 80px;
-    margin: 80px 10%;
+    margin: 90px 8%;
 }
 
-#play{
+.play{
   border: 2px solid white;
   color: #fff; /* Text color */
   padding: 5px 15px; /* Padding for the button */
@@ -17,13 +17,15 @@
   text-decoration: none; /* Remove underline */
   border-radius: 16px; /* Rounded corners */
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Add shadow */
-  transition: all 0.3s ease; 
+  background: transparent; 
 
 }
-#play:hover {
+.play:hover {
     border: 2px solid #ff00ff;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* Increase shadow */
     transform: scale(1.05); /* Slightly enlarge the button */
+    background: transparent;
+    color: white;
   }
 
 /* .title-box {
@@ -55,7 +57,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    height: 430px;
+
 
 }
 
@@ -136,7 +138,7 @@
 }
 
 .mywork-showmore img {
-    width: 25px
+    width: 25px;
 }
 
 .mywork-showmore:hover {
@@ -161,7 +163,7 @@
 }
 
 .mywork-showless img {
-    width: 25px
+    width: 25px;
 }
 
 .mywork-showless:hover {
@@ -172,17 +174,83 @@
 }
 
 
-/* Responsive Adjustments */
-/* @media (max-width: 768px) {
+
+
+
+@media (max-width: 768px) {
+    .mywork {
+        gap:50px;
+        margin: 60px 6%;
+        align-items: center;
+    }
+
     .mywork-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+
+    }
+
+    .mywork-image {
+        width: 100%;
+    }
+
+    .mywork-showmore {
+        padding: 15px 30px;
+        font-size: 16px;
+        margin: 10px auto;
+    }
+
+    .mywork-showmore:hover {
+        gap: 20px;
+    }
+
+    .tag {
+        background-color: #444;
+        border-radius: 20px;
+        padding: 0px 10px;
+        font-size: 12px;
+    
     }
 
     .mywork-format h2 {
         font-size: 20px;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+    
+    .mywork-format p {
+        font-size: 12px;
+
+    }
+}
+
+@media (max-width: 576px) {
+
+    .mywork{
+        align-items: center;
+    }
+
+    .mywork-image {
+        width: 100%;
+    }
+    
+    .mywork-container {
+        gap: 30px;
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .mywork-format h2 {
+        font-size: 24px;
     }
 
     .mywork-format p {
-        font-size: 14px;
+        font-size: 16px;
     }
-} */
+
+    .tag {
+        padding: 5px 12px;
+        font-size: 14px;
+    
+    }
+}

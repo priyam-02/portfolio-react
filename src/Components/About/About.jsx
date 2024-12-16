@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './About.css';
-import theme_pattern from '../../assets/theme_pattern.svg';
 import profile_img from '../../assets/about_profile1.svg';
+import underline from "../../assets/nav_underline1.svg";
+
 
 const About = () => {
   const [animate, setAnimate] = useState(false);
@@ -27,7 +28,7 @@ const About = () => {
     <div id='about' className='about'>
       <div className="title-box">
         <h1>About me</h1>
-        <img loading='lazy' src={theme_pattern} alt="" />
+        <img loading='lazy' src={underline} alt="" />
       </div>
       <div className="about-sections">
         <div className="about-left">

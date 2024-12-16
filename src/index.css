@@ -25,10 +25,24 @@ body{
 .title-box img {
   width: 130px;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: -1;
 }
+
+@media (max-width: 768px) {
+  .title-box h1 {
+      padding: 0;
+      font-size: 40px;
+  }
+
+  .title-box img {
+      width: 90px;
+      right: -40px
+  }
+}
+
 
 @keyframes fadeIn_scrollToTop {
   from {

@@ -1,5 +1,5 @@
 .footer {
-    margin: 50px 10%;
+    margin: 30px 8%;
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -65,14 +65,14 @@
     font-size: 24px;
 }
 
-.footer-email-input:hover {
+/* .footer-email-input:hover {
     border: 2px solid white
-}
+} */
 
-.footer-subscribe:hover {
+/* .footer-subscribe:hover {
     transform: scale(1.1);
     transition: .3s
-}
+} */
 
 .footer-bottom-right a {
     color: #ffffff;
@@ -87,4 +87,35 @@
 .footer-bottom-right a:hover {
     color: #B923E1; 
     transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .footer {
+        margin:50px 6%
+    }
+
+    .footer-top {
+        flex-direction: column;
+        gap: 30px
+    }
+
+    .footer-top-right {
+        gap: 5px
+    }
+
+    .footer-bottom {
+        display: flex;
+        flex-direction: column-reverse;
+        font-size: 14px
+    }
+
+    .footer-bottom-right {
+        gap: 12px
+    }
+
+    .footer-bottom-right i {
+        font-size: 25px;
+    }
+
+
 }

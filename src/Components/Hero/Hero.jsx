@@ -11,7 +11,7 @@ const Hero = () => {
         <h1><span>I&apos;m Priyam Shah,</span> full-stack developer based in USA.</h1>
         <p> I am a full stack developer based in North Carolina, USA with a passion for crafting scalable and user-friendly applications.</p>
         <div className="hero-action">
-            <div className="hero-connect"><AnchorLink className='anchor-link' offset={50} href='#contact'>Connect with me</AnchorLink></div>
+        <AnchorLink className='anchor-link' offset={50} href='#contact'><div className="hero-connect">Connect with me</div></AnchorLink>
             <a href="https://drive.google.com/file/d/1kkjZF3X9kPvIF_TLV4Kfiilj55EzF0Vp/view?usp=sharing" target='_blank' style={{textDecoration: 'none', color: 'inherit'}} > <div className="hero-resume">  My Resume</div> </a>
         </div>
     </div>

@@ -1,7 +1,8 @@
 import React from 'react'
 import './Milestones.css'
-import theme_pattern from '../../assets/theme_pattern.svg';
 import Milestones_Data from '../../assets/milestones_data';
+import underline from "../../assets/nav_underline1.svg";
+
 
 
 const Milestones = () => {
@@ -9,7 +10,7 @@ const Milestones = () => {
     <div id='milestones' className='milestones'>
         <div className="title-box">
             <h1>My Milestones</h1>
-            <img src={theme_pattern} alt="" />
+            <img src={underline} alt="" />
         </div>
         <div className="milestones-container">
             {Milestones_Data.map((milestone, index) => {
