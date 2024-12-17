@@ -1,13 +1,13 @@
 import React from 'react'
 import './Hero.css'
-import profile_img from '../../assets/profile_img3.svg'
+import profile_img from '../../assets/profile_img4.svg'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const Hero = () => {
   return (
     <div id='home' className='hero'>
       {/* <div className="hero-img"></div> */}
-        <img src={profile_img} alt="" />
+        <img loading='eager' src={profile_img} alt="" />
         <h1><span>I&apos;m Priyam Shah,</span> full-stack developer based in USA.</h1>
         <p>I am a Full-Stack Developer based in North Carolina, USA, with a passion for building applications that solve real-world problems and enhance user satisfaction.</p>
         <div className="hero-action">
