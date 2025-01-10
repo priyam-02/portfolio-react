@@ -26,7 +26,7 @@ const Footer = () => {
       <hr />
       <div className="footer-bottom">
           <p className="footer-bottom-left">
-            © 2024 Priyam Shah. All rights reserved.
+            © 2025 Priyam Shah. All rights reserved.
           </p>
           
           <div className="footer-bottom-right">
