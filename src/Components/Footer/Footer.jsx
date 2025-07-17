@@ -1,51 +1,119 @@
-import React from "react";
 import "./Footer.css";
 
-
-
 const Footer = () => {
-  return (
-    <div className="footer">
-      {/* <div className="footer-top">
-        <div className="footer-top-left">
-          <img loading="lazy" src={footer_logo} alt="" />
-          <p>
-            {" "}
-            I am a full stack developer based in North Carolina, USA with a
-            passion for crafting scalable and user-friendly applications.
-          </p>
-        </div>
-        <div className="footer-top-right">
-          <div className="footer-email-input">
-            <img loading="lazy" src={user_icon} alt="" />
-            <input type="email" placeholder="Enter your email" />
-          </div>
-          <div className="footer-subscribe">Subscribe</div>
-        </div>
-      </div> */}
-      <hr />
-      <div className="footer-bottom">
-          <p className="footer-bottom-left">
-            © 2025 Priyam Shah. All rights reserved.
-          </p>
-          
-          <div className="footer-bottom-right">
-            <a
-              href="https://github.com/priyam-02"
-              target="_blank"
-              rel="noopener noreferrer">
-              <i className="fab fa-github"></i>
-            </a>
-            <a
-              href="https://linkedin.com/in/priyamshah22"
-              target="_blank"
-              rel="noopener noreferrer">
-              <i className="fab fa-linkedin"></i>
-            </a>
-          </div>
-          </div>
-      </div>
+  const currentYear = new Date().getFullYear();
 
+  return (
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-content">
+          {/* Footer Brand */}
+          <div className="footer-brand">
+            <div className="footer-logo">
+              <span className="logo-text">Priyam Shah</span>
+            </div>
+            <p className="footer-description">
+              Full-Stack Developer passionate about creating innovative web
+              solutions and building applications that make a difference.
+            </p>
+            <div className="footer-social">
+              <a
+                href="https://github.com/priyam-02"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+                aria-label="GitHub"
+              >
+                <i className="fab fa-github"></i>
+              </a>
+              <a
+                href="https://linkedin.com/in/priyamshah22"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+                aria-label="LinkedIn"
+              >
+                <i className="fab fa-linkedin"></i>
+              </a>
+              <a
+                href="mailto:priyam10302@gmail.com"
+                className="social-link"
+                aria-label="Email"
+              >
+                <i className="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+
+          {/* Footer Links */}
+          <div className="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li>
+                <a href="#home">
+                  <i className="fas fa-home"></i>
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="#about">
+                  <i className="fas fa-user"></i>
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="#mywork">
+                  <i className="fas fa-code"></i>
+                  Projects
+                </a>
+              </li>
+              <li>
+                <a href="#milestones">
+                  <i className="fas fa-trophy"></i>
+                  Experience
+                </a>
+              </li>
+              <li>
+                <a href="#contact">
+                  <i className="fas fa-envelope"></i>
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Footer Contact */}
+          <div className="footer-contact">
+            <h4>Get In Touch</h4>
+            <ul>
+              <li>
+                <i className="fas fa-envelope"></i>
+                <a href="mailto:priyam10302@gmail.com">priyam10302@gmail.com</a>
+              </li>
+              <li>
+                <i className="fas fa-phone"></i>
+                <a href="tel:+1(704)337-9395">+1 (704) 337-9395</a>
+              </li>
+              <li>
+                <i className="fas fa-map-marker-alt"></i>
+                <span>NewYork, NY, USA</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Footer Bottom */}
+        <div className="footer-bottom">
+          <div className="footer-copyright">
+            <p>© {currentYear} Priyam Shah. All rights reserved.</p>
+          </div>
+          <div className="footer-bottom-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 };
 

@@ -1,41 +1,53 @@
 .scroll-to-top {
-    position: fixed;
-    bottom: 35px;
-    right: 30px;
-    border: 2px solid white;
-    color: #fff;
-    width: 55px; /* Adjust the size for better visibility */
-    height: 55px; /* Ensure it's a perfect circle */
-    display: flex; /* Enables Flexbox */
-    align-items: center; /* Centers content vertically */
-    justify-content: center; /* Centers content horizontally */
-    font-size: 24px; /* Icon size */
-    border-radius: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    animation: fadeIn_scrollToTop 0.3s ease-in-out;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    z-index: 1000;
-  }
-  
-  .scroll-to-top:hover {
-    transform: scale(1.2);
-    background-image: linear-gradient(264deg,#37CDFF 20%,#FF4B4E 80%);
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
-    border: #0D1117 solid 1px;
+  position: fixed;
+  bottom: 35px;
+  right: 30px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.18) 0%, rgba(118, 75, 162, 0.18) 100%);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.18), 0 1.5px 4px rgba(139, 92, 246, 0.12);
+  border: none;
+  color: var(--accent-primary, #3b82f6);
+  cursor: pointer;
+  backdrop-filter: blur(16px);
+  transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+  z-index: 1000;
+  outline: none;
+  padding: 0;
+}
 
+.scroll-arrow-icon {
+  display: block;
+  margin: 0 auto;
+  color: var(--accent-primary, #3b82f6);
+  width: 2rem;
+  height: 2rem;
+  stroke: var(--accent-primary, #3b82f6);
+  transition: stroke 0.18s;
+}
 
-  }
-  
-  @media (max-width: 1024px) {
-    .scroll-to-top {
-      display: none;
-    }
-  }
+.scroll-to-top:hover {
+  transform: scale(1.13);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.22), 0 2px 8px rgba(139, 92, 246, 0.22), 0 0 16px 2px #764ba244;
+}
 
+.scroll-to-top:hover .scroll-arrow-icon {
+  stroke: #fff;
+}
 
-  @media (max-width: 768px) {
-    .scroll-to-top {
-      display: none;
-    }
+@media (max-width: 1024px) {
+  .scroll-to-top {
+    display: none;
   }
+}
+
+@media (max-width: 768px) {
+  .scroll-to-top {
+    display: none;
+  }
+}
