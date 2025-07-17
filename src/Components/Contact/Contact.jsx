@@ -1,9 +1,22 @@
 import { useState } from "react";
 import "./Contact.css";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const Contact = () => {
   const [result, setResult] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const contactRef = useRef(null);
+
+  // Parallax scroll progress
+  const { scrollYProgress } = useScroll({
+    target: contactRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Parallax transforms
+  const formY = useTransform(scrollYProgress, [0, 1], [0, 30]);
+  // Remove other parallax transforms
 
   const contactInfo = [
     {
@@ -48,7 +61,7 @@ const Contact = () => {
       } else {
         setResult("Something went wrong. Please try again.");
       }
-    } catch (error) {
+    } catch {
       setResult("Network error. Please try again.");
     } finally {
       setIsSubmitting(false);
@@ -56,7 +69,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="contact section">
+    <section id="contact" className="contact section" ref={contactRef}>
       <div className="container">
         <h2 className="section-title">
           Get In <span className="title-accent">Touch</span>
@@ -68,7 +81,7 @@ const Contact = () => {
         </p>
 
         <div className="contact-content">
-          {/* Left Column - Contact Info */}
+          {/* Left Column - Contact Info - static */}
           <div className="contact-info">
             <div className="contact-header">
               <h3>Let&apos;s talk</h3>
@@ -136,8 +149,12 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Right Column - Contact Form */}
-          <div className="contact-form-wrapper">
+          {/* Right Column - Contact Form with Parallax */}
+          <motion.div
+            className="contact-form-wrapper"
+            style={{ y: formY }}
+            transition={{ type: "spring", stiffness: 80, damping: 20 }}
+          >
             <form onSubmit={onSubmit} className="contact-form">
               <div className="form-group">
                 <label htmlFor="name">Name</label>
@@ -198,7 +215,7 @@ const Contact = () => {
                 </div>
               )}
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

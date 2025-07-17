@@ -16,6 +16,7 @@
     bottom: 0;
     pointer-events: none;
     z-index: 0;
+    will-change: transform;
 }
 
 /* Background Particles */
@@ -27,6 +28,7 @@
     height: 100%;
     pointer-events: none;
     z-index: 1;
+    will-change: transform;
 }
 
 .particle {
@@ -155,6 +157,7 @@
     margin-bottom: var(--spacing-4xl);
     position: relative;
     z-index: 1;
+    will-change: transform;
 }
 
 .header-content {
@@ -268,6 +271,7 @@
     margin-bottom: var(--spacing-4xl);
     position: relative;
     z-index: 1;
+    will-change: transform;
 }
 
 .project-card {
@@ -282,6 +286,7 @@
     animation: cardEntrance 0.8s ease-out forwards;
     opacity: 0;
     transform: translateY(50px);
+    will-change: transform;
 }
 
 .project-card:nth-child(1) {

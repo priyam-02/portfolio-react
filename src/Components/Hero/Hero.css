@@ -412,16 +412,6 @@
   animation: rotateRing 30s linear infinite;
 }
 
-@keyframes rotateRing {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
 /* Glow Effects */
 .glow-effect {
   position: absolute;
@@ -1124,6 +1114,10 @@
   .hero-codebox {
     display: none;
   }
+
+  .hero-dropdown-row {
+    display: none;
+  }
 }
 
 /* Animated Code Snippet Box */
@@ -1585,4 +1579,8 @@
     padding: 0.22em 0.7em;
     font-size: 0.95rem;
   }
+}
+
+.hero-profile-img {
+  will-change: transform;
 }

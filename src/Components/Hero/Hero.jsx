@@ -2,6 +2,7 @@ import "./Hero.css";
 import profile_img from "../../assets/profile_img4.svg";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { useState, useEffect, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const codeSnippets = [
   {
@@ -69,6 +70,13 @@ const Hero = () => {
   const typingTimeout = useRef();
   const switchTimeout = useRef();
   const dropdownRef = useRef();
+  const heroRef = useRef(null);
+  // Parallax for profile image
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
 
   // Typing animation effect
   useEffect(() => {
@@ -137,7 +145,7 @@ const Hero = () => {
   }, [dropdownOpen]);
 
   return (
-    <section id="home" className="hero section">
+    <section id="home" className="hero section" ref={heroRef}>
       {/* Background Particles */}
       <div className="particles">
         <div className="particle particle-1"></div>
@@ -295,11 +303,18 @@ const Hero = () => {
           {/* Right Column - Profile Image */}
           <div className="hero-image">
             <div className="image-container">
-              <img
-                loading="eager"
+              {/* Parallax Profile Image */}
+              <motion.img
                 src={profile_img}
-                alt="Priyam Shah - Full Stack Developer"
-                className="profile-image"
+                alt="Profile"
+                className="hero-profile-img"
+                style={{ y }}
+                loading="eager"
+                width={320}
+                height={320}
+                role="img"
+                aria-label="Priyam Shah profile image"
+                transition={{ type: "spring", stiffness: 80, damping: 20 }}
               />
               <div className="image-background"></div>
 

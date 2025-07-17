@@ -1,10 +1,20 @@
 import "./About.css";
 import profile_img from "../../assets/profile_img7.svg";
 import PropTypes from "prop-types";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 // Circular Progress Bar component
 const CircularProgressBar = ({ percentage, skill, icon }) => (
-  <div className="circular-skill">
+  <div
+    className="circular-skill"
+    role="progressbar"
+    aria-label={`${skill} skill level: ${percentage}%`}
+    aria-valuenow={percentage}
+    aria-valuemin="0"
+    aria-valuemax="100"
+    aria-hidden="true"
+  >
     <svg
       className="circular-progress"
       width="100"
@@ -46,9 +56,19 @@ CircularProgressBar.propTypes = {
 };
 
 const About = () => {
+  const aboutRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: aboutRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Parallax transforms
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  // Remove other parallax transforms
+
   return (
-    <section id="about" className="about section">
-      {/* Background Effects */}
+    <section id="about" className="about section" ref={aboutRef}>
+      {/* Background Effects - static */}
       <div className="about-background">
         <div className="about-gradient gradient-1"></div>
         <div className="about-gradient gradient-2"></div>
@@ -71,10 +91,19 @@ const About = () => {
         </p>
 
         <div className="about-content">
-          {/* About Image */}
-          <div className="about-image">
+          {/* About Image with Parallax */}
+          <motion.div
+            className="about-image"
+            style={{ y: imageY }}
+            transition={{ type: "spring", stiffness: 80, damping: 20 }}
+          >
             <div className="image-wrapper">
-              <img src={profile_img} alt="Priyam Shah" />
+              <img
+                src={profile_img}
+                alt="Priyam Shah"
+                role="img"
+                aria-label="Priyam Shah professional headshot"
+              />
               <div className="image-background"></div>
 
               {/* Elegant Border Animation */}
@@ -85,9 +114,9 @@ const About = () => {
                 <div className="border-line border-line-4"></div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* About Text */}
+          {/* About Text - static */}
           <div className="about-text">
             <div className="about-intro">
               <h3>Software Developer | AI & LLM Enthusiast</h3>

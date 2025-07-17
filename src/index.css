@@ -125,6 +125,54 @@ body::before {
   background: var(--text-secondary);
 }
 
+/* Smooth Scroll Progress Bar - Apple-like */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent-gradient);
+  transform-origin: 0%;
+  z-index: 9999;
+  box-shadow: 0 2px 20px rgba(59, 130, 246, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+/* App Container */
+.app-container {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Sections Container */
+.sections-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced section transitions */
+.sections-container>section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Parallax effect for sections */
+.sections-container>section:nth-child(even) {
+  transform: translateZ(0);
+}
+
+/* Smooth reveal animations */
+.sections-container>section {
+  will-change: transform, opacity;
+}
+
 /* Selection Styling */
 ::selection {
   background: var(--accent-primary);

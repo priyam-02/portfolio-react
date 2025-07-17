@@ -18,14 +18,14 @@ const MyWork = () => {
 
   return (
     <section className="mywork-section" id="mywork">
-      {/* Background Elements */}
+      {/* Background Elements - static */}
       <div className="background-elements">
         <div className="floating-shape shape-1"></div>
         <div className="floating-shape shape-2"></div>
         <div className="floating-shape shape-3"></div>
       </div>
 
-      {/* Background Particles */}
+      {/* Background Particles - static */}
       <div className="particles">
         <div className="particle particle-1"></div>
         <div className="particle particle-2"></div>
@@ -36,7 +36,7 @@ const MyWork = () => {
       </div>
 
       <div className="container">
-        {/* Section Header */}
+        {/* Section Header - static */}
         <div className="section-header">
           <div className="header-content">
             <h2 className="section-title">
@@ -49,7 +49,7 @@ const MyWork = () => {
           </div>
         </div>
 
-        {/* Projects Grid */}
+        {/* Projects Grid - static */}
         <div className="projects-masonry">
           {mywork_data.slice(0, visibleProjects).map((work, index) => (
             <div
@@ -62,7 +62,7 @@ const MyWork = () => {
               </div>
 
               <div className="project-image">
-                <img src={work.w_img} alt={work.w_name} />
+                <img src={work.w_img} alt={work.w_name} loading="lazy" />
                 <div className="image-overlay">
                   <div className="overlay-content">
                     <div className="project-meta">
