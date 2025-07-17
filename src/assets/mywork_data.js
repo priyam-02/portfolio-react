@@ -5,7 +5,11 @@ import VentureOut from "../assets/Outdoor.svg";
 import Quickbite from "../assets/Quickbite.svg";
 import Quiz_Maker from "../assets/Quiz_Maker.svg";
 import Weatherly from "../assets/Weatherly.svg";
-import Temple_of_Vormir from "../assets/Temple_of_Vormir1.svg";
+import Temple from "../assets/Temple.svg";
+import LLMchat from "../assets/LLMchat.svg";
+import pdf from "../assets/pdf.svg";
+import ClusterNews from "../assets/ClusterNews.svg";
+// import Temple_of_Vormir from "../assets/Temple_of_Vormir1.svg";
 import Don_Peppe from "../assets/Don_Peppe.svg";
 
 const mywork_data = [
@@ -46,7 +50,7 @@ const mywork_data = [
   {
     w_no: 3,
     w_name: "ClusterNews",
-    w_img: "",
+    w_img: ClusterNews,
     w_desc:
       "AI-powered news app that scrapes, clusters, and summarizes trending headlines locally using vector embeddings and LLaMA 3.1.",
     w_tags: [
@@ -62,7 +66,7 @@ const mywork_data = [
   {
     w_no: 2,
     w_name: "TalkToLLM",
-    w_img: "",
+    w_img: LLMchat,
     w_desc:
       "Chat locally with LLMs using Streamlit and FastAPI, featuring model selection, system prompts, and streaming UI.",
     w_tags: ["Ollama", "Fastapi", "Streamlit", "Llama", "Deepseek", "Qwen"],
@@ -71,7 +75,7 @@ const mywork_data = [
   {
     w_no: 3,
     w_name: "DocSnap",
-    w_img: "",
+    w_img: pdf,
     w_desc:
       "A Streamlit app that summarizes uploaded PDFs using BART, with customizable length and tone controls.",
     w_tags: [
@@ -141,7 +145,7 @@ const mywork_data = [
   {
     w_no: 7,
     w_name: "Temple of Vormir",
-    w_img: Temple_of_Vormir,
+    w_img: Temple,
     w_desc:
       "A 2D multiplayer platformer of exploration, puzzles, and adventure.",
     w_tags: ["GameMaker", "GML"],

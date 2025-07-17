@@ -1130,6 +1130,8 @@
 
 /* Animated Code Snippet Box */
 .hero-codebox {
+  height: 200px;
+  transition: height 0.3s cubic-bezier(.4, 0, .2, 1);
   margin: 0 0 var(--spacing-2xl) 0;
   background: rgba(30, 32, 40, 0.85);
   border-radius: 1.2rem;
@@ -1139,7 +1141,6 @@
   max-width: 450px;
   min-width: 260px;
   width: 100%;
-  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   transition: box-shadow 0.3s, border 0.3s;
   position: relative;
   animation: codeboxGlow 2.2s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
