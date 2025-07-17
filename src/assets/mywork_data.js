@@ -9,6 +9,8 @@ import Temple from "../assets/Temple.svg";
 import LLMchat from "../assets/LLMchat.svg";
 import pdf from "../assets/pdf.svg";
 import ClusterNews from "../assets/ClusterNews.svg";
+import Polyglot from "../assets/Polyglot.svg";
+import Testeval from "../assets/Testeval.svg";
 // import Temple_of_Vormir from "../assets/Temple_of_Vormir1.svg";
 import Don_Peppe from "../assets/Don_Peppe.svg";
 
@@ -16,7 +18,7 @@ const mywork_data = [
   {
     w_no: 1,
     w_name: "Polyglot",
-    w_img: "",
+    w_img: Polyglot,
     w_desc:
       "Automated framework for benchmarking LLM-based C-to-Java/Python/Rust code translation with prompt strategies and test validation.",
     w_tags: [
@@ -32,7 +34,7 @@ const mywork_data = [
   {
     w_no: 2,
     w_name: "TestEval",
-    w_img: "",
+    w_img: Testeval,
     w_desc:
       "LLM-powered tool for automating and benchmarking Test-Driven Development workflows at scale, with modern architecture.",
     w_tags: [
