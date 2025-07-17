@@ -1103,6 +1103,14 @@
   .hero {
     padding-bottom: var(--spacing-3xl);
   }
+
+  .hero-codebox {
+    display: none;
+  }
+
+  .hero-dropdown-row {
+    display: none !important;
+  }
 }
 
 /* iPad Pro (1024 x 1366) - Hide scroll indicator */
@@ -1116,7 +1124,7 @@
   }
 
   .hero-dropdown-row {
-    display: none;
+    display: none !important;
   }
 }
 
