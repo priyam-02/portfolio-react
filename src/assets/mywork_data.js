@@ -6,12 +6,11 @@ import Quickbite from "../assets/Quickbite.svg";
 import Quiz_Maker from "../assets/Quiz_Maker.svg";
 import Weatherly from "../assets/Weatherly.svg";
 import Temple from "../assets/Temple.svg";
-import LLMchat from "../assets/LLMchat.svg";
+import LLMChat from "../assets/LLMChat.svg";
 import pdf from "../assets/pdf.svg";
 import ClusterNews from "../assets/ClusterNews.svg";
 import Polyglot from "../assets/Polyglot.svg";
 import Testeval from "../assets/Testeval.svg";
-// import Temple_of_Vormir from "../assets/Temple_of_Vormir1.svg";
 import Don_Peppe from "../assets/Don_Peppe.svg";
 
 const mywork_data = [
@@ -68,7 +67,7 @@ const mywork_data = [
   {
     w_no: 2,
     w_name: "TalkToLLM",
-    w_img: LLMchat,
+    w_img: LLMChat,
     w_desc:
       "Chat locally with LLMs using Streamlit and FastAPI, featuring model selection, system prompts, and streaming UI.",
     w_tags: ["Ollama", "Fastapi", "Streamlit", "Llama", "Deepseek", "Qwen"],
