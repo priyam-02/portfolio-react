@@ -46,7 +46,7 @@ const mywork_data = [
       "Celery",
       "Prompt Engineering",
     ],
-    w_link: "https://github.com/priyam-02/TestMaker",
+    w_link: "https://github.com/bhavain/TestMaker",
   },
   {
     w_no: 3,
