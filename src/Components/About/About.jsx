@@ -214,6 +214,36 @@ const About = () => {
           </div>
         </div>
 
+        <div className="about-section-spacer"></div>
+
+        <div className="about-experience-timeline">
+          <h4>Publications</h4>
+          <div className="timeline">
+            <div className="timeline-item">
+              <div className="timeline-dot"></div>
+              <div className="timeline-content">
+                <span className="timeline-year">
+                  40th IEEE/ACM International Conference on Automated Software
+                  Engineering (ASE ’25)
+                </span>
+                <h5>
+                  {" "}
+                  Polyglot: Benchmarking Code Translation with LLMs via an
+                  Extensible Framework
+                </h5>
+                <br></br>
+                <p>
+                  Marco Vieira, Priyam Ashish Shah, Bhavain Shah, and Rrezarta
+                  Krasniqi. 2025. Polyglot: An Extensible Framework to Benchmark
+                  Code Translation with LLMs. In Proceedings of the 40th
+                  IEEE/ACM International Conference on Automated Software
+                  Engineering (ASE ’25). Accepted / To appear, Nov 2025.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Vertical Spacer between sections */}
         <div className="about-section-spacer"></div>
 
@@ -221,6 +251,21 @@ const About = () => {
         <div className="about-experience-timeline">
           <h4>Professional Experience</h4>
           <div className="timeline">
+            <div className="timeline-item">
+              <div className="timeline-dot"></div>
+              <div className="timeline-content">
+                <span className="timeline-year">January 2025 – Current</span>
+                <h5>Software Developer</h5>
+                <div className="timeline-company">Avnet</div>
+                <p>
+                  Engineered scalable enterprise dashboards with React.js and
+                  Node.js, reducing API response time by 42%, cutting CI/CD
+                  deployment from 45 to under 10 minutes, and ensuring secure,
+                  reliable releases through optimized REST APIs, JWT
+                  authentication, and 95% test coverage.
+                </p>
+              </div>
+            </div>
             <div className="timeline-item">
               <div className="timeline-dot"></div>
               <div className="timeline-content">
@@ -237,52 +282,28 @@ const About = () => {
             <div className="timeline-item">
               <div className="timeline-dot"></div>
               <div className="timeline-content">
-                <span className="timeline-year">January 2025 – May 2025</span>
-                <h5>Graduate Teaching Assistant</h5>
-                <div className="timeline-company">UNC Charlotte</div>
+                <span className="timeline-year">January 2022 – June 2023</span>
+                <h5>Software Developer</h5>
+                <div className="timeline-company">Infosys</div>
                 <p>
-                  Mentored 50+ graduate students in reinforcement learning,
-                  providing hands-on support for TensorFlow/PyTorch projects and
-                  improving model performance through technical feedback.
+                  Built interactive UIs and Django REST APIs that reduced
+                  front-end bugs by 27% and endpoint failures by 30%, secured
+                  authentication with JWT, validated integrations with 100+ API
+                  tests, and delivered features on time through Agile
+                  collaboration.
                 </p>
               </div>
             </div>
             <div className="timeline-item">
               <div className="timeline-dot"></div>
               <div className="timeline-content">
-                <span className="timeline-year">March 2025 – May 2025</span>
+                <span className="timeline-year">June 2021 – January 2022</span>
                 <h5>Software Developer Intern</h5>
-                <div className="timeline-company">StarterYou</div>
-                <p>
-                  Engineered key SaaS features for a job portal using React,
-                  Node.js, and MongoDB. Automated CI/CD with Docker & GitHub
-                  Actions, and supported AWS-to-Azure migration with Terraform.
-                </p>
-              </div>
-            </div>
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-content">
-                <span className="timeline-year">June 2024 – August 2024</span>
-                <h5>Software Developer Intern</h5>
-                <div className="timeline-company">CyberNative Technologies</div>
+                <div className="timeline-company">Infosys</div>
                 <p>
                   Streamlined React front-end with reusable components,
                   integrated secure JWT auth via Express APIs, and simulated
                   Docker pipelines to accelerate QA testing.
-                </p>
-              </div>
-            </div>
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-content">
-                <span className="timeline-year">January 2023 – April 2023</span>
-                <h5>Web Development Intern</h5>
-                <div className="timeline-company">Sparks to Ideas</div>
-                <p>
-                  Built a responsive restaurant web platform with optimized
-                  Django APIs, reducing latency by 20%, and integrated real-time
-                  booking and payment solutions.
                 </p>
               </div>
             </div>
