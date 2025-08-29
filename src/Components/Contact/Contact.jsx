@@ -75,9 +75,9 @@ const Contact = () => {
           Get In <span className="title-accent">Touch</span>
         </h2>
         <p className="section-subtitle">
-          I'm currently available to take on new projects. Feel free to reach
-          out if you'd like to discuss potential collaborations or just want to
-          say hello!
+          I&apos;m currently available to take on new projects. Feel free to
+          reach out if you&apos;d like to discuss potential collaborations or
+          just want to say hello!
         </p>
 
         <div className="contact-content">
