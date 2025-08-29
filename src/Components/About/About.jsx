@@ -119,7 +119,10 @@ const About = () => {
           {/* About Text - static */}
           <div className="about-text">
             <div className="about-intro">
-              <h3>Software Developer | AI & LLM Enthusiast</h3>
+              <h3>
+                Software Developer{" "}
+                <span className="title-accent">| AI & LLM Enthusiast </span>
+              </h3>
               <p>
                 I’m a Software Developer with a strong foundation in full-stack
                 development and a growing focus on AI and large language models

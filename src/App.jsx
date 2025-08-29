@@ -1,4 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect } from "react";
 import Navbar from "./Components/Navbar/Navbar";
 import Hero from "./Components/Hero/Hero";
 import About from "./Components/About/About";
@@ -12,6 +13,16 @@ import Footer from "./Components/Footer/Footer";
 const App = () => {
   const { scrollYProgress } = useScroll();
   const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  // Ensure page starts at top on refresh
+  useEffect(() => {
+    // Disable scroll restoration to prevent browser from remembering scroll position
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+    // Force scroll to top
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <motion.div

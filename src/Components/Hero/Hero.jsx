@@ -160,10 +160,10 @@ const Hero = () => {
         <div className="hero-content">
           {/* Left Column - Text Content */}
           <div className="hero-text">
-            <div className="hero-badge">
+            {/* <div className="hero-badge">
               <span className="badge-icon">👋</span>
               <span>Welcome to my portfolio</span>
-            </div>
+            </div> */}
 
             <h1 className="hero-title">
               Hi, I&apos;m <span className="gradient-text">Priyam Shah</span>
@@ -236,11 +236,11 @@ const Hero = () => {
 
             <div className="hero-stats">
               <div className="stat">
-                <span className="stat-number">1+</span>
+                <span className="stat-number">3+</span>
                 <span className="stat-label">Years Experience</span>
               </div>
               <div className="stat">
-                <span className="stat-number">10+</span>
+                <span className="stat-number">15+</span>
                 <span className="stat-label">Projects Completed</span>
               </div>
               <div className="stat">
@@ -258,7 +258,7 @@ const Hero = () => {
               </AnchorLink>
 
               <a
-                href="https://drive.google.com/file/d/1NBtsAJhjdosrN8G0ckC6ZD7UDI2ofFv9/view?usp=sharing"
+                href="https://drive.google.com/file/d/1BZRO7Nl6csdkfQS0ozpa14ErxWiB-Eyd/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary"
