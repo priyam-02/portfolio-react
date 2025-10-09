@@ -92,20 +92,11 @@ body::before {
     linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 50px 50px;
-  animation: globalGridMove 60s linear infinite;
+  background-position: center;
   pointer-events: none;
   z-index: 0;
 }
 
-@keyframes globalGridMove {
-  0% {
-    transform: translate(0, 0);
-  }
-
-  100% {
-    transform: translate(50px, 50px);
-  }
-}
 
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
