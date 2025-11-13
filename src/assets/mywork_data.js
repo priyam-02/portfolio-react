@@ -28,7 +28,7 @@ const mywork_data = [
       "SQLite",
       "Prompt Engineering",
     ],
-    w_link: "https://github.com/priyam-02/Polyglot",
+    w_link: "https://llm-code-translation-dashboard.vercel.app/",
   },
   {
     w_no: 2,
