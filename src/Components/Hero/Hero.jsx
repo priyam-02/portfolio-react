@@ -258,7 +258,7 @@ const Hero = () => {
               </AnchorLink>
 
               <a
-                href="https://drive.google.com/file/d/1BZRO7Nl6csdkfQS0ozpa14ErxWiB-Eyd/view?usp=sharing"
+                href="https://drive.google.com/file/d/1vXwIYTuADMUQqqwAfGsymwnWWp2Ri1xc/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary"
