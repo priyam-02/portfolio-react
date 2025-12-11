@@ -1,7 +1,7 @@
 const Milestones_Data = [
   {
     s_year: "📜 June 2025",
-    s_name: "Research Paper Submitted to ASE 2025",
+    s_name: "Research Paper Presented at ASE 2025",
     s_desc:
       "Polyglot: An Extensible Framework to Benchmark Code Translation with LLMs",
   },

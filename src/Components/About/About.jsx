@@ -177,11 +177,6 @@ const About = () => {
               skill="Prompt Engineering"
               icon="fa-solid fa-terminal"
             />
-            <CircularProgressBar
-              percentage={80}
-              skill="PostgreSQL / SQLite"
-              icon="fa-solid fa-database"
-            />
           </div>
           <div className="circular-skills-row">
             <CircularProgressBar
@@ -200,9 +195,19 @@ const About = () => {
               icon="fab fa-node-js"
             />
             <CircularProgressBar
+              percentage={80}
+              skill="React Native"
+              icon="fab fa-react"
+            />
+            <CircularProgressBar
               percentage={75}
               skill="MongoDB"
               icon="fas fa-database"
+            />
+            <CircularProgressBar
+              percentage={80}
+              skill="PostgreSQL / SQLite"
+              icon="fa-solid fa-database"
             />
             <CircularProgressBar
               percentage={95}
@@ -226,8 +231,7 @@ const About = () => {
               <div className="timeline-dot"></div>
               <div className="timeline-content">
                 <span className="timeline-year">
-                  40th IEEE/ACM International Conference on Automated Software
-                  Engineering (ASE ’25)
+                  40th IEEE/ACM International Conference (ASE ’25)
                 </span>
                 <h5>
                   {" "}
@@ -238,9 +242,32 @@ const About = () => {
                 <p>
                   Marco Vieira, Priyam Ashish Shah, Bhavain Shah, and Rrezarta
                   Krasniqi. 2025. Polyglot: An Extensible Framework to Benchmark
-                  Code Translation with LLMs. In Proceedings of the 40th
-                  IEEE/ACM International Conference on Automated Software
-                  Engineering (ASE ’25). Accepted / To appear, Nov 2025.
+                  Code Translation with LLMs. Presented at the 40th IEEE/ACM
+                  International Conference on Automated Software Engineering
+                  (ASE ’25).
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="timeline">
+            <div className="timeline-item">
+              <div className="timeline-dot"></div>
+              <div className="timeline-content">
+                <span className="timeline-year">
+                  33rd IEEE International Conference (SANER ’26)
+                </span>
+                <h5>
+                  {" "}
+                  TestForge: A Benchmarking Framework for LLM-Based Test Case
+                  Generation
+                </h5>
+                <br></br>
+                <p>
+                  Marco Vieira, Bhavain Shah, Priyam Ashish Shah, and Vineet
+                  Khadloya. 2026. TestForge: A Benchmarking Framework for
+                  LLM-Based Test Case Generation. Accepted for presentation at
+                  the 33rd IEEE International Conference on Software Analysis,
+                  Evolution and Reengineering (SANER ’26).
                 </p>
               </div>
             </div>
@@ -257,15 +284,30 @@ const About = () => {
             <div className="timeline-item">
               <div className="timeline-dot"></div>
               <div className="timeline-content">
-                <span className="timeline-year">January 2025 – Current</span>
-                <h5>Software Developer</h5>
-                <div className="timeline-company">Avnet</div>
+                <span className="timeline-year">May 2025 – Current</span>
+                <h5>Founding Engineer (Mobile & Product)</h5>
+                <div className="timeline-company">Jorts</div>
                 <p>
-                  Engineered scalable enterprise dashboards with React.js and
-                  Node.js, reducing API response time by 42%, cutting CI/CD
-                  deployment from 45 to under 10 minutes, and ensuring secure,
-                  reliable releases through optimized REST APIs, JWT
-                  authentication, and 95% test coverage.
+                  Leading the 0-to-1 build of a geospatial social app, taking it
+                  from initial wireframes to a full React Native implementation.
+                  Handling core engineering tasks like secure authentication,
+                  location-based data fetching, and setting up clean state
+                  management patterns to keep the app fast and responsive.
+                </p>
+              </div>
+            </div>
+            <div className="timeline-item">
+              <div className="timeline-dot"></div>
+              <div className="timeline-content">
+                <span className="timeline-year">March 2025 – May 2025</span>
+                <h5>Software Developer Intern</h5>
+                <div className="timeline-company">StarterYou</div>
+                <p>
+                  Delivered full-stack features for job and rideshare platforms,
+                  building complex components like a geospatial matching engine
+                  and a Socket.IO chat system. Improved application performance
+                  through lazy loading, raised test coverage to over 85%, and
+                  supported a cloud migration from AWS to Azure.
                 </p>
               </div>
             </div>
@@ -276,37 +318,29 @@ const About = () => {
                 <h5>LLM Research Engineer</h5>
                 <div className="timeline-company">UNC Charlotte</div>
                 <p>
-                  Built Polyglot, an automated benchmarking framework evaluating
-                  LLM-based C-to-Java/Python/Rust code translation across 56k+
-                  trials, integrating prompt strategies and runtime analysis.
+                  Developed extensible frameworks to benchmark how LLMs handle
+                  code translation and unit test generation. Executed over
+                  100,000+ deterministic trials converting 250+ C programs into
+                  Java, Python, and Rust across 7 models to assess translation
+                  quality. Additionally, implemented an asynchronous pipeline
+                  using Celery and LangChain to generate and validate 17,000
+                  JUnit test cases across different prompting techniques.
                 </p>
               </div>
             </div>
             <div className="timeline-item">
               <div className="timeline-dot"></div>
               <div className="timeline-content">
-                <span className="timeline-year">January 2022 – June 2023</span>
+                <span className="timeline-year">June 2021 – June 2023</span>
                 <h5>Software Developer</h5>
-                <div className="timeline-company">Infosys</div>
+                <div className="timeline-company">Cybernative</div>
                 <p>
-                  Built interactive UIs and Django REST APIs that reduced
-                  front-end bugs by 27% and endpoint failures by 30%, secured
-                  authentication with JWT, validated integrations with 100+ API
-                  tests, and delivered features on time through Agile
-                  collaboration.
-                </p>
-              </div>
-            </div>
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-content">
-                <span className="timeline-year">June 2021 – January 2022</span>
-                <h5>Software Developer Intern</h5>
-                <div className="timeline-company">Infosys</div>
-                <p>
-                  Streamlined React front-end with reusable components,
-                  integrated secure JWT auth via Express APIs, and simulated
-                  Docker pipelines to accelerate QA testing.
+                  Built backend services including an inventory sync engine that
+                  lowered API failures by 30%. Implemented secure authentication
+                  flows and designed a real-time dashboard to track issues,
+                  which improved error resolution speeds by 27%. Maintained
+                  strict code quality and met delivery goals in an Agile
+                  environment.
                 </p>
               </div>
             </div>

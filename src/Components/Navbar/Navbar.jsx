@@ -136,7 +136,7 @@ const Navbar = () => {
                   <i className="fab fa-github"></i>
                 </a>
                 <a
-                  href="https://linkedin.com/in/priyamshah22"
+                  href="https://www.linkedin.com/in/priyamshahh/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-link"

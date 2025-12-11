@@ -22,20 +22,14 @@ const Contact = () => {
     {
       icon: "fas fa-envelope",
       label: "Email",
-      value: "priyam10302@gmail.com",
-      link: "mailto:priyam10302@gmail.com",
-    },
-    {
-      icon: "fas fa-phone",
-      label: "Phone",
-      value: "+1 (704) 337-9395",
-      link: "tel:+1(704)337-9395",
+      value: "shahpriyam001@gmail.com",
+      link: "mailto:shahpriyam001@gmail.com",
     },
     {
       icon: "fas fa-map-marker-alt",
       label: "Location",
-      value: "NY, United States",
-      link: "https://maps.app.goo.gl/DbSdBonhFKGKKwbNA",
+      value: "United States",
+      link: "https://maps.app.goo.gl/eD5RcvnQ1qvUoanN9",
     },
   ];
 
@@ -137,7 +131,7 @@ const Contact = () => {
                   <i className="fab fa-github"></i>
                 </a>
                 <a
-                  href="https://linkedin.com/in/priyamshah22"
+                  href="https://www.linkedin.com/in/priyamshahh/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-link"

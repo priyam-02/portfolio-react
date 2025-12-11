@@ -258,7 +258,7 @@ const Hero = () => {
               </AnchorLink>
 
               <a
-                href="https://drive.google.com/file/d/1vXwIYTuADMUQqqwAfGsymwnWWp2Ri1xc/view?usp=sharing"
+                href="https://drive.google.com/file/d/1rc-0tW_EeqmwNEf0ufJD3-PA24rawR2R/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary"
@@ -281,7 +281,7 @@ const Hero = () => {
                   <i className="fab fa-github"></i>
                 </a>
                 <a
-                  href="https://linkedin.com/in/priyamshah22"
+                  href="https://www.linkedin.com/in/priyamshahh/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-link"

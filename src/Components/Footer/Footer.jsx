@@ -27,7 +27,7 @@ const Footer = () => {
                 <i className="fab fa-github"></i>
               </a>
               <a
-                href="https://linkedin.com/in/priyamshah22"
+                href="https://www.linkedin.com/in/priyamshahh/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"
@@ -36,7 +36,7 @@ const Footer = () => {
                 <i className="fab fa-linkedin"></i>
               </a>
               <a
-                href="mailto:priyam10302@gmail.com"
+                href="mailto:shahpriyam001@gmail.com"
                 className="social-link"
                 aria-label="Email"
               >
@@ -88,15 +88,13 @@ const Footer = () => {
             <ul>
               <li>
                 <i className="fas fa-envelope"></i>
-                <a href="mailto:priyam10302@gmail.com">priyam10302@gmail.com</a>
-              </li>
-              <li>
-                <i className="fas fa-phone"></i>
-                <a href="tel:+1(704)337-9395">+1 (704) 337-9395</a>
+                <a href="mailto:shahpriyam001@gmail.com">
+                  shahpriyam001@gmail.com
+                </a>
               </li>
               <li>
                 <i className="fas fa-map-marker-alt"></i>
-                <span>NewYork, NY, USA</span>
+                <span>United States</span>
               </li>
             </ul>
           </div>
