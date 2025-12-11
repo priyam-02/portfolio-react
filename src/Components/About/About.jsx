@@ -195,7 +195,7 @@ const About = () => {
               icon="fab fa-node-js"
             />
             <CircularProgressBar
-              percentage={80}
+              percentage={60}
               skill="React Native"
               icon="fab fa-react"
             />
