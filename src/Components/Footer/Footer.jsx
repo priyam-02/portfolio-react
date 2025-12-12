@@ -13,8 +13,7 @@ const Footer = () => {
               <span className="logo-text">Priyam Shah</span>
             </div>
             <p className="footer-description">
-              Full-Stack Developer passionate about creating innovative web
-              solutions and building applications that make a difference.
+              Full-Stack Engineer & AI Researcher.
             </p>
             <div className="footer-social">
               <a

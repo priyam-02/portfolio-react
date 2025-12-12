@@ -169,7 +169,7 @@ const Hero = () => {
               Hi, I&apos;m <span className="gradient-text">Priyam Shah</span>
               <br />
               <span className="hero-subtitle">
-                AI-Focused Software Developer
+                Full-Stack Engineer & AI Researcher
               </span>
             </h1>
 
