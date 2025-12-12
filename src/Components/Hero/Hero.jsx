@@ -236,15 +236,15 @@ const Hero = () => {
 
             <div className="hero-stats">
               <div className="stat">
-                <span className="stat-number">3+</span>
+                <span className="stat-number">2+</span>
                 <span className="stat-label">Years Experience</span>
               </div>
               <div className="stat">
-                <span className="stat-number">15+</span>
+                <span className="stat-number">10+</span>
                 <span className="stat-label">Projects Completed</span>
               </div>
               <div className="stat">
-                <span className="stat-number">5+</span>
+                <span className="stat-number">3+</span>
                 <span className="stat-label">Technologies</span>
               </div>
             </div>

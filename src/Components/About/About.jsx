@@ -120,24 +120,21 @@ const About = () => {
           <div className="about-text">
             <div className="about-intro">
               <h3>
-                Software Developer{" "}
-                <span className="title-accent">| AI & LLM Enthusiast </span>
+                Founding Engineer{" "}
+                <span className="title-accent">
+                  | 2x Published AI Researcher{" "}
+                </span>
               </h3>
               <p>
-                I’m a Software Developer with a strong foundation in full-stack
-                development and a growing focus on AI and large language models
-                (LLMs). My journey began with building web applications using
-                technologies like React, Node.js, and MongoDB—but recently, I’ve
-                been diving deeper into the AI space, exploring how LLMs can be
-                applied to solve real-world problems.
-              </p>
-              <p>
-                I recently completed my Master&apos;s in Computer Science at the
-                University of North Carolina at Charlotte with a 4.0 GPA, where
-                I specialized in LLMs, software engineering, and machine
-                learning. From building production-ready platforms to developing
-                an LLM benchmarking framework, I enjoy bridging the gap between
-                robust engineering and intelligent systems.
+                I am a Full-Stack Engineer with 2+ years of experience and a
+                Master’s in CS (4.0 GPA). I specialize in bridging the gap
+                between scalable application architecture and applied AI.
+                Currently, I am building a 0-to-1 geospatial social platform
+                that helps users connect with real-time events happening in
+                their local neighborhood using React Native. At the same time, I
+                continue to advance the field of LLM benchmarking through
+                published research at top-tier conferences like ASE’25 and
+                SANER’26.
               </p>
             </div>
           </div>
