@@ -131,7 +131,7 @@
 }
 
 .hero-subtitle {
-  font-size: var(--font-size-4xl);
+  font-size: var(--font-size-2xl);
   font-weight: 600;
   color: var(--text-secondary);
   display: block;
@@ -580,7 +580,7 @@
   }
 
   .hero-subtitle {
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-2xl);
   }
 
   .profile-image {
@@ -620,7 +620,7 @@
   }
 
   .hero-subtitle {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-xl);
   }
 
   .profile-image {
@@ -662,7 +662,7 @@
   }
 
   .hero-subtitle {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
   }
 
   .hero-description {
@@ -827,7 +827,7 @@
   }
 
   .hero-subtitle {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
   }
 
   .hero-description {
