@@ -91,7 +91,9 @@ const Navbar = () => {
 
   const openMenu = () => {
     setIsMobileMenuOpen(true);
-    menuref.current.style.right = "0";
+    if (menuref.current) {
+      menuref.current.classList.add("open");
+    }
     if (overlayRef.current) {
       overlayRef.current.classList.add("active");
     }
@@ -99,8 +101,9 @@ const Navbar = () => {
 
   const closeMenu = () => {
     setIsMobileMenuOpen(false);
-    // Use percentage for small screens, fixed px for larger screens
-    menuref.current.style.right = window.innerWidth <= 480 ? "-100%" : "-350px";
+    if (menuref.current) {
+      menuref.current.classList.remove("open");
+    }
     if (overlayRef.current) {
       overlayRef.current.classList.remove("active");
     }
@@ -108,7 +111,14 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
-      <div className="navbar-pill">
+      {/* Mobile Menu Overlay */}
+      <div
+        ref={overlayRef}
+        className="mobile-menu-overlay"
+        onClick={closeMenu}
+      ></div>
+
+      <div className={`navbar-pill ${isMobileMenuOpen ? "menu-open" : ""}`}>
         <div className="navbar-content">
           {/* Logo */}
           <div className="navbar-logo">
@@ -153,64 +163,53 @@ const Navbar = () => {
             <span></span>
           </button>
         </div>
-      </div>
 
-      {/* Mobile Navigation */}
-      <div
-        ref={overlayRef}
-        className="mobile-menu-overlay"
-        onClick={closeMenu}
-      ></div>
-      <ul
-        ref={menuref}
-        className="nav-menu mobile"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="mobile-menu-header">
-          <span className="mobile-menu-title">Menu</span>
-          <button className="mobile-menu-close" onClick={closeMenu}>
-            <i className="fas fa-times"></i>
-          </button>
-        </div>
-        {navItems.map((item) => (
-          <li
-            key={item.id}
-            className={`nav-item ${menu === item.id ? "active" : ""}`}
-            onClick={() => {
-              setMenu(item.id);
-              closeMenu();
-            }}
-          >
-            <AnchorLink
-              className="nav-link"
-              offset={80}
-              href={`#${item.id}`}
+        {/* Mobile Navigation - now inside the pill */}
+        <ul
+          ref={menuref}
+          className="nav-menu mobile"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {navItems.map((item) => (
+            <li
+              key={item.id}
+              className={`nav-item ${menu === item.id ? "active" : ""}`}
             >
-              {item.label}
-            </AnchorLink>
-          </li>
-        ))}
-        <div className="mobile-menu-footer">
-          <div className="social-links">
-            <a
-              href="https://github.com/priyam-02"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-            >
-              <i className="fab fa-github"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/priyamshahh/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-            >
-              <i className="fab fa-linkedin"></i>
-            </a>
+              <AnchorLink
+                className="nav-link"
+                offset={80}
+                href={`#${item.id}`}
+                onClick={() => {
+                  setMenu(item.id);
+                  setTimeout(() => closeMenu(), 100);
+                }}
+              >
+                {item.label}
+              </AnchorLink>
+            </li>
+          ))}
+          <div className="mobile-menu-footer">
+            <div className="social-links">
+              <a
+                href="https://github.com/priyam-02"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                <i className="fab fa-github"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/priyamshahh/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                <i className="fab fa-linkedin"></i>
+              </a>
+            </div>
           </div>
-        </div>
-      </ul>
+        </ul>
+      </div>
     </nav>
   );
 };
