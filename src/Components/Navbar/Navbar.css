@@ -452,6 +452,28 @@
     z-index: -1;
 }
 
+.cta-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, #7C9CB5, #94A3B8, #7C9CB5);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    background-size: 200% 200%;
+    animation: shimmer 3s ease infinite;
+    opacity: 0.6;
+    z-index: -1;
+}
+
+@keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
 .cta-button:hover {
     transform: translateY(-2px) scale(1.02);
     box-shadow:
