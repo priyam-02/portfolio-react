@@ -2,6 +2,14 @@ import { useRef, useState, useEffect } from "react";
 import "./Navbar.css";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
+const navItems = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
+  { id: "mywork", label: "Projects" },
+  { id: "milestones", label: "Milestones" },
+];
+
 const Navbar = () => {
   const [menu, setMenu] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,6 +24,58 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Scroll spy to update active menu based on scroll position
+  useEffect(() => {
+    const handleScrollSpy = () => {
+      // If at the very top, always select home
+      if (window.scrollY < 50) {
+        setMenu("home");
+        return;
+      }
+
+      // Include contact section for tracking (but not in nav display)
+      const allSections = [...navItems, { id: "contact" }];
+
+      // Find the current section based on which one is most visible
+      let foundSection = null;
+      let maxVisibility = 0;
+
+      allSections.forEach((item) => {
+        const element = document.getElementById(item.id);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const navbarHeight = 100; // Account for navbar height
+
+          // Calculate how much of the section is visible in viewport
+          const viewportHeight = window.innerHeight;
+          const elementTop = rect.top - navbarHeight;
+          const elementBottom = rect.bottom;
+
+          // Section is considered active if its top is in the upper 40% of viewport
+          if (elementTop < viewportHeight * 0.4 && elementBottom > navbarHeight) {
+            // Calculate visibility score (prefer sections near top of viewport)
+            const visibility = viewportHeight - Math.abs(elementTop);
+            if (visibility > maxVisibility) {
+              maxVisibility = visibility;
+              // If contact section, keep the last nav item (milestones) active
+              foundSection = item.id === "contact" ? "milestones" : item.id;
+            }
+          }
+        }
+      });
+
+      // Only update if we found a valid section
+      if (foundSection) {
+        setMenu(foundSection);
+      }
+    };
+
+    window.addEventListener("scroll", handleScrollSpy);
+    handleScrollSpy(); // Call once on mount
+
+    return () => window.removeEventListener("scroll", handleScrollSpy);
   }, []);
 
   // Auto-close mobile menu on resize to desktop
@@ -45,17 +105,9 @@ const Navbar = () => {
     }
   };
 
-  const navItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "mywork", label: "Projects" },
-    { id: "milestones", label: "Experience" },
-    { id: "contact", label: "Contact" },
-  ];
-
   return (
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
-      <div className="container">
+      <div className="navbar-pill">
         <div className="navbar-content">
           {/* Logo */}
           <div className="navbar-logo">
@@ -77,11 +129,17 @@ const Navbar = () => {
                   onClick={() => setMenu(item.id)}
                 >
                   {item.label}
-                  {menu === item.id && <div className="nav-indicator" />}
                 </AnchorLink>
               </li>
             ))}
           </ul>
+
+          {/* Desktop CTA */}
+          <div className="navbar-cta desktop">
+            <AnchorLink className="cta-link" offset={80} href="#contact">
+              <button className="cta-button">Get In Touch</button>
+            </AnchorLink>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -93,71 +151,61 @@ const Navbar = () => {
             <span></span>
             <span></span>
           </button>
-
-          {/* Mobile Navigation */}
-          <div
-            ref={overlayRef}
-            className="mobile-menu-overlay"
-            onClick={closeMenu}
-          ></div>
-          <ul ref={menuref} className="nav-menu mobile">
-            <div className="mobile-menu-header">
-              <span className="mobile-menu-title">Menu</span>
-              <button className="mobile-menu-close" onClick={closeMenu}>
-                <i className="fas fa-times"></i>
-              </button>
-            </div>
-            {navItems.map((item) => (
-              <li
-                key={item.id}
-                className={`nav-item ${menu === item.id ? "active" : ""}`}
-                onClick={() => {
-                  setMenu(item.id);
-                  closeMenu();
-                }}
-              >
-                <AnchorLink
-                  className="nav-link"
-                  offset={80}
-                  href={`#${item.id}`}
-                >
-                  {item.label}
-                </AnchorLink>
-              </li>
-            ))}
-            <div className="mobile-menu-footer">
-              <div className="social-links">
-                <a
-                  href="https://github.com/priyam-02"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-link"
-                >
-                  <i className="fab fa-github"></i>
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/priyamshahh/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-link"
-                >
-                  <i className="fab fa-linkedin"></i>
-                </a>
-              </div>
-            </div>
-          </ul>
-
-          {/* Desktop CTA */}
-          <div className="navbar-cta desktop">
-            <AnchorLink className="anchor-link" offset={80} href="#contact">
-              <button className="btn btn-primary">
-                <i className="fas fa-paper-plane"></i>
-                Get In Touch
-              </button>
-            </AnchorLink>
-          </div>
         </div>
       </div>
+
+      {/* Mobile Navigation */}
+      <div
+        ref={overlayRef}
+        className="mobile-menu-overlay"
+        onClick={closeMenu}
+      ></div>
+      <ul ref={menuref} className="nav-menu mobile">
+        <div className="mobile-menu-header">
+          <span className="mobile-menu-title">Menu</span>
+          <button className="mobile-menu-close" onClick={closeMenu}>
+            <i className="fas fa-times"></i>
+          </button>
+        </div>
+        {navItems.map((item) => (
+          <li
+            key={item.id}
+            className={`nav-item ${menu === item.id ? "active" : ""}`}
+            onClick={() => {
+              setMenu(item.id);
+              closeMenu();
+            }}
+          >
+            <AnchorLink
+              className="nav-link"
+              offset={80}
+              href={`#${item.id}`}
+            >
+              {item.label}
+            </AnchorLink>
+          </li>
+        ))}
+        <div className="mobile-menu-footer">
+          <div className="social-links">
+            <a
+              href="https://github.com/priyam-02"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+            >
+              <i className="fab fa-github"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/priyamshahh/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+            >
+              <i className="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </ul>
     </nav>
   );
 };

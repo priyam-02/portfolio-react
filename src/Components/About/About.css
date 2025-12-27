@@ -829,12 +829,12 @@
     margin-bottom: var(--spacing-6xl);
 }
 
-.timeline {
+/* .timeline {
     position: relative;
     margin: 2rem 0 0 0;
     padding-left: 30px;
     border-left: 3px solid var(--accent-primary, #007bff);
-}
+} */
 
 .timeline-item {
     position: relative;
@@ -973,7 +973,7 @@
     margin-bottom: var(--spacing-6xl);
 }
 
-.about-section-spacer {
+.about- spacer {
     height: 48px;
     width: 100%;
     display: block;

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Navbar from "./Components/Navbar/Navbar";
 import Hero from "./Components/Hero/Hero";
 import About from "./Components/About/About";
+import Experience from "./Components/Experience/Experience";
 import Milestones from "./Components/Milestones/Milestones";
 import MyWork from "./Components/MyWork/MyWork";
 import Contact from "./Components/Contact/Contact";
@@ -63,12 +64,20 @@ const App = () => {
           transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <MyWork />
+          <Experience />
         </motion.section>
         <motion.section
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <MyWork />
+        </motion.section>
+        <motion.section
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
           viewport={{ once: true, margin: "-100px" }}
         >
           <Milestones />
