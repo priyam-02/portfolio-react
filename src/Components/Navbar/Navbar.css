@@ -17,7 +17,7 @@
 }
 
 .navbar-pill {
-    max-width: 920px;
+    max-width: 400px;
     margin: 0 auto;
     background: linear-gradient(135deg,
             rgba(30, 30, 30, 0.85) 0%,
@@ -72,6 +72,10 @@
     border-radius: 32px;
 }
 
+.navbar-pill.expanded {
+    max-width: 920px;
+}
+
 .navbar.scrolled .navbar-pill {
     background: linear-gradient(135deg,
             rgba(25, 25, 25, 0.85) 0%,
@@ -102,6 +106,18 @@
     gap: var(--spacing-sm);
     position: relative;
     flex-shrink: 0;
+}
+
+.logo-image {
+    height: 28px;
+    width: auto;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: block;
+}
+
+.logo-image:hover {
+    filter: brightness(1.2);
+    transform: scale(1.05);
 }
 
 .logo-text {
@@ -153,6 +169,21 @@
     list-style: none;
     flex: 1;
     justify-content: center;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-menu.desktop.hidden {
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    gap: 0;
+    pointer-events: none;
+}
+
+.nav-menu.desktop.visible {
+    opacity: 1;
+    max-width: 600px;
+    pointer-events: auto;
 }
 
 .nav-item {
@@ -488,8 +519,16 @@
 /* Large Desktop */
 @media (min-width: 1400px) {
     .navbar-pill {
-        max-width: 980px;
+        max-width: 420px;
         padding: 0.75rem 1.5rem 0.75rem 1.75rem;
+    }
+
+    .navbar-pill.expanded {
+        max-width: 980px;
+    }
+
+    .logo-image {
+        height: 30px;
     }
 
     .nav-menu.desktop {
@@ -510,8 +549,16 @@
 /* Desktop */
 @media (max-width: 1399px) and (min-width: 1024px) {
     .navbar-pill {
-        max-width: 850px;
+        max-width: 380px;
         padding: 0.6rem 1.1rem 0.6rem 1.35rem;
+    }
+
+    .navbar-pill.expanded {
+        max-width: 850px;
+    }
+
+    .logo-image {
+        height: 28px;
     }
 
     .nav-menu.desktop {
@@ -536,8 +583,16 @@
     }
 
     .navbar-pill {
-        max-width: 100%;
+        max-width: 360px;
         padding: 0.55rem 1rem 0.55rem 1.25rem;
+    }
+
+    .navbar-pill.expanded {
+        max-width: 100%;
+    }
+
+    .logo-image {
+        height: 28px;
     }
 
     .nav-menu.desktop {
@@ -580,6 +635,10 @@
         gap: var(--spacing-lg);
     }
 
+    .logo-image {
+        height: 26px;
+    }
+
     .logo-text {
         font-size: 1.1rem;
     }
@@ -619,6 +678,10 @@
 
     .navbar-content {
         gap: var(--spacing-md);
+    }
+
+    .logo-image {
+        height: 24px;
     }
 
     .logo-text {
@@ -664,6 +727,10 @@
 
     .navbar-content {
         gap: var(--spacing-sm);
+    }
+
+    .logo-image {
+        height: 22px;
     }
 
     .logo-text {

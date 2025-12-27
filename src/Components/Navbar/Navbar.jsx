@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import "./Navbar.css";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import logo from "/PP Frame 1.svg";
 
 const navItems = [
   { id: "home", label: "Home" },
@@ -13,17 +14,36 @@ const navItems = [
 const Navbar = () => {
   const [menu, setMenu] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuref = useRef();
   const overlayRef = useRef();
+  const scrollTimeoutRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      setIsScrolling(true);
+
+      // Clear existing timeout
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+
+      // Set timeout to detect when scrolling stops
+      scrollTimeoutRef.current = setTimeout(() => {
+        setIsScrolling(false);
+      }, 750); // Wait 750ms (0.75 seconds) after scrolling stops
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
   }, []);
 
   // Scroll spy to update active menu based on scroll position
@@ -54,7 +74,10 @@ const Navbar = () => {
           const elementBottom = rect.bottom;
 
           // Section is considered active if its top is in the upper 40% of viewport
-          if (elementTop < viewportHeight * 0.4 && elementBottom > navbarHeight) {
+          if (
+            elementTop < viewportHeight * 0.4 &&
+            elementBottom > navbarHeight
+          ) {
             // Calculate visibility score (prefer sections near top of viewport)
             const visibility = viewportHeight - Math.abs(elementTop);
             if (visibility > maxVisibility) {
@@ -109,6 +132,8 @@ const Navbar = () => {
     }
   };
 
+  const shouldExpand = isScrolling || isHovered;
+
   return (
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       {/* Mobile Menu Overlay */}
@@ -118,15 +143,21 @@ const Navbar = () => {
         onClick={closeMenu}
       ></div>
 
-      <div className={`navbar-pill ${isMobileMenuOpen ? "menu-open" : ""}`}>
+      <div
+        className={`navbar-pill ${isMobileMenuOpen ? "menu-open" : ""} ${shouldExpand ? "expanded" : ""}`}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <div className="navbar-content">
           {/* Logo */}
           <div className="navbar-logo">
-            <span className="logo-text">Priyam Shah</span>
+            <img src={logo} alt="Priyam Shah" className="logo-image" />
           </div>
 
           {/* Desktop Navigation */}
-          <ul className="nav-menu desktop">
+          <ul
+            className={`nav-menu desktop ${shouldExpand ? "visible" : "hidden"}`}
+          >
             {navItems.map((item) => (
               <li
                 key={item.id}
