@@ -11,10 +11,11 @@ const Experience = () => {
 
       <div className="container">
         <h2 className="section-title">
-          Professional <span className="title-accent">Experience</span>
+          My <span className="title-accent">Experience</span>
         </h2>
         <p className="section-subtitle">
-          A journey through my professional career in software engineering and research
+          A journey through my professional career in software engineering and
+          research
         </p>
 
         {/* Professional Experience Timeline */}

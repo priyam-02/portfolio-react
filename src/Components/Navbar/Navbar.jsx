@@ -91,7 +91,7 @@ const Navbar = () => {
 
   const openMenu = () => {
     setIsMobileMenuOpen(true);
-    menuref.current.style.right = "0px";
+    menuref.current.style.right = "0";
     if (overlayRef.current) {
       overlayRef.current.classList.add("active");
     }
@@ -99,7 +99,8 @@ const Navbar = () => {
 
   const closeMenu = () => {
     setIsMobileMenuOpen(false);
-    menuref.current.style.right = "-350px";
+    // Use percentage for small screens, fixed px for larger screens
+    menuref.current.style.right = window.innerWidth <= 480 ? "-100%" : "-350px";
     if (overlayRef.current) {
       overlayRef.current.classList.remove("active");
     }
@@ -160,7 +161,11 @@ const Navbar = () => {
         className="mobile-menu-overlay"
         onClick={closeMenu}
       ></div>
-      <ul ref={menuref} className="nav-menu mobile">
+      <ul
+        ref={menuref}
+        className="nav-menu mobile"
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="mobile-menu-header">
           <span className="mobile-menu-title">Menu</span>
           <button className="mobile-menu-close" onClick={closeMenu}>
