@@ -8,9 +8,9 @@ import Weatherly from "../assets/Weatherly.svg";
 import Temple from "../assets/Temple.svg";
 import LLMChat from "../assets/LLMChat.svg";
 import pdf from "../assets/pdf.svg";
-import ClusterNews from "../assets/ClusterNews.svg";
-import Polyglot from "../assets/Polyglot.svg";
-import Testeval from "../assets/Testeval.svg";
+import ClusterNews from "../assets/ClusterNews.png";
+import Polyglot from "../assets/Polyglot.png";
+import Testeval from "../assets/Testeval.png";
 import Don_Peppe from "../assets/Don_Peppe.svg";
 
 const mywork_data = [
@@ -32,7 +32,7 @@ const mywork_data = [
   },
   {
     w_no: 2,
-    w_name: "TestEval",
+    w_name: "TestForge",
     w_img: Testeval,
     w_desc:
       "LLM-powered tool for automating and benchmarking Test-Driven Development workflows at scale, with modern architecture.",
@@ -46,7 +46,7 @@ const mywork_data = [
       "Celery",
       "Prompt Engineering",
     ],
-    w_link: "https://github.com/bhavain/TestMaker",
+    w_link: "https://testforge-dashboard.vercel.app/",
   },
   {
     w_no: 3,
