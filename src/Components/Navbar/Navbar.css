@@ -98,7 +98,7 @@
     font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 1.15rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #7C9CB5 0%, #94A3B8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -422,7 +422,7 @@
 
 .cta-button {
     font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #7C9CB5 0%, #94A3B8 100%);
     color: #ffffff;
     border: none;
     padding: 0.6rem 1.6rem;
@@ -434,8 +434,8 @@
     white-space: nowrap;
     letter-spacing: -0.01em;
     box-shadow:
-        0 4px 16px rgba(102, 126, 234, 0.4),
-        0 2px 8px rgba(118, 75, 162, 0.3),
+        0 4px 16px rgba(124, 156, 181, 0.4),
+        0 2px 8px rgba(148, 163, 184, 0.3),
         0 1px 3px rgba(255, 255, 255, 0.1) inset;
     position: relative;
     overflow: hidden;
@@ -446,7 +446,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #7c8ef5 0%, #8b5cb8 100%);
+    background: linear-gradient(135deg, #94A3B8 0%, #64748B 100%);
     opacity: 0;
     transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: -1;
@@ -455,8 +455,8 @@
 .cta-button:hover {
     transform: translateY(-2px) scale(1.02);
     box-shadow:
-        0 6px 24px rgba(102, 126, 234, 0.5),
-        0 4px 12px rgba(118, 75, 162, 0.4),
+        0 6px 24px rgba(124, 156, 181, 0.5),
+        0 4px 12px rgba(148, 163, 184, 0.4),
         0 1px 4px rgba(255, 255, 255, 0.15) inset;
 }
 

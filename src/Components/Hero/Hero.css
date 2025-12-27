@@ -1148,24 +1148,24 @@
 
 @keyframes codeboxGlow {
   0% {
-    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.18), 0 1.5px 8px rgba(139, 92, 246, 0.10), 0 0 0 2.5px #6366f1, 0 0 16px 2px #6366f1cc;
-    border-color: #6366f1;
+    box-shadow: 0 8px 32px rgba(124, 156, 181, 0.18), 0 1.5px 8px rgba(148, 163, 184, 0.10), 0 0 0 2.5px #7C9CB5, 0 0 16px 2px #7C9CB5cc;
+    border-color: #7C9CB5;
   }
 
   50% {
-    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.22), 0 1.5px 8px rgba(139, 92, 246, 0.13), 0 0 0 4px #38bdf8, 0 0 24px 4px #38bdf8cc;
-    border-color: #38bdf8;
+    box-shadow: 0 8px 32px rgba(148, 163, 184, 0.22), 0 1.5px 8px rgba(100, 116, 139, 0.13), 0 0 0 4px #94A3B8, 0 0 24px 4px #94A3B8cc;
+    border-color: #94A3B8;
   }
 
   100% {
-    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.18), 0 1.5px 8px rgba(139, 92, 246, 0.10), 0 0 0 2.5px #a78bfa, 0 0 16px 2px #a78bfa99;
-    border-color: #a78bfa;
+    box-shadow: 0 8px 32px rgba(100, 116, 139, 0.18), 0 1.5px 8px rgba(71, 85, 105, 0.10), 0 0 0 2.5px #64748B, 0 0 16px 2px #64748Baa;
+    border-color: #64748B;
   }
 }
 
 .code-cursor {
   display: inline-block;
-  color: #7dd3fc;
+  color: #7C9CB5;
   font-weight: 700;
   font-size: 1.1em;
   margin-left: 2px;
@@ -1241,15 +1241,15 @@
 
 /* Syntax Highlighting */
 .hl-keyword {
-  color: #7dd3fc;
+  color: #7C9CB5;
   font-weight: 700;
-  text-shadow: 0 0 6px #38bdf8cc;
+  text-shadow: 0 0 6px #7C9CB5cc;
 }
 
 .hl-tag {
-  color: #a78bfa;
+  color: #94A3B8;
   font-weight: 700;
-  text-shadow: 0 0 6px #8b5cf6cc;
+  text-shadow: 0 0 6px #94A3B8cc;
 }
 
 .hl-attr {
@@ -1331,17 +1331,17 @@
 
 .hero-toggle-pill.active,
 .hero-toggle-pill:focus {
-  background: linear-gradient(90deg, #6366f1 0%, #38bdf8 100%);
+  background: linear-gradient(90deg, #7C9CB5 0%, #94A3B8 100%);
   color: #fff;
-  border-color: #6366f1;
-  box-shadow: 0 2px 12px 0 #6366f1cc;
+  border-color: #7C9CB5;
+  box-shadow: 0 2px 12px 0 #7C9CB5cc;
   z-index: 1;
 }
 
 .hero-toggle-pill:hover:not(.active) {
-  background: rgba(59, 130, 246, 0.18);
-  color: #2563eb;
-  border-color: #38bdf8;
+  background: rgba(124, 156, 181, 0.18);
+  color: #7C9CB5;
+  border-color: #94A3B8;
 }
 
 @media (max-width: 767px) {
@@ -1386,13 +1386,13 @@
 }
 
 .hero-snippet-select:focus {
-  border-color: #6366f1;
-  box-shadow: 0 2px 16px 0 #6366f1cc, 0 0 0 2px #38bdf8cc;
+  border-color: #7C9CB5;
+  box-shadow: 0 2px 16px 0 #7C9CB5cc, 0 0 0 2px #94A3B8cc;
   background: rgba(30, 32, 40, 0.95);
 }
 
 .hero-snippet-select:hover {
-  border-color: #38bdf8;
+  border-color: #94A3B8;
   background: rgba(30, 32, 40, 0.92);
 }
 
@@ -1471,13 +1471,13 @@
 
 .hero-snippet-select.custom.open,
 .hero-snippet-select.custom:focus {
-  border-color: #6366f1;
-  box-shadow: 0 2px 16px 0 #6366f1cc, 0 0 0 2px #38bdf8cc;
+  border-color: #7C9CB5;
+  box-shadow: 0 2px 16px 0 #7C9CB5cc, 0 0 0 2px #94A3B8cc;
   background: rgba(30, 32, 40, 0.95);
 }
 
 .hero-snippet-select.custom:hover {
-  border-color: #38bdf8;
+  border-color: #94A3B8;
   background: rgba(30, 32, 40, 0.92);
 }
 
@@ -1498,8 +1498,8 @@
   display: block;
   width: 0.6em;
   height: 0.6em;
-  border-right: 1.5px solid #6366f1;
-  border-bottom: 1.5px solid #6366f1;
+  border-right: 1.5px solid #7C9CB5;
+  border-bottom: 1.5px solid #7C9CB5;
   transform: rotate(45deg);
   position: absolute;
   left: 0.1em;
@@ -1508,8 +1508,8 @@
 }
 
 .hero-snippet-select.custom.open .dropdown-arrow::after {
-  border-right: 1.5px solid #38bdf8;
-  border-bottom: 1.5px solid #38bdf8;
+  border-right: 1.5px solid #94A3B8;
+  border-bottom: 1.5px solid #94A3B8;
   transform: rotate(45deg) translateY(-1px);
 }
 
@@ -1524,8 +1524,8 @@
   overflow-y: auto;
   background: rgba(40, 44, 60, 0.93);
   border-radius: 1em;
-  box-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.22), 0 2px 12px 0 rgba(30, 32, 40, 0.18);
-  border: 2px solid #6366f1;
+  box-shadow: 0 8px 32px 0 rgba(124, 156, 181, 0.22), 0 2px 12px 0 rgba(30, 32, 40, 0.18);
+  border: 2px solid #7C9CB5;
   z-index: 20;
   padding: 0.18em 0;
   margin-top: 0.18em;
@@ -1556,7 +1556,7 @@
 .hero-dropdown-option.selected,
 .hero-dropdown-option:focus,
 .hero-dropdown-option:hover {
-  background: linear-gradient(90deg, #6366f1 0%, #38bdf8 100%);
+  background: linear-gradient(90deg, #7C9CB5 0%, #94A3B8 100%);
   color: #fff;
 }
 

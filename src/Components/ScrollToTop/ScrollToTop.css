@@ -8,10 +8,10 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.18) 0%, rgba(118, 75, 162, 0.18) 100%);
-  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.18), 0 1.5px 4px rgba(139, 92, 246, 0.12);
+  background: linear-gradient(135deg, rgba(124, 156, 181, 0.18) 0%, rgba(148, 163, 184, 0.18) 100%);
+  box-shadow: 0 8px 24px rgba(124, 156, 181, 0.18), 0 1.5px 4px rgba(148, 163, 184, 0.12);
   border: none;
-  color: var(--accent-primary, #3b82f6);
+  color: var(--accent-primary);
   cursor: pointer;
   backdrop-filter: blur(16px);
   transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
@@ -23,17 +23,17 @@
 .scroll-arrow-icon {
   display: block;
   margin: 0 auto;
-  color: var(--accent-primary, #3b82f6);
+  color: var(--accent-primary);
   width: 2rem;
   height: 2rem;
-  stroke: var(--accent-primary, #3b82f6);
+  stroke: var(--accent-primary);
   transition: stroke 0.18s;
 }
 
 .scroll-to-top:hover {
   transform: scale(1.13);
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.22), 0 2px 8px rgba(139, 92, 246, 0.22), 0 0 16px 2px #764ba244;
+  background: linear-gradient(135deg, #7C9CB5 0%, #94A3B8 100%);
+  box-shadow: 0 12px 32px rgba(124, 156, 181, 0.22), 0 2px 8px rgba(148, 163, 184, 0.22), 0 0 16px 2px #94A3B844;
 }
 
 .scroll-to-top:hover .scroll-arrow-icon {

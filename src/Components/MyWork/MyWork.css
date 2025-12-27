@@ -104,7 +104,7 @@
 .floating-shape {
     position: absolute;
     border-radius: 50%;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    background: linear-gradient(135deg, rgba(124, 156, 181, 0.1), rgba(148, 163, 184, 0.1));
     filter: blur(40px);
     animation: float 20s ease-in-out infinite;
 }
@@ -208,7 +208,7 @@
 }
 
 .title-accent {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: linear-gradient(135deg, #7C9CB5 0%, #94A3B8 50%, #64748B 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
