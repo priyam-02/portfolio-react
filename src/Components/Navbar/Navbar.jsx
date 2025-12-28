@@ -108,6 +108,13 @@ const Navbar = () => {
       const mobile = window.innerWidth <= 1024;
       setIsMobile(mobile);
 
+      // Reset expansion states when transitioning between mobile/desktop
+      setIsHovered(false);
+      setIsScrolling(false);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+
       if (isMobileMenuOpen && !mobile) {
         closeMenu();
       }
