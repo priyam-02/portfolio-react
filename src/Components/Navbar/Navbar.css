@@ -722,37 +722,167 @@
     }
 }
 
-/* Tablet Landscape */
+/* Tablet Landscape (iPad Mini) */
 @media (max-width: 1023px) and (min-width: 768px) {
     .navbar {
-        padding: 1.25rem 1.5rem;
+        padding: 1rem 1.25rem;
+    }
+
+    .navbar.scrolled {
+        padding: 1rem 1.25rem;
     }
 
     .navbar-pill {
-        max-width: 480px;
-        padding: 0.55rem 1.15rem 0.55rem 1.15rem;
+        padding: 0.6rem 1rem;
+        border-radius: 60px;
+        max-width: 360px !important;
     }
 
     .navbar-pill.expanded {
-        max-width: 100%;
+        max-width: 360px !important;
+    }
+
+    .navbar-pill.menu-open {
+        border-radius: 28px;
+    }
+
+    .navbar.scrolled .navbar-pill {
+        max-width: 360px !important;
+    }
+
+    .nav-menu.desktop,
+    .navbar-cta.desktop {
+        display: none;
+    }
+
+    .navbar-content {
+        gap: 0;
+    }
+
+    .navbar-section-left {
+        flex: 1.2;
+        justify-content: flex-start;
+    }
+
+    .navbar-section-center {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .navbar-section-right {
+        flex: 0.8;
+        justify-content: flex-end;
+    }
+
+    .availability-indicator {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+        gap: 0.45rem;
+    }
+
+    .availability-dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    .availability-text {
+        font-size: 0.8rem;
     }
 
     .logo-image {
         height: 28px;
     }
 
-    .nav-menu.desktop {
-        gap: 0.1rem;
+    .mobile-menu-btn {
+        display: flex;
     }
 
-    .nav-link {
-        font-size: 0.8125rem;
-        padding: 0.5rem 0.9rem;
+    .nav-menu.mobile .nav-link {
+        padding: 0.65rem 1rem;
+        font-size: 0.95rem;
+        margin: 0.15rem 0.75rem;
+    }
+}
+
+/* iPad Pro Portrait */
+@media (min-width: 834px) and (max-width: 1025px) and (orientation: portrait) {
+    .navbar {
+        padding: 1.25rem 1rem;
     }
 
-    .cta-button {
-        padding: 0.5rem 1.25rem;
-        font-size: 0.8125rem;
+    .navbar.scrolled {
+        padding: 1.25rem 1rem;
+    }
+
+    .navbar-pill {
+        padding: 0.6rem 1rem;
+        border-radius: 60px;
+        max-width: 360px !important;
+    }
+
+    .navbar-pill.expanded {
+        max-width: 360px !important;
+    }
+
+    .navbar-pill.menu-open {
+        border-radius: 28px;
+    }
+
+    .navbar.scrolled .navbar-pill {
+        max-width: 360px !important;
+    }
+
+    .nav-menu.desktop,
+    .navbar-cta.desktop {
+        display: none;
+    }
+
+    .navbar-content {
+        gap: 0;
+    }
+
+    .navbar-section-left {
+        flex: 1.2;
+        justify-content: flex-start;
+    }
+
+    .navbar-section-center {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .navbar-section-right {
+        flex: 0.8;
+        justify-content: flex-end;
+    }
+
+    .availability-indicator {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+        gap: 0.45rem;
+    }
+
+    .availability-dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    .availability-text {
+        font-size: 0.8rem;
+    }
+
+    .logo-image {
+        height: 28px;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .nav-menu.mobile .nav-link {
+        padding: 0.65rem 1rem;
+        font-size: 0.95rem;
+        margin: 0.15rem 0.75rem;
     }
 }
 

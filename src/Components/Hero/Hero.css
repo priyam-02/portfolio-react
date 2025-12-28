@@ -650,7 +650,7 @@
 /* iPad Mini, Air & Pro - Mobile Style Layout */
 @media (max-width: 1366px) and (min-width: 768px) {
   .hero {
-    padding-top: 100px;
+    padding-top: 140px;
     text-align: center;
     padding-bottom: 80px;
   }
@@ -815,7 +815,7 @@
 /* Tablet Portrait */
 @media (max-width: 767px) and (min-width: 481px) {
   .hero {
-    padding-top: 100px;
+    padding-top: 130px;
     text-align: center;
     padding-bottom: 80px;
   }
@@ -889,7 +889,7 @@
 /* Mobile Large */
 @media (max-width: 480px) and (min-width: 376px) {
   .hero {
-    padding-top: 80px;
+    padding-top: 110px;
     text-align: center;
     padding-bottom: 80px;
   }
@@ -968,7 +968,7 @@
 /* Mobile Small */
 @media (max-width: 375px) {
   .hero {
-    padding-top: 70px;
+    padding-top: 100px;
     text-align: center;
     padding-bottom: 70px;
   }
@@ -1865,7 +1865,7 @@
   padding: 1rem 2rem !important;
   border-radius: 10px !important;
   font-weight: 600 !important;
-  border: 2px solid transparent !important;
+  border: none !important;
   box-shadow: 0 4px 16px rgba(124, 156, 181, 0.3) !important;
   transition: all 0.3s ease;
   width: 100% !important;
@@ -1978,7 +1978,6 @@
     border-radius: 12px !important;
     box-shadow: 0 6px 20px rgba(124, 156, 181, 0.35) !important;
     box-sizing: border-box !important;
-    border: 2px solid transparent !important;
   }
 
   .hero-minimalist .btn-secondary-minimalist {
@@ -2150,7 +2149,6 @@
     border-radius: 12px !important;
     box-shadow: 0 5px 18px rgba(124, 156, 181, 0.3) !important;
     box-sizing: border-box !important;
-    border: 2px solid transparent !important;
   }
 
   .hero-minimalist .btn-secondary-minimalist {
@@ -2224,7 +2222,6 @@
     border-radius: 12px !important;
     box-shadow: 0 6px 20px rgba(124, 156, 181, 0.35) !important;
     box-sizing: border-box !important;
-    border: 2px solid transparent !important;
   }
 
   .hero-minimalist .btn-secondary-minimalist {
@@ -2277,21 +2274,25 @@
   }
 
   .hero-minimalist .btn-primary-minimalist {
-    padding: 1.1rem 2.25rem !important;
+    padding: 1.1rem 1.75rem !important;
     font-size: 1.05rem !important;
     min-height: 54px !important;
     border-radius: 12px !important;
     box-shadow: 0 6px 22px rgba(124, 156, 181, 0.35) !important;
     box-sizing: border-box !important;
+    max-width: 280px !important;
+    width: 100% !important;
   }
 
   .hero-minimalist .btn-secondary-minimalist {
-    padding: calc(1.1rem - 2px) calc(2.25rem - 2px) !important;
+    padding: calc(1.1rem - 2px) calc(1.75rem - 2px) !important;
     font-size: 1.05rem !important;
     min-height: 54px !important;
     border-radius: 12px !important;
     box-sizing: border-box !important;
     border: 2px solid rgba(148, 163, 184, 0.3) !important;
+    max-width: 280px !important;
+    width: 100% !important;
   }
 
   .hero-minimalist .hero-codebox {
@@ -2302,11 +2303,36 @@
 /* iPad Landscape (1024px - 1194px) */
 @media (min-width: 1024px) and (max-width: 1194px) and (orientation: landscape) {
   .hero-minimalist .hero-content-minimalist {
+    flex-direction: row-reverse !important;
     gap: 3rem !important;
+    align-items: center !important;
+  }
+
+  .hero-minimalist .hero-title-minimalist {
+    text-align: left !important;
   }
 
   .hero-minimalist .hero-name-large {
     font-size: clamp(52px, 7vw, 84px) !important;
+  }
+
+  .hero-minimalist .hero-role {
+    text-align: left !important;
+  }
+
+  .hero-minimalist .geometric-accent-line {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+
+  .hero-minimalist .hero-greeting {
+    text-align: left !important;
+  }
+
+  .hero-minimalist .hero-social {
+    justify-content: flex-start !important;
+    align-items: center !important;
+    flex-direction: row !important;
   }
 
   .hero-minimalist .hero-sidebar-left {
@@ -2329,7 +2355,6 @@
     border-radius: 12px !important;
     box-shadow: 0 6px 20px rgba(124, 156, 181, 0.35) !important;
     box-sizing: border-box !important;
-    border: 2px solid transparent !important;
   }
 
   .hero-minimalist .btn-secondary-minimalist {
@@ -2340,113 +2365,56 @@
     box-sizing: border-box !important;
     border: 2px solid rgba(148, 163, 184, 0.3) !important;
   }
+
+  .scroll-indicator {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
 }
 
-/* iPad Pro Portrait (1024px+) */
-@media (min-width: 834px) and (max-width: 1025px) and (orientation: portrait) {
+/* iPad Pro Landscape (1195px - 1440px) */
+@media (min-width: 1195px) and (max-width: 1440px) and (orientation: landscape) {
   .hero-minimalist .hero-content-minimalist {
-    flex-direction: row !important;
-    align-items: center !important;
+    flex-direction: row-reverse !important;
     gap: 4rem !important;
+    align-items: center !important;
     justify-content: space-between !important;
-    padding: 0 3rem 0 2rem !important;
   }
 
   .hero-minimalist .hero-text-minimalist {
-    max-width: 48% !important;
+    flex: 1 !important;
+    max-width: 55% !important;
+    padding-top: 2rem !important;
+  }
+
+  .hero-minimalist .hero-title-minimalist {
     text-align: left !important;
-    order: 0 !important;
-    padding-top: 4rem !important;
-  }
-
-  .hero-minimalist .hero-sidebar-left {
-    max-width: 360px !important;
-    width: 100% !important;
-    order: 1 !important;
-    flex-shrink: 0 !important;
-    align-items: center !important;
-    gap: 2rem !important;
-  }
-
-  .hero-minimalist .hero-greeting {
-    font-size: 1.1rem !important;
-    margin-bottom: 0.75rem !important;
-    margin-top: 0 !important;
   }
 
   .hero-minimalist .hero-name-large {
-    font-size: clamp(48px, 5.5vw, 64px) !important;
-    line-height: 1.15 !important;
-    margin-bottom: 1rem !important;
-    margin-top: 0 !important;
+    font-size: clamp(52px, 7vw, 84px) !important;
   }
 
   .hero-minimalist .hero-role {
-    font-size: 1.15rem !important;
-    margin-bottom: 1.5rem !important;
+    text-align: left !important;
   }
 
-  .hero-minimalist .hero-image-minimalist {
-    max-width: 240px !important;
-    margin-top: 0 !important;
-  }
-
-  .hero-minimalist .hero-profile-minimalist {
-    width: 240px !important;
-    height: 240px !important;
-  }
-
-  .hero-minimalist .hero-codebox {
-    max-width: 100% !important;
-    width: 100% !important;
-  }
-
-  .hero-minimalist .btn-primary-minimalist {
-    padding: 1.05rem 2rem !important;
-    font-size: 1.05rem !important;
-    min-height: 52px !important;
-    border-radius: 12px !important;
-    box-shadow: 0 6px 20px rgba(124, 156, 181, 0.35) !important;
-    box-sizing: border-box !important;
-    border: 2px solid transparent !important;
-  }
-
-  .hero-minimalist .btn-secondary-minimalist {
-    padding: 1.05rem 2rem !important;
-    font-size: 1.05rem !important;
-    min-height: 52px !important;
-    border-radius: 12px !important;
-    box-sizing: border-box !important;
-    border: 2px solid rgba(148, 163, 184, 0.3) !important;
-  }
-
-  .hero-minimalist .hero-stats-minimalist {
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    gap: 1.5rem !important;
-    margin: 2rem 0 !important;
-    justify-content: center !important;
-  }
-
-  .hero-minimalist .stat-number-minimalist {
-    font-size: 1.85rem !important;
-  }
-
-  .hero-minimalist .stat-label-minimalist {
-    font-size: 0.75rem !important;
-  }
-
-  .hero-minimalist .hero-actions-minimalist {
-    max-width: 100% !important;
-    gap: 1rem !important;
+  .hero-minimalist .geometric-accent-line {
+    margin-left: 0 !important;
+    margin-right: auto !important;
   }
 
   .hero-minimalist .hero-greeting {
-    font-size: 1.1rem !important;
-    margin-bottom: 0.75rem !important;
+    text-align: left !important;
   }
 
-  /* Show tech pills on iPad Pro */
+  .hero-minimalist .hero-social {
+    justify-content: flex-start !important;
+    align-items: center !important;
+    flex-direction: row !important;
+  }
+
+  /* Show tech pills on iPad Pro landscape */
   .hero-minimalist .tech-stack-pills-minimalist.tech-stack-ipad-pro {
     display: grid !important;
     grid-template-columns: repeat(3, auto) !important;
@@ -2461,11 +2429,134 @@
     font-size: 0.9rem !important;
   }
 
-  /* Center scroll indicator accounting for unequal padding */
+  .hero-minimalist .hero-sidebar-left {
+    max-width: 400px !important;
+    width: 100% !important;
+    flex-shrink: 0 !important;
+  }
+
+  .hero-minimalist .hero-image-minimalist {
+    max-width: 240px !important;
+  }
+
+  .hero-minimalist .hero-profile-minimalist {
+    width: 240px !important;
+    height: 240px !important;
+  }
+
+  .hero-minimalist .btn-primary-minimalist {
+    padding: 1rem 2rem !important;
+    font-size: 1rem !important;
+    min-height: 52px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 6px 20px rgba(124, 156, 181, 0.35) !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-minimalist .btn-secondary-minimalist {
+    padding: 1rem 2rem !important;
+    font-size: 1rem !important;
+    min-height: 52px !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+    border: 2px solid rgba(148, 163, 184, 0.3) !important;
+  }
+
   .scroll-indicator {
-    left: calc(50% + 1rem) !important;
+    left: 50% !important;
     transform: translateX(-50%) !important;
-    bottom: var(--spacing-2xl) !important;
+  }
+}
+
+/* iPad Pro Portrait (1024px+) */
+@media (min-width: 834px) and (max-width: 1025px) and (orientation: portrait) {
+  .hero-minimalist .hero-content-minimalist {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 3.5rem !important;
+  }
+
+  .hero-minimalist .hero-text-minimalist {
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+
+  .hero-minimalist .hero-sidebar-left {
+    position: relative !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 450px !important;
+    gap: 2.5rem !important;
+    order: 0 !important;
+  }
+
+  .hero-minimalist .hero-name-large {
+    font-size: clamp(56px, 8vw, 80px) !important;
+  }
+
+  .hero-minimalist .hero-role {
+    font-size: clamp(18px, 3vw, 24px) !important;
+  }
+
+  .hero-minimalist .hero-image-minimalist {
+    width: 100% !important;
+    max-width: 240px !important;
+  }
+
+  .hero-minimalist .hero-profile-minimalist {
+    width: 240px !important;
+    height: 240px !important;
+  }
+
+  .hero-minimalist .hero-stats-minimalist {
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 2.5rem !important;
+  }
+
+  .hero-minimalist .hero-actions-minimalist {
+    flex-direction: row !important;
+    gap: 1rem !important;
+    max-width: 500px !important;
+  }
+
+  .hero-minimalist .btn-primary-minimalist {
+    padding: 1.1rem 1.75rem !important;
+    font-size: 1.05rem !important;
+    min-height: 54px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 6px 22px rgba(124, 156, 181, 0.35) !important;
+    box-sizing: border-box !important;
+    max-width: 280px !important;
+    width: 100% !important;
+  }
+
+  .hero-minimalist .btn-secondary-minimalist {
+    padding: calc(1.1rem - 2px) calc(1.75rem - 2px) !important;
+    font-size: 1.05rem !important;
+    min-height: 54px !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+    border: 2px solid rgba(148, 163, 184, 0.3) !important;
+    max-width: 280px !important;
+    width: 100% !important;
+  }
+
+  .hero-minimalist .geometric-accent-line {
+    margin: 2rem auto;
+  }
+
+  .hero-minimalist .hero-greeting {
+    text-align: center;
+    margin: 0.5rem 0 1.5rem 0;
+  }
+
+  .hero-minimalist .hero-codebox {
+    max-width: 500px !important;
+  }
+
+  .scroll-indicator {
+    display: none !important;
   }
 }
 

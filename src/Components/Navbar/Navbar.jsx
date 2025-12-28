@@ -17,6 +17,7 @@ const Navbar = () => {
   const [isScrolling, setIsScrolling] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
   const menuref = useRef();
   const overlayRef = useRef();
   const scrollTimeoutRef = useRef(null);
@@ -104,7 +105,10 @@ const Navbar = () => {
   // Auto-close mobile menu on resize to desktop
   useEffect(() => {
     const handleResize = () => {
-      if (isMobileMenuOpen && window.innerWidth >= 1024) {
+      const mobile = window.innerWidth <= 1024;
+      setIsMobile(mobile);
+
+      if (isMobileMenuOpen && !mobile) {
         closeMenu();
       }
     };
@@ -158,7 +162,11 @@ const Navbar = () => {
 
           {/* Center Section - Available for Work Indicator */}
           <div className="navbar-section-center">
-            <div className={`availability-indicator ${!shouldExpand && !isMobileMenuOpen ? "visible" : "hidden"}`}>
+            <div className={`availability-indicator ${
+              isMobile
+                ? (!isMobileMenuOpen ? "visible" : "hidden")
+                : (!shouldExpand && !isMobileMenuOpen ? "visible" : "hidden")
+            }`}>
               <span className="availability-dot"></span>
               <span className="availability-text">Available for work</span>
             </div>
