@@ -594,8 +594,34 @@ html {
 /* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
   :root {
+    /* Darker backgrounds for true dark mode */
     --primary-bg: #0a0a0a;
     --secondary-bg: #111111;
+    --bg-secondary: #1a1a1a;
+
+    /* Adjusted card colors for better contrast */
+    --card-bg: rgba(30, 30, 30, 0.6);
+    --card-border: rgba(255, 255, 255, 0.08);
+
+    /* Brighter text for better readability */
+    --text-primary: #ffffff;
+    --text-secondary: #e5e5e5;
+    --text-muted: #a0a0a0;
+
+    /* Slightly brighter accents for visibility */
+    --accent-primary: #90b4d1;
+    --accent-secondary: #a8bcc8;
+    --accent-gradient: linear-gradient(135deg, #6b8ba4 0%, #8ca9be 100%);
+  }
+
+  /* Contact section background */
+  .contact {
+    background: rgba(10, 10, 10, 0.9) !important;
+  }
+
+  /* Footer background */
+  .footer {
+    background: rgba(5, 5, 5, 0.98) !important;
   }
 }
 

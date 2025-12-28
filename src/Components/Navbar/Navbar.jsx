@@ -149,9 +149,19 @@ const Navbar = () => {
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className="navbar-content">
-          {/* Logo */}
-          <div className="navbar-logo">
-            <img src={logo} alt="Priyam Shah" className="logo-image" />
+          {/* Left Section - Logo */}
+          <div className="navbar-section-left">
+            <div className="navbar-logo">
+              <img src={logo} alt="Priyam Shah" className="logo-image" />
+            </div>
+          </div>
+
+          {/* Center Section - Available for Work Indicator */}
+          <div className="navbar-section-center">
+            <div className={`availability-indicator ${!shouldExpand && !isMobileMenuOpen ? "visible" : "hidden"}`}>
+              <span className="availability-dot"></span>
+              <span className="availability-text">Available for work</span>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
@@ -176,11 +186,13 @@ const Navbar = () => {
             ))}
           </ul>
 
-          {/* Desktop CTA */}
-          <div className="navbar-cta desktop">
-            <AnchorLink className="cta-link" offset={80} href="#contact">
-              <button className="cta-button">Get In Touch</button>
-            </AnchorLink>
+          {/* Right Section - Desktop CTA */}
+          <div className="navbar-section-right">
+            <div className="navbar-cta desktop">
+              <AnchorLink className="cta-link" offset={80} href="#contact">
+                <button className="cta-button">Get In Touch</button>
+              </AnchorLink>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}

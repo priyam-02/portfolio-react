@@ -1126,10 +1126,11 @@
   }
 }
 
-/* iPad Pro (1024 x 1366) - Hide scroll indicator */
+/* iPad Pro (1024 x 1366) */
 @media (min-width: 1024px) and (max-width: 1366px) {
   .scroll-indicator {
-    display: none;
+    display: flex !important;
+    bottom: var(--spacing-xl);
   }
 
   .hero-codebox {
@@ -1261,7 +1262,6 @@
   min-height: 90px;
   line-height: 1.6;
   border-radius: 0 0 1.2rem 1.2rem;
-  box-shadow: 0 0 0 1.5px rgba(59, 130, 246, 0.10) inset;
   transition: background 0.3s;
 }
 
@@ -1618,4 +1618,929 @@
 
 .hero-profile-img {
   will-change: transform;
+}
+
+/* ============================================
+   BOLD MINIMALIST HERO STYLES
+   ============================================ */
+
+/* Gradient Mesh Background */
+.gradient-mesh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+  transition: background 0.3s ease;
+}
+
+/* Minimalist Layout - Two Column */
+.hero-minimalist .hero-content-minimalist {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-end !important;
+  justify-content: space-between !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  position: relative;
+  z-index: 2;
+  gap: 4rem !important;
+}
+
+.hero-minimalist .hero-text-minimalist {
+  flex: 1 !important;
+  max-width: 55% !important;
+  padding-right: 0 !important;
+}
+
+/* Right Sidebar - Profile, Stats, Buttons */
+.hero-minimalist .hero-sidebar-left {
+  position: sticky !important;
+  top: 120px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 3rem !important;
+  width: 420px !important;
+  flex-shrink: 0 !important;
+  z-index: 10 !important;
+  order: 1 !important; /* Ensure it appears second (on the right) */
+}
+
+/* Bold Typography Hero */
+.hero-minimalist .hero-title-minimalist {
+  margin-bottom: 2rem !important;
+}
+
+.hero-minimalist .hero-name-large {
+  display: block !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: clamp(48px, 7vw, 96px) !important;
+  font-weight: 800 !important;
+  line-height: 0.9 !important;
+  letter-spacing: -0.05em !important;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  margin-bottom: 0.75rem !important;
+  white-space: nowrap !important;
+  animation: minimalistReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s backwards;
+}
+
+.hero-minimalist .hero-role {
+  display: block !important;
+  font-size: clamp(18px, 2.5vw, 28px) !important;
+  font-weight: 500 !important;
+  color: var(--text-secondary) !important;
+  letter-spacing: 0.02em !important;
+  margin-bottom: 0 !important;
+  animation: minimalistReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s backwards;
+}
+
+/* Hero Greeting - Minimalist */
+.hero-minimalist .hero-greeting {
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.03em;
+  margin: 0.5rem 0 2rem 0;
+  animation: minimalistReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.7s backwards;
+}
+
+/* Geometric Accent Line - Minimalist */
+.hero-minimalist .geometric-accent-line {
+  width: 60%;
+  max-width: 300px;
+  height: 3px;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+  opacity: 0.6;
+  border-radius: 2px;
+  margin: 2rem 0;
+  animation: drawLine 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s backwards;
+}
+
+@keyframes drawLine {
+  from {
+    width: 0%;
+    opacity: 0;
+  }
+  to {
+    width: 60%;
+    opacity: 0.6;
+  }
+}
+
+/* Minimalist Profile Image - In Sidebar */
+.hero-minimalist .hero-image-minimalist {
+  width: 100% !important;
+  max-width: 420px !important;
+  animation: minimalistReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
+}
+
+.hero-minimalist .hero-profile-minimalist {
+  width: 420px !important;
+  height: 420px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  border: 4px solid var(--accent-primary) !important;
+  box-shadow:
+    0 0 100px rgba(124, 156, 181, 0.5),
+    0 28px 56px rgba(15, 23, 42, 0.6) !important;
+  animation: gentleFloat 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Tech Stack Pills - Minimal */
+.hero-minimalist .tech-stack-pills-minimalist {
+  display: grid !important;
+  grid-template-columns: repeat(3, auto) !important;
+  gap: 0.75rem 1rem !important;
+  margin: 2rem 0 !important;
+  max-width: 100% !important;
+  justify-content: flex-start !important;
+  animation: minimalistReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s backwards;
+}
+
+.hero-minimalist .tech-pill-minimalist {
+  padding: 0.7rem 1.5rem !important;
+  background: rgba(148, 163, 184, 0.08) !important;
+  border: 1px solid rgba(148, 163, 184, 0.2) !important;
+  border-radius: 8px !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  color: var(--accent-secondary) !important;
+  transition: all 0.3s ease;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.hero-minimalist .tech-pill-minimalist:hover {
+  background: rgba(124, 156, 181, 0.15) !important;
+  border-color: var(--accent-primary) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(124, 156, 181, 0.2);
+}
+
+/* Hide tech pills by default - shown only on iPad Pro */
+.hero-minimalist .tech-stack-pills-minimalist.tech-stack-ipad-pro {
+  display: none !important;
+}
+
+/* Stats - Minimal (In Sidebar) - Horizontal Layout */
+.hero-minimalist .hero-stats-minimalist {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  margin: 0 !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  animation: minimalistReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.7s backwards;
+}
+
+.hero-minimalist .stat-minimalist {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.4rem !important;
+  flex: 0 1 auto !important;
+}
+
+.hero-minimalist .stat-number-minimalist {
+  font-size: 2.75rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  background: var(--accent-gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.hero-minimalist .stat-label-minimalist {
+  font-size: 0.825rem !important;
+  color: var(--text-muted) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  font-weight: 500 !important;
+}
+
+/* Dropdown and Codebox Spacing */
+.hero-minimalist .hero-dropdown-row {
+  margin: 2rem 0 1.5rem 0 !important;
+}
+
+.hero-minimalist .hero-codebox {
+  margin: 0 0 2.5rem 0 !important;
+  max-width: 550px !important;
+}
+
+/* Buttons - Minimal (In Sidebar) */
+.hero-minimalist .hero-actions-minimalist {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem !important;
+  width: 100% !important;
+  margin: 0 !important;
+  animation: minimalistReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.9s backwards;
+}
+
+.hero-minimalist .hero-actions-minimalist .anchor-link {
+  width: 100% !important;
+  display: block !important;
+}
+
+.hero-minimalist .btn-primary-minimalist {
+  background: var(--accent-gradient) !important;
+  color: var(--text-primary) !important;
+  padding: 1rem 2rem !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  border: 2px solid transparent !important;
+  box-shadow: 0 4px 16px rgba(124, 156, 181, 0.3) !important;
+  transition: all 0.3s ease;
+  width: 100% !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+.hero-minimalist .btn-primary-minimalist:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 24px rgba(124, 156, 181, 0.4) !important;
+}
+
+.hero-minimalist .btn-secondary-minimalist {
+  background: transparent !important;
+  color: var(--text-secondary) !important;
+  border: 2px solid rgba(148, 163, 184, 0.3) !important;
+  padding: calc(1rem - 2px) 2rem !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease;
+  width: 100% !important;
+  justify-content: center !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+}
+
+.hero-minimalist .btn-secondary-minimalist:hover {
+  border-color: var(--accent-primary) !important;
+  color: var(--text-primary) !important;
+  background: rgba(124, 156, 181, 0.1) !important;
+}
+
+/* Social Links Spacing */
+.hero-minimalist .hero-social {
+  margin-top: 2.5rem !important;
+}
+
+/* Animations */
+@keyframes minimalistReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive - Tablet */
+@media (max-width: 1023px) {
+  .hero-minimalist .hero-content-minimalist {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 3rem !important;
+  }
+
+  .hero-minimalist .hero-text-minimalist {
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+
+  .hero-minimalist .hero-sidebar-left {
+    position: relative !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 400px !important;
+    gap: 2.5rem !important;
+    order: 0 !important;
+  }
+
+  .hero-minimalist .hero-name-large {
+    font-size: clamp(48px, 10vw, 96px) !important;
+  }
+
+  .hero-minimalist .hero-image-minimalist {
+    width: 100% !important;
+    max-width: 280px !important;
+  }
+
+  .hero-minimalist .hero-profile-minimalist {
+    width: 280px !important;
+    height: 280px !important;
+  }
+
+  .hero-minimalist .tech-stack-pills-minimalist {
+    justify-content: center !important;
+    max-width: 100% !important;
+    grid-template-columns: repeat(2, auto) !important;
+  }
+
+  .hero-minimalist .hero-stats-minimalist {
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 2rem !important;
+  }
+
+  .hero-minimalist .hero-actions-minimalist {
+    flex-direction: row !important;
+    gap: 1rem !important;
+    max-width: 500px !important;
+  }
+
+  .hero-minimalist .btn-primary-minimalist {
+    width: auto !important;
+    flex: 1 !important;
+    padding: 1rem 2rem !important;
+    font-size: 1rem !important;
+    min-height: 52px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 6px 20px rgba(124, 156, 181, 0.35) !important;
+    box-sizing: border-box !important;
+    border: 2px solid transparent !important;
+  }
+
+  .hero-minimalist .btn-secondary-minimalist {
+    width: auto !important;
+    flex: 1 !important;
+    padding: 1rem 2rem !important;
+    font-size: 1rem !important;
+    min-height: 52px !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+    border: 2px solid rgba(148, 163, 184, 0.3) !important;
+  }
+
+  .hero-minimalist .geometric-accent-line {
+    margin: 2rem auto;
+  }
+
+  .hero-minimalist .hero-greeting {
+    text-align: center;
+    margin: 0.5rem 0 1.5rem 0;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 767px) {
+  .hero-minimalist .hero-name-large {
+    font-size: clamp(40px, 12vw, 64px) !important;
+    line-height: 1 !important;
+    white-space: normal !important;
+  }
+
+  .hero-minimalist .hero-role {
+    font-size: clamp(16px, 4vw, 20px) !important;
+  }
+
+  .hero-minimalist .hero-sidebar-left {
+    max-width: 100% !important;
+    gap: 2rem !important;
+    order: 0 !important;
+  }
+
+  .hero-minimalist .hero-image-minimalist {
+    width: 100% !important;
+    max-width: 200px !important;
+  }
+
+  .hero-minimalist .hero-profile-minimalist {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  .hero-minimalist .tech-stack-pills-minimalist {
+    grid-template-columns: repeat(2, auto) !important;
+    gap: 0.6rem 0.8rem !important;
+  }
+
+  .hero-minimalist .tech-pill-minimalist {
+    padding: 0.55rem 1.1rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  .hero-minimalist .hero-stats-minimalist {
+    flex-direction: row !important;
+    gap: 1.5rem !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .hero-minimalist .stat-number-minimalist {
+    font-size: 2rem !important;
+  }
+
+  .hero-minimalist .stat-label-minimalist {
+    font-size: 0.75rem !important;
+  }
+
+  .hero-minimalist .hero-actions-minimalist {
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 0 auto !important;
+    gap: 1rem !important;
+  }
+
+  .hero-minimalist .btn-primary-minimalist {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 1.1rem 2rem !important;
+    font-size: 1.05rem !important;
+    min-height: 54px !important;
+    font-weight: 600 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 6px 20px rgba(124, 156, 181, 0.35) !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-minimalist .btn-secondary-minimalist {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: calc(1.1rem - 2px) calc(2rem - 2px) !important;
+    font-size: 1.05rem !important;
+    min-height: 54px !important;
+    font-weight: 600 !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+    border: 2px solid rgba(148, 163, 184, 0.3) !important;
+  }
+
+  .hero-minimalist .btn-primary-minimalist i,
+  .hero-minimalist .btn-secondary-minimalist i {
+    font-size: 1.05rem !important;
+    margin-right: 0.5rem !important;
+  }
+
+  .hero-minimalist .geometric-accent-line {
+    max-width: 200px;
+  }
+
+  .hero-minimalist .hero-greeting {
+    font-size: clamp(14px, 3vw, 16px);
+    margin: 0.5rem 0 1.25rem 0;
+  }
+}
+
+/* iPhone SE & Small Phones (320px - 375px) */
+@media (max-width: 375px) {
+  .hero-minimalist .hero-name-large {
+    font-size: clamp(32px, 11vw, 48px) !important;
+    line-height: 1.1 !important;
+  }
+
+  .hero-minimalist .hero-role {
+    font-size: clamp(14px, 4.5vw, 18px) !important;
+  }
+
+  .hero-minimalist .hero-image-minimalist {
+    max-width: 160px !important;
+  }
+
+  .hero-minimalist .hero-profile-minimalist {
+    width: 160px !important;
+    height: 160px !important;
+  }
+
+  .hero-minimalist .hero-stats-minimalist {
+    flex-direction: row !important;
+    gap: 1rem !important;
+    justify-content: center !important;
+  }
+
+  .hero-minimalist .stat-number-minimalist {
+    font-size: 1.75rem !important;
+  }
+
+  .hero-minimalist .stat-label-minimalist {
+    font-size: 0.65rem !important;
+  }
+
+  .hero-minimalist .hero-actions-minimalist {
+    max-width: 260px !important;
+    gap: 0.875rem !important;
+  }
+
+  .hero-minimalist .btn-primary-minimalist {
+    padding: 1rem 1.75rem !important;
+    font-size: 1rem !important;
+    min-height: 50px !important;
+    font-weight: 600 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 5px 18px rgba(124, 156, 181, 0.3) !important;
+    box-sizing: border-box !important;
+    border: 2px solid transparent !important;
+  }
+
+  .hero-minimalist .btn-secondary-minimalist {
+    padding: 1rem 1.75rem !important;
+    font-size: 1rem !important;
+    min-height: 50px !important;
+    font-weight: 600 !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+    border: 2px solid rgba(148, 163, 184, 0.3) !important;
+  }
+
+  .hero-minimalist .btn-primary-minimalist i,
+  .hero-minimalist .btn-secondary-minimalist i {
+    font-size: 1rem !important;
+    margin-right: 0.5rem !important;
+  }
+
+  .hero-minimalist .hero-codebox {
+    max-width: 100% !important;
+    min-width: 100% !important;
+  }
+
+  .hero-minimalist .hero-greeting {
+    font-size: clamp(13px, 3.5vw, 15px);
+  }
+
+  .hero-minimalist .geometric-accent-line {
+    max-width: 150px;
+  }
+}
+
+/* Standard iPhones (376px - 428px) */
+@media (min-width: 376px) and (max-width: 428px) {
+  .hero-minimalist .hero-name-large {
+    font-size: clamp(36px, 10vw, 52px) !important;
+  }
+
+  .hero-minimalist .hero-role {
+    font-size: clamp(15px, 4vw, 19px) !important;
+  }
+
+  .hero-minimalist .hero-image-minimalist {
+    max-width: 180px !important;
+  }
+
+  .hero-minimalist .hero-profile-minimalist {
+    width: 180px !important;
+    height: 180px !important;
+  }
+
+  .hero-minimalist .stat-number-minimalist {
+    font-size: 1.875rem !important;
+  }
+
+  .hero-minimalist .stat-label-minimalist {
+    font-size: 0.7rem !important;
+  }
+
+  .hero-minimalist .hero-actions-minimalist {
+    max-width: 280px !important;
+    gap: 1rem !important;
+  }
+
+  .hero-minimalist .btn-primary-minimalist {
+    padding: 1.1rem 2rem !important;
+    font-size: 1.05rem !important;
+    min-height: 54px !important;
+    width: 100% !important;
+    font-weight: 600 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 6px 20px rgba(124, 156, 181, 0.35) !important;
+    box-sizing: border-box !important;
+    border: 2px solid transparent !important;
+  }
+
+  .hero-minimalist .btn-secondary-minimalist {
+    padding: 1.1rem 2rem !important;
+    font-size: 1.05rem !important;
+    min-height: 54px !important;
+    width: 100% !important;
+    font-weight: 600 !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+    border: 2px solid rgba(148, 163, 184, 0.3) !important;
+  }
+
+  .hero-minimalist .btn-primary-minimalist i,
+  .hero-minimalist .btn-secondary-minimalist i {
+    font-size: 1.05rem !important;
+    margin-right: 0.5rem !important;
+  }
+}
+
+/* iPad Portrait (768px - 834px) */
+@media (min-width: 768px) and (max-width: 834px) and (orientation: portrait) {
+  .hero-minimalist .hero-content-minimalist {
+    gap: 3.5rem !important;
+  }
+
+  .hero-minimalist .hero-name-large {
+    font-size: clamp(56px, 8vw, 80px) !important;
+  }
+
+  .hero-minimalist .hero-role {
+    font-size: clamp(18px, 3vw, 24px) !important;
+  }
+
+  .hero-minimalist .hero-image-minimalist {
+    max-width: 240px !important;
+  }
+
+  .hero-minimalist .hero-profile-minimalist {
+    width: 240px !important;
+    height: 240px !important;
+  }
+
+  .hero-minimalist .hero-sidebar-left {
+    max-width: 450px !important;
+  }
+
+  .hero-minimalist .hero-stats-minimalist {
+    gap: 2.5rem !important;
+  }
+
+  .hero-minimalist .btn-primary-minimalist {
+    padding: 1.1rem 2.25rem !important;
+    font-size: 1.05rem !important;
+    min-height: 54px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 6px 22px rgba(124, 156, 181, 0.35) !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-minimalist .btn-secondary-minimalist {
+    padding: calc(1.1rem - 2px) calc(2.25rem - 2px) !important;
+    font-size: 1.05rem !important;
+    min-height: 54px !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+    border: 2px solid rgba(148, 163, 184, 0.3) !important;
+  }
+
+  .hero-minimalist .hero-codebox {
+    max-width: 500px !important;
+  }
+}
+
+/* iPad Landscape (1024px - 1194px) */
+@media (min-width: 1024px) and (max-width: 1194px) and (orientation: landscape) {
+  .hero-minimalist .hero-content-minimalist {
+    gap: 3rem !important;
+  }
+
+  .hero-minimalist .hero-name-large {
+    font-size: clamp(52px, 7vw, 84px) !important;
+  }
+
+  .hero-minimalist .hero-sidebar-left {
+    max-width: 380px !important;
+  }
+
+  .hero-minimalist .hero-image-minimalist {
+    max-width: 220px !important;
+  }
+
+  .hero-minimalist .hero-profile-minimalist {
+    width: 220px !important;
+    height: 220px !important;
+  }
+
+  .hero-minimalist .btn-primary-minimalist {
+    padding: 1rem 2rem !important;
+    font-size: 1rem !important;
+    min-height: 52px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 6px 20px rgba(124, 156, 181, 0.35) !important;
+    box-sizing: border-box !important;
+    border: 2px solid transparent !important;
+  }
+
+  .hero-minimalist .btn-secondary-minimalist {
+    padding: 1rem 2rem !important;
+    font-size: 1rem !important;
+    min-height: 52px !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+    border: 2px solid rgba(148, 163, 184, 0.3) !important;
+  }
+}
+
+/* iPad Pro Portrait (1024px+) */
+@media (min-width: 834px) and (max-width: 1025px) and (orientation: portrait) {
+  .hero-minimalist .hero-content-minimalist {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 4rem !important;
+    justify-content: space-between !important;
+    padding: 0 3rem 0 2rem !important;
+  }
+
+  .hero-minimalist .hero-text-minimalist {
+    max-width: 48% !important;
+    text-align: left !important;
+    order: 0 !important;
+    padding-top: 4rem !important;
+  }
+
+  .hero-minimalist .hero-sidebar-left {
+    max-width: 360px !important;
+    width: 100% !important;
+    order: 1 !important;
+    flex-shrink: 0 !important;
+    align-items: center !important;
+    gap: 2rem !important;
+  }
+
+  .hero-minimalist .hero-greeting {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.75rem !important;
+    margin-top: 0 !important;
+  }
+
+  .hero-minimalist .hero-name-large {
+    font-size: clamp(48px, 5.5vw, 64px) !important;
+    line-height: 1.15 !important;
+    margin-bottom: 1rem !important;
+    margin-top: 0 !important;
+  }
+
+  .hero-minimalist .hero-role {
+    font-size: 1.15rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .hero-minimalist .hero-image-minimalist {
+    max-width: 240px !important;
+    margin-top: 0 !important;
+  }
+
+  .hero-minimalist .hero-profile-minimalist {
+    width: 240px !important;
+    height: 240px !important;
+  }
+
+  .hero-minimalist .hero-codebox {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .hero-minimalist .btn-primary-minimalist {
+    padding: 1.05rem 2rem !important;
+    font-size: 1.05rem !important;
+    min-height: 52px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 6px 20px rgba(124, 156, 181, 0.35) !important;
+    box-sizing: border-box !important;
+    border: 2px solid transparent !important;
+  }
+
+  .hero-minimalist .btn-secondary-minimalist {
+    padding: 1.05rem 2rem !important;
+    font-size: 1.05rem !important;
+    min-height: 52px !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+    border: 2px solid rgba(148, 163, 184, 0.3) !important;
+  }
+
+  .hero-minimalist .hero-stats-minimalist {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 1.5rem !important;
+    margin: 2rem 0 !important;
+    justify-content: center !important;
+  }
+
+  .hero-minimalist .stat-number-minimalist {
+    font-size: 1.85rem !important;
+  }
+
+  .hero-minimalist .stat-label-minimalist {
+    font-size: 0.75rem !important;
+  }
+
+  .hero-minimalist .hero-actions-minimalist {
+    max-width: 100% !important;
+    gap: 1rem !important;
+  }
+
+  .hero-minimalist .hero-greeting {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* Show tech pills on iPad Pro */
+  .hero-minimalist .tech-stack-pills-minimalist.tech-stack-ipad-pro {
+    display: grid !important;
+    grid-template-columns: repeat(3, auto) !important;
+    gap: 0.75rem 1rem !important;
+    margin: 1.5rem 0 0 0 !important;
+    max-width: 100% !important;
+    justify-content: flex-start !important;
+  }
+
+  .hero-minimalist .tech-pill-minimalist {
+    padding: 0.6rem 1.2rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* Center scroll indicator accounting for unequal padding */
+  .scroll-indicator {
+    left: calc(50% + 1rem) !important;
+    transform: translateX(-50%) !important;
+    bottom: var(--spacing-2xl) !important;
+  }
+}
+
+/* Landscape Mode Adjustments for All Phones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-minimalist .hero-content-minimalist {
+    gap: 2rem !important;
+  }
+
+  .hero-minimalist .hero-sidebar-left {
+    gap: 1.5rem !important;
+  }
+
+  .hero-minimalist .hero-image-minimalist {
+    max-width: 140px !important;
+  }
+
+  .hero-minimalist .hero-profile-minimalist {
+    width: 140px !important;
+    height: 140px !important;
+  }
+
+  .hero-minimalist .hero-stats-minimalist {
+    flex-direction: row !important;
+    gap: 1.25rem !important;
+  }
+
+  .hero-minimalist .stat-number-minimalist {
+    font-size: 1.5rem !important;
+  }
+
+  .hero-minimalist .stat-label-minimalist {
+    font-size: 0.65rem !important;
+  }
+
+  .hero-minimalist .hero-actions-minimalist {
+    flex-direction: row !important;
+    gap: 0.875rem !important;
+    max-width: 450px !important;
+  }
+
+  .hero-minimalist .btn-primary-minimalist {
+    padding: 0.85rem 1.5rem !important;
+    font-size: 0.9rem !important;
+    min-height: 46px !important;
+    flex: 1 !important;
+    font-weight: 600 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 16px rgba(124, 156, 181, 0.3) !important;
+    box-sizing: border-box !important;
+    border: 2px solid transparent !important;
+  }
+
+  .hero-minimalist .btn-secondary-minimalist {
+    padding: 0.85rem 1.5rem !important;
+    font-size: 0.9rem !important;
+    min-height: 46px !important;
+    flex: 1 !important;
+    font-weight: 600 !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+    border: 2px solid rgba(148, 163, 184, 0.3) !important;
+  }
+
+  .hero-minimalist .btn-primary-minimalist i,
+  .hero-minimalist .btn-secondary-minimalist i {
+    font-size: 0.9rem !important;
+    margin-right: 0.45rem !important;
+  }
+
+  .hero-minimalist .hero-name-large {
+    font-size: clamp(28px, 8vw, 42px) !important;
+  }
+
+  .hero-minimalist .hero-role {
+    font-size: clamp(13px, 3vw, 16px) !important;
+  }
 }

@@ -67,16 +67,27 @@ const Hero = () => {
   const [typedHtml, setTypedHtml] = useState("");
   const [isTyping, setIsTyping] = useState(true);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const typingTimeout = useRef();
   const switchTimeout = useRef();
   const dropdownRef = useRef();
   const heroRef = useRef(null);
-  // Parallax for profile image
+
+  // Parallax for profile image (reduced intensity)
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 30]);
+
+  // Gradient mesh following cursor
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   // Typing animation effect
   useEffect(() => {
@@ -145,33 +156,112 @@ const Hero = () => {
   }, [dropdownOpen]);
 
   return (
-    <section id="home" className="hero section" ref={heroRef}>
-      {/* Background Particles */}
+    <section id="home" className="hero hero-minimalist section" ref={heroRef}>
+      {/* Gradient Mesh Background */}
+      <div
+        className="gradient-mesh"
+        style={{
+          background: `radial-gradient(600px at ${mousePos.x}px ${mousePos.y}px, rgba(124, 156, 181, 0.15), transparent 80%)`,
+        }}
+      />
+
+      {/* Minimal Background Particles */}
       <div className="particles">
         <div className="particle particle-1"></div>
         <div className="particle particle-2"></div>
-        <div className="particle particle-3"></div>
-        <div className="particle particle-4"></div>
-        <div className="particle particle-5"></div>
-        <div className="particle particle-6"></div>
       </div>
 
       <div className="container">
-        <div className="hero-content">
-          {/* Left Column - Text Content */}
-          <div className="hero-text">
-            {/* <div className="hero-badge">
-              <span className="badge-icon">👋</span>
-              <span>Welcome to my portfolio</span>
-            </div> */}
+        <div className="hero-content hero-content-minimalist">
+          {/* Right Sidebar - Profile, Stats, Actions */}
+          <div className="hero-sidebar-left">
+            {/* Profile Image */}
+            <div className="hero-image-minimalist">
+              <motion.img
+                src={profile_img}
+                alt="Priyam Shah"
+                className="hero-profile-minimalist"
+                style={{ y }}
+                loading="eager"
+              />
+            </div>
 
-            <h1 className="hero-title">
-              Hi, I&apos;m <span className="gradient-text">Priyam Shah</span>
-              <br />
-              <span className="hero-subtitle">
-                Full-Stack Engineer | AI Researcher
+            {/* Stats */}
+            <div className="hero-stats hero-stats-minimalist">
+              <div className="stat stat-minimalist">
+                <span className="stat-number stat-number-minimalist">2+</span>
+                <span className="stat-label stat-label-minimalist">
+                  Years Exp
+                </span>
+              </div>
+              <div className="stat stat-minimalist">
+                <span className="stat-number stat-number-minimalist">10+</span>
+                <span className="stat-label stat-label-minimalist">
+                  Projects
+                </span>
+              </div>
+              <div className="stat stat-minimalist">
+                <span className="stat-number stat-number-minimalist">15+</span>
+                <span className="stat-label stat-label-minimalist">
+                  Technologies
+                </span>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="hero-actions hero-actions-minimalist">
+              <AnchorLink className="anchor-link" offset={80} href="#contact">
+                <button className="btn btn-primary btn-primary-minimalist">
+                  <i className="fas fa-paper-plane"></i>
+                  Get In Touch
+                </button>
+              </AnchorLink>
+
+              <a
+                href="https://drive.google.com/file/d/1rc-0tW_EeqmwNEf0ufJD3-PA24rawR2R/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary btn-secondary-minimalist"
+              >
+                <i className="fas fa-download"></i>
+                Download Resume
+              </a>
+            </div>
+          </div>
+
+          {/* Main Left Content */}
+          <div className="hero-text hero-text-minimalist">
+            {/* Bold Typography Hero */}
+            <h1 className="hero-title-minimalist">
+              <span className="hero-name-large">PRIYAM SHAH</span>
+              <span className="hero-role">
+                Full-Stack Engineer & AI Researcher
               </span>
             </h1>
+
+            {/* Geometric Accent Line */}
+            <div className="geometric-accent-line"></div>
+
+            {/* Greeting Message */}
+            <p className="hero-greeting">
+              Let&apos;s build something extraordinary!
+            </p>
+
+            {/* Technology Pills - iPad Pro Only */}
+            <div className="tech-stack-pills-minimalist tech-stack-ipad-pro">
+              <span className="tech-pill-minimalist">React</span>
+              <span className="tech-pill-minimalist">Node.js</span>
+              <span className="tech-pill-minimalist">TypeScript</span>
+              <span className="tech-pill-minimalist">Python</span>
+              <span className="tech-pill-minimalist">LangChain</span>
+              <span className="tech-pill-minimalist">FastAPI</span>
+              <span className="tech-pill-minimalist">MongoDB</span>
+              <span className="tech-pill-minimalist">PostgreSQL</span>
+              <span className="tech-pill-minimalist">Terraform</span>
+              <span className="tech-pill-minimalist">Docker</span>
+              <span className="tech-pill-minimalist">AWS</span>
+              <span className="tech-pill-minimalist">Git</span>
+            </div>
 
             {/* Custom Dropdown for Language Selection */}
             <div className="hero-dropdown-row" ref={dropdownRef}>
@@ -234,40 +324,6 @@ const Hero = () => {
               </pre>
             </div>
 
-            <div className="hero-stats">
-              <div className="stat">
-                <span className="stat-number">2+</span>
-                <span className="stat-label">Years Experience</span>
-              </div>
-              <div className="stat">
-                <span className="stat-number">10+</span>
-                <span className="stat-label">Projects Completed</span>
-              </div>
-              <div className="stat">
-                <span className="stat-number">3+</span>
-                <span className="stat-label">Technologies</span>
-              </div>
-            </div>
-
-            <div className="hero-actions">
-              <AnchorLink className="anchor-link" offset={80} href="#contact">
-                <button className="btn btn-primary">
-                  <i className="fas fa-paper-plane"></i>
-                  Get In Touch
-                </button>
-              </AnchorLink>
-
-              <a
-                href="https://drive.google.com/file/d/1rc-0tW_EeqmwNEf0ufJD3-PA24rawR2R/view?usp=drive_link"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-secondary"
-              >
-                <i className="fas fa-download"></i>
-                Download Resume
-              </a>
-            </div>
-
             <div className="hero-social">
               <span className="social-label">Follow me on:</span>
               <div className="social-links">
@@ -297,87 +353,6 @@ const Hero = () => {
                   <i className="fas fa-envelope"></i>
                 </a>
               </div>
-            </div>
-          </div>
-
-          {/* Right Column - Profile Image */}
-          <div className="hero-image">
-            <div className="image-container">
-              {/* Parallax Profile Image */}
-              <motion.img
-                src={profile_img}
-                alt="Profile"
-                className="hero-profile-img"
-                style={{ y }}
-                loading="eager"
-                width={320}
-                height={320}
-                role="img"
-                aria-label="Priyam Shah profile image"
-                transition={{ type: "spring", stiffness: 80, damping: 20 }}
-              />
-              <div className="image-background"></div>
-
-              {/* Floating Tech Cards */}
-              <div className="floating-card card-1">
-                <i className="fab fa-python"></i>
-                <span>Python</span>
-              </div>
-              <div className="floating-card card-2">
-                <i className="fas fa-bolt-lightning"></i>
-                <span>FastAPI</span>
-              </div>
-              <div className="floating-card card-3">
-                <i className="fas fa-brain"></i>
-                <span>Ollama</span>
-              </div>
-              <div className="floating-card card-4">
-                <i className="fas fa-chain"></i>
-                <span>Langchain</span>
-              </div>
-              <div className="floating-card card-5">
-                <i className="fab fa-docker"></i>
-                <span>Docker</span>
-              </div>
-              <div className="floating-card card-6">
-                <i className="fab fa-js"></i>
-                <span>React.js</span>
-              </div>
-              <div className="floating-card card-7">
-                <i className="fab fa-js"></i>
-                <span>Next.js</span>
-              </div>
-              <div className="floating-card card-8">
-                <i className="fas fa-server"></i>
-                <span>Node.js</span>
-              </div>
-              <div className="floating-card card-9">
-                <i className="fas fa-database"></i>
-                <span>MongoDB</span>
-              </div>
-
-              {/* Additional Floating Elements */}
-              <div className="floating-card card-10">
-                <i className="fab fa-js"></i>
-                <span>Express</span>
-              </div>
-              <div className="floating-card card-11">
-                <i className="fab fa-css3-alt"></i>
-                <span>CSS3</span>
-              </div>
-              <div className="floating-card card-12">
-                <i className="fab fa-html5"></i>
-                <span>HTML5</span>
-              </div>
-
-              {/* Animated Rings */}
-              <div className="animated-ring ring-1"></div>
-              <div className="animated-ring ring-2"></div>
-              <div className="animated-ring ring-3"></div>
-
-              {/* Glow Effects */}
-              <div className="glow-effect glow-1"></div>
-              <div className="glow-effect glow-2"></div>
             </div>
           </div>
         </div>

@@ -124,16 +124,23 @@
 
 .about-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-4xl);
+    grid-template-columns: 1fr 1.5fr;
+    gap: 10rem;
     align-items: center;
+    margin-top: 6rem;
     margin-bottom: var(--spacing-4xl);
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 var(--spacing-3xl);
 }
 
 /* About Image */
 .about-image {
     position: relative;
     will-change: transform;
+    display: flex;
+    justify-content: center;
 }
 
 .image-wrapper {
@@ -280,6 +287,7 @@
     flex-direction: column;
     gap: var(--spacing-2xl);
     will-change: transform;
+    max-width: 800px;
 }
 
 .about-intro h3 {
@@ -494,7 +502,7 @@
 /* Large Desktop */
 @media (min-width: 1400px) {
     .about-content {
-        gap: var(--spacing-4xl);
+        gap: 10rem;
     }
 
     .image-wrapper img {
@@ -824,11 +832,6 @@
 }
 
 /* --- Timeline for Professional Experience --- */
-.about-experience-timeline {
-    margin-top: var(--spacing-6xl);
-    margin-bottom: var(--spacing-6xl);
-}
-
 /* .timeline {
     position: relative;
     margin: 2rem 0 0 0;
@@ -969,7 +972,7 @@
 }
 
 .about-experience-timeline {
-    margin-top: var(--spacing-7xl);
+    margin-top: 8rem;
     margin-bottom: var(--spacing-6xl);
 }
 
@@ -1052,5 +1055,50 @@
         min-width: 90px;
         margin-left: 0;
         margin-right: 0;
+    }
+}
+
+/* iPad Pro Portrait - Force 5-5-4 layout */
+@media (min-width: 834px) and (max-width: 1025px) and (orientation: portrait) {
+    .about-skills {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        max-width: 678px;
+        margin: 0 auto;
+    }
+
+    .about-skills h3 {
+        text-align: center;
+        margin-bottom: 2rem;
+        width: 100%;
+        order: -1;
+    }
+
+    /* Make row divs transparent - items become siblings */
+    .circular-skills-row {
+        display: contents;
+    }
+
+    /* All skills with fixed width to force 5 per row (678px / 110px with gaps) */
+    .circular-skill {
+        width: 110px;
+        flex-shrink: 0;
+        flex-grow: 0;
+    }
+
+    .circular-progress {
+        width: 90px;
+        height: 90px;
+    }
+
+    .circular-label {
+        font-size: 0.95rem;
+    }
+
+    /* Increase spacing before Publications section */
+    .about-experience-timeline {
+        margin-top: 8rem;
     }
 }

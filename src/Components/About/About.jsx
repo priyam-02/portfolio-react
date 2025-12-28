@@ -148,7 +148,7 @@ const About = () => {
               percentage={95}
               skill="Python"
               icon="fab fa-python"
-            />{" "}
+            />
             <CircularProgressBar
               percentage={88}
               skill="FastAPI"
