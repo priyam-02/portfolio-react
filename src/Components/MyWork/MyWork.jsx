@@ -12,7 +12,7 @@ const MyWork = () => {
   };
 
   const handleShowLess = () => {
-    setVisibleProjects(6);
+    setVisibleProjects(9);
     setIsExpanded(false);
   };
 

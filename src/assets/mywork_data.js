@@ -1,16 +1,14 @@
 import Vital_Tech from "../assets/Vital_Tech.svg";
 import Planet_Escape from "../assets/Planet_Escape.svg";
-import Music_Web from "../assets/Music_Web1.svg";
 import VentureOut from "../assets/Outdoor.svg";
 import Quickbite from "../assets/Quickbite.svg";
-import Quiz_Maker from "../assets/Quiz_Maker.svg";
 import Weatherly from "../assets/Weatherly.svg";
 import Temple from "../assets/Temple.svg";
 import LLMChat from "../assets/LLMChat.svg";
 import pdf from "../assets/pdf.svg";
 import ClusterNews from "../assets/ClusterNews.png";
 import Polyglot from "../assets/Polyglot.png";
-import Testeval from "../assets/Testeval.png";
+import Testeval from "../assets/Testeval.svg";
 import Don_Peppe from "../assets/Don_Peppe.svg";
 
 const mywork_data = [
@@ -90,6 +88,14 @@ const mywork_data = [
     w_link: "https://github.com/priyam-02/DocSnap",
   },
   {
+    w_no: 5,
+    w_name: "Weatherly",
+    w_img: Weatherly,
+    w_desc: "Weather forecasting tool, with global weather at your fingertips.",
+    w_tags: ["React", "CSS", "GeoDB / OpenWeather API"],
+    w_link: "https://weatherly-ruby.vercel.app/",
+  },
+  {
     w_no: 4,
     w_name: "Quickbite",
     w_img: Quickbite,
@@ -125,14 +131,7 @@ const mywork_data = [
     w_tags: ["HTML/JS/CSS", "Django (Python)", "MySQL"],
     w_link: "https://github.com/priyam-02/DonPeppe",
   },
-  {
-    w_no: 5,
-    w_name: "Weatherly",
-    w_img: Weatherly,
-    w_desc: "Weather forecasting tool, with global weather at your fingertips.",
-    w_tags: ["React", "CSS", "GeoDB / OpenWeather API"],
-    w_link: "https://weatherly-ruby.vercel.app/",
-  },
+
   {
     w_no: 6,
     w_name: "Planet Escape",
@@ -152,23 +151,6 @@ const mywork_data = [
     w_tags: ["GameMaker", "GML"],
     w_link: "https://github.com/priyam-02/Temple_of_Vormir",
     w_live: "https://gx.games/games/5y9vbu/temple-of-vormir/",
-  },
-  {
-    w_no: 8,
-    w_name: "QuizMaker",
-    w_img: Quiz_Maker,
-    w_desc: "Create, attempt, and track quiz progress along with results.",
-    w_tags: ["Flutter", "Dart", "Firebase"],
-    w_link: "https://github.com/priyam-02/QuizMaker",
-  },
-  {
-    w_no: 9,
-    w_name: "MusicPulse",
-    w_img: Music_Web,
-    w_desc:
-      "Web based app for listening, playlist creation, and music control.",
-    w_tags: ["HTML/JS/CSS"],
-    w_link: "https://github.com/priyam-02/MusicPulse",
   },
 ];
 
