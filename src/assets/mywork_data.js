@@ -131,7 +131,7 @@ const mywork_data = [
     w_img: Weatherly,
     w_desc: "Weather forecasting tool, with global weather at your fingertips.",
     w_tags: ["React", "CSS", "GeoDB / OpenWeather API"],
-    w_link: "https://github.com/priyam-02/weatherly",
+    w_link: "https://weatherly-ruby.vercel.app/",
   },
   {
     w_no: 6,
