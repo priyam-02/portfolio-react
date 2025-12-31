@@ -1856,7 +1856,9 @@
 
 .hero-minimalist .hero-actions-minimalist .anchor-link {
   width: 100% !important;
-  display: block !important;
+  display: flex !important;
+  flex: 1 !important;
+  text-decoration: none !important;
 }
 
 .hero-minimalist .btn-primary-minimalist {
@@ -1882,7 +1884,7 @@
   background: transparent !important;
   color: var(--text-secondary) !important;
   border: 2px solid rgba(148, 163, 184, 0.3) !important;
-  padding: calc(1rem - 2px) 2rem !important;
+  padding: calc(1rem - 2px) calc(2rem - 2px) !important;
   border-radius: 10px !important;
   font-weight: 600 !important;
   transition: all 0.3s ease;
@@ -1964,14 +1966,19 @@
   }
 
   .hero-minimalist .hero-actions-minimalist {
-    flex-direction: row !important;
+    flex-direction: column !important;
     gap: 1rem !important;
-    max-width: 500px !important;
+    max-width: 280px !important;
+  }
+
+  .hero-minimalist .hero-actions-minimalist .anchor-link {
+    width: 100% !important;
+    display: flex !important;
+    text-decoration: none !important;
   }
 
   .hero-minimalist .btn-primary-minimalist {
-    width: auto !important;
-    flex: 1 !important;
+    width: 100% !important;
     padding: 1rem 2rem !important;
     font-size: 1rem !important;
     min-height: 52px !important;
@@ -1981,9 +1988,8 @@
   }
 
   .hero-minimalist .btn-secondary-minimalist {
-    width: auto !important;
-    flex: 1 !important;
-    padding: 1rem 2rem !important;
+    width: 100% !important;
+    padding: calc(1rem - 2px) calc(2rem - 2px) !important;
     font-size: 1rem !important;
     min-height: 52px !important;
     border-radius: 12px !important;
@@ -2152,7 +2158,7 @@
   }
 
   .hero-minimalist .btn-secondary-minimalist {
-    padding: 1rem 1.75rem !important;
+    padding: calc(1rem - 2px) calc(1.75rem - 2px) !important;
     font-size: 1rem !important;
     min-height: 50px !important;
     font-weight: 600 !important;
@@ -2225,7 +2231,7 @@
   }
 
   .hero-minimalist .btn-secondary-minimalist {
-    padding: 1.1rem 2rem !important;
+    padding: calc(1.1rem - 2px) calc(2rem - 2px) !important;
     font-size: 1.05rem !important;
     min-height: 54px !important;
     width: 100% !important;
@@ -2358,7 +2364,7 @@
   }
 
   .hero-minimalist .btn-secondary-minimalist {
-    padding: 1rem 2rem !important;
+    padding: calc(1rem - 2px) calc(2rem - 2px) !important;
     font-size: 1rem !important;
     min-height: 52px !important;
     border-radius: 12px !important;
@@ -2454,7 +2460,7 @@
   }
 
   .hero-minimalist .btn-secondary-minimalist {
-    padding: 1rem 2rem !important;
+    padding: calc(1rem - 2px) calc(2rem - 2px) !important;
     font-size: 1rem !important;
     min-height: 52px !important;
     border-radius: 12px !important;
@@ -2515,9 +2521,15 @@
   }
 
   .hero-minimalist .hero-actions-minimalist {
-    flex-direction: row !important;
+    flex-direction: column !important;
     gap: 1rem !important;
-    max-width: 500px !important;
+    max-width: 280px !important;
+  }
+
+  .hero-minimalist .hero-actions-minimalist .anchor-link {
+    width: 100% !important;
+    display: flex !important;
+    text-decoration: none !important;
   }
 
   .hero-minimalist .btn-primary-minimalist {
@@ -2527,7 +2539,6 @@
     border-radius: 12px !important;
     box-shadow: 0 6px 22px rgba(124, 156, 181, 0.35) !important;
     box-sizing: border-box !important;
-    max-width: 280px !important;
     width: 100% !important;
   }
 
@@ -2593,28 +2604,33 @@
   }
 
   .hero-minimalist .hero-actions-minimalist {
-    flex-direction: row !important;
+    flex-direction: column !important;
     gap: 0.875rem !important;
-    max-width: 450px !important;
+    max-width: 280px !important;
+  }
+
+  .hero-minimalist .hero-actions-minimalist .anchor-link {
+    width: 100% !important;
+    display: flex !important;
+    text-decoration: none !important;
   }
 
   .hero-minimalist .btn-primary-minimalist {
     padding: 0.85rem 1.5rem !important;
     font-size: 0.9rem !important;
     min-height: 46px !important;
-    flex: 1 !important;
+    width: 100% !important;
     font-weight: 600 !important;
     border-radius: 12px !important;
     box-shadow: 0 4px 16px rgba(124, 156, 181, 0.3) !important;
     box-sizing: border-box !important;
-    border: 2px solid transparent !important;
   }
 
   .hero-minimalist .btn-secondary-minimalist {
-    padding: 0.85rem 1.5rem !important;
+    padding: calc(0.85rem - 2px) calc(1.5rem - 2px) !important;
     font-size: 0.9rem !important;
     min-height: 46px !important;
-    flex: 1 !important;
+    width: 100% !important;
     font-weight: 600 !important;
     border-radius: 12px !important;
     box-sizing: border-box !important;
