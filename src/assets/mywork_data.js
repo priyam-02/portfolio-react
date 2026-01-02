@@ -85,7 +85,7 @@ const mywork_data = [
       "pdfplumber",
       "facebook/bart-large-cnn",
     ],
-    w_link: "https://github.com/priyam-02/DocSnap",
+    w_link: "https://docsnap-black.vercel.app/",
   },
   {
     w_no: 5,
