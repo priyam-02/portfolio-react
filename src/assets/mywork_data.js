@@ -76,12 +76,13 @@ const mywork_data = [
     w_name: "DocSnap",
     w_img: pdf,
     w_desc:
-      "A Streamlit app that summarizes uploaded PDFs using BART, with customizable length and tone controls.",
+      "A FastAPI + React app that summarizes uploaded PDFs using BART, with customizable length and tone controls.",
     w_tags: [
       "Python",
-      "Streamlit",
-      "Transformers",
-      "PyTorch",
+      "FastAPI",
+      "React",
+      "TypeScript",
+      "Hugging Face Inference API",
       "pdfplumber",
       "facebook/bart-large-cnn",
     ],
