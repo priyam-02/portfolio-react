@@ -2,7 +2,9 @@ import "./Hero.css";
 import profile_img from "../../assets/profile_img4.svg";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "motion/react";
+import { useReducedMotion } from "../../hooks/useReducedMotion";
+import { springs } from "../../utils/scrollAnimations";
 
 const codeSnippets = [
   {
@@ -73,12 +75,62 @@ const Hero = () => {
   const dropdownRef = useRef();
   const heroRef = useRef(null);
 
+  const reducedMotion = useReducedMotion();
+
   // Parallax for profile image (reduced intensity)
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
   });
   const y = useTransform(scrollYProgress, [0, 1], [0, 30]);
+
+  // Scroll-linked fade and scale for entire hero
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.7]);
+  const heroScale = useTransform(scrollYProgress, [0, 0.3], [1, 0.98]);
+  const smoothOpacity = useSpring(heroOpacity, springs.breath);
+  const smoothScale = useSpring(heroScale, springs.breath);
+
+  // Animation variants for orchestrated entrance
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.08, delayChildren: 0.3 }
+    }
+  };
+
+  const magneticVariants = {
+    hidden: { scale: 0.8, opacity: 0, filter: 'blur(20px)' },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      filter: 'blur(0px)',
+      transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
+    }
+  };
+
+  const slideVariants = {
+    hidden: { x: -100, opacity: 0 },
+    visible: (i) => ({
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }
+    })
+  };
+
+  const floatVariants = {
+    hidden: { y: 40, opacity: 0, rotateZ: -3 },
+    visible: (i) => ({
+      y: 0,
+      opacity: 1,
+      rotateZ: 0,
+      transition: {
+        duration: 0.9,
+        delay: 0.6 + i * 0.05,
+        ease: [0.34, 1.56, 0.64, 1]
+      }
+    })
+  };
 
   // Gradient mesh following cursor
   useEffect(() => {
@@ -156,7 +208,15 @@ const Hero = () => {
   }, [dropdownOpen]);
 
   return (
-    <section id="home" className="hero hero-minimalist section" ref={heroRef}>
+    <motion.section
+      id="home"
+      className="hero hero-minimalist section"
+      ref={heroRef}
+      style={{
+        opacity: reducedMotion ? 1 : smoothOpacity,
+        scale: reducedMotion ? 1 : smoothScale
+      }}
+    >
       {/* Gradient Mesh Background */}
       <div
         className="gradient-mesh"
@@ -171,10 +231,23 @@ const Hero = () => {
         <div className="particle particle-2"></div>
       </div>
 
-      <div className="container">
+      <motion.div
+        className="container"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <div className="hero-content hero-content-minimalist">
           {/* Right Sidebar - Profile, Stats, Actions */}
-          <div className="hero-sidebar-left">
+          <motion.div
+            className="hero-sidebar-left"
+            variants={magneticVariants}
+            whileHover={{
+              scale: 1.02,
+              rotateZ: 1,
+              transition: { duration: 0.3 }
+            }}
+          >
             {/* Profile Image */}
             <div className="hero-image-minimalist">
               <motion.img
@@ -188,79 +261,108 @@ const Hero = () => {
 
             {/* Stats */}
             <div className="hero-stats hero-stats-minimalist">
-              <div className="stat stat-minimalist">
-                <span className="stat-number stat-number-minimalist">2+</span>
-                <span className="stat-label stat-label-minimalist">
-                  Years Exp
-                </span>
-              </div>
-              <div className="stat stat-minimalist">
-                <span className="stat-number stat-number-minimalist">10+</span>
-                <span className="stat-label stat-label-minimalist">
-                  Projects
-                </span>
-              </div>
-              <div className="stat stat-minimalist">
-                <span className="stat-number stat-number-minimalist">15+</span>
-                <span className="stat-label stat-label-minimalist">
-                  Technologies
-                </span>
-              </div>
+              {[
+                { number: '2+', label: 'Years Exp' },
+                { number: '10+', label: 'Projects' },
+                { number: '15+', label: 'Technologies' }
+              ].map((stat, i) => (
+                <motion.div
+                  key={i}
+                  className="stat stat-minimalist"
+                  variants={floatVariants}
+                  custom={i}
+                  whileHover={{
+                    scale: 1.15,
+                    rotateZ: i % 2 === 0 ? 5 : -5,
+                    transition: { duration: 0.2 }
+                  }}
+                >
+                  <span className="stat-number stat-number-minimalist">
+                    {stat.number}
+                  </span>
+                  <span className="stat-label stat-label-minimalist">
+                    {stat.label}
+                  </span>
+                </motion.div>
+              ))}
             </div>
 
             {/* Action Buttons */}
             <div className="hero-actions hero-actions-minimalist">
-              <AnchorLink className="anchor-link" offset={80} href="#contact">
-                <button className="btn btn-primary btn-primary-minimalist">
-                  <i className="fas fa-paper-plane"></i>
-                  Get In Touch
-                </button>
-              </AnchorLink>
+              <motion.div variants={floatVariants} custom={3}>
+                <AnchorLink className="anchor-link" offset={80} href="#contact">
+                  <button className="btn btn-primary btn-primary-minimalist">
+                    <i className="fas fa-paper-plane"></i>
+                    Get In Touch
+                  </button>
+                </AnchorLink>
+              </motion.div>
 
-              <a
+              <motion.a
                 href="https://drive.google.com/file/d/1rc-0tW_EeqmwNEf0ufJD3-PA24rawR2R/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary btn-secondary-minimalist"
+                variants={floatVariants}
+                custom={4}
               >
                 <i className="fas fa-download"></i>
                 Download Resume
-              </a>
+              </motion.a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Main Left Content */}
           <div className="hero-text hero-text-minimalist">
             {/* Bold Typography Hero */}
-            <h1 className="hero-title-minimalist">
+            <motion.h1 className="hero-title-minimalist" variants={slideVariants} custom={0}>
               <span className="hero-name-large">PRIYAM SHAH</span>
-              <span className="hero-role">
+              <motion.span className="hero-role" variants={slideVariants} custom={1}>
                 Full-Stack Engineer & AI Researcher
-              </span>
-            </h1>
+              </motion.span>
+            </motion.h1>
 
             {/* Geometric Accent Line */}
-            <div className="geometric-accent-line"></div>
+            <motion.div
+              className="geometric-accent-line"
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={{ scaleX: 1, opacity: 1 }}
+              transition={{
+                duration: 1.2,
+                delay: 0.8,
+                ease: [0.22, 1, 0.36, 1]
+              }}
+            />
 
             {/* Greeting Message */}
-            <p className="hero-greeting">
+            <motion.p className="hero-greeting" variants={slideVariants} custom={2}>
               Let&apos;s build something extraordinary!
-            </p>
+            </motion.p>
 
             {/* Technology Pills - iPad Pro Only */}
             <div className="tech-stack-pills-minimalist tech-stack-ipad-pro">
-              <span className="tech-pill-minimalist">React</span>
-              <span className="tech-pill-minimalist">Node.js</span>
-              <span className="tech-pill-minimalist">TypeScript</span>
-              <span className="tech-pill-minimalist">Python</span>
-              <span className="tech-pill-minimalist">LangChain</span>
-              <span className="tech-pill-minimalist">FastAPI</span>
-              <span className="tech-pill-minimalist">MongoDB</span>
-              <span className="tech-pill-minimalist">PostgreSQL</span>
-              <span className="tech-pill-minimalist">Terraform</span>
-              <span className="tech-pill-minimalist">Docker</span>
-              <span className="tech-pill-minimalist">AWS</span>
-              <span className="tech-pill-minimalist">Git</span>
+              {['React', 'Node.js', 'TypeScript', 'Python', 'LangChain',
+                'FastAPI', 'MongoDB', 'PostgreSQL', 'Terraform', 'Docker',
+                'AWS', 'Git'].map((tech, i) => (
+                <motion.span
+                  key={tech}
+                  className="tech-pill-minimalist"
+                  initial={{ opacity: 0, y: 20, scale: 0.8 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.9 + i * 0.03,
+                    ease: [0.34, 1.56, 0.64, 1]
+                  }}
+                  whileHover={{
+                    scale: 1.1,
+                    y: -5,
+                    transition: { duration: 0.2 }
+                  }}
+                >
+                  {tech}
+                </motion.span>
+              ))}
             </div>
 
             {/* Custom Dropdown for Language Selection */}
@@ -356,14 +458,28 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Scroll Indicator */}
-      <div className="scroll-indicator">
+      {/* Scroll Indicator with pulse */}
+      <motion.div
+        className="scroll-indicator"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{
+          opacity: [0, 1, 1, 0.7],
+          y: [20, 0, 0, 10]
+        }}
+        transition={{
+          duration: 2,
+          delay: 1.5,
+          repeat: Infinity,
+          repeatType: "loop",
+          times: [0, 0.3, 0.7, 1]
+        }}
+      >
         <div className="scroll-line"></div>
         <span className="scroll-text">Scroll down</span>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 

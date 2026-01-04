@@ -1,4 +1,5 @@
 import "./Footer.css";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -49,34 +50,40 @@ const Footer = () => {
             <h4>Quick Links</h4>
             <ul>
               <li>
-                <a href="#home">
+                <AnchorLink href="#home" offset={80}>
                   <i className="fas fa-home"></i>
                   Home
-                </a>
+                </AnchorLink>
               </li>
               <li>
-                <a href="#about">
+                <AnchorLink href="#about" offset={80}>
                   <i className="fas fa-user"></i>
                   About
-                </a>
+                </AnchorLink>
               </li>
               <li>
-                <a href="#mywork">
+                <AnchorLink href="#experience" offset={80}>
+                  <i className="fas fa-briefcase"></i>
+                  Experience
+                </AnchorLink>
+              </li>
+              <li>
+                <AnchorLink href="#mywork" offset={80}>
                   <i className="fas fa-code"></i>
                   Projects
-                </a>
+                </AnchorLink>
               </li>
               <li>
-                <a href="#milestones">
+                <AnchorLink href="#milestones" offset={80}>
                   <i className="fas fa-trophy"></i>
-                  Experience
-                </a>
+                  Milestones
+                </AnchorLink>
               </li>
               <li>
-                <a href="#contact">
+                <AnchorLink href="#contact" offset={80}>
                   <i className="fas fa-envelope"></i>
                   Contact
-                </a>
+                </AnchorLink>
               </li>
             </ul>
           </div>

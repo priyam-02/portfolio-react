@@ -360,6 +360,34 @@ html {
   animation: float 3s ease-in-out infinite;
 }
 
+/* Global Performance Optimizations - GPU Acceleration */
+.section-title,
+.section-subtitle,
+.project-card,
+.milestone-card,
+.timeline-item,
+.timeline-content,
+.timeline-dot,
+.circular-skill,
+.circular-progress,
+.hero-profile-minimalist,
+.stat-minimalist,
+.btn-primary-minimalist,
+.btn-secondary-minimalist,
+.tech-pill-minimalist,
+.hero-sidebar-left,
+.geometric-accent-line,
+.scroll-indicator,
+.milestone-icon,
+.milestone-number,
+.card-gradient,
+.timeline-line,
+.dot-pulse {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
 /* Enhanced Responsive Design */
 /* Large Desktop */
 @media (min-width: 1400px) {
@@ -550,6 +578,11 @@ html {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto !important;
   }
 
   .floating-card,
@@ -588,6 +621,11 @@ html {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto !important;
   }
 }
 

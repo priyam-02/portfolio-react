@@ -1,3 +1,17 @@
+/* GPU acceleration for animated elements */
+.hero-profile-minimalist,
+.stat-minimalist,
+.btn-primary-minimalist,
+.btn-secondary-minimalist,
+.tech-pill-minimalist,
+.hero-sidebar-left,
+.geometric-accent-line,
+.scroll-indicator {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
 .hero {
   min-height: 100vh;
   display: flex;

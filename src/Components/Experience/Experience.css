@@ -70,8 +70,8 @@
   padding: 2rem 0;
 }
 
-.timeline::before {
-  content: "";
+/* Animated timeline line - replaces ::before */
+.timeline-line {
   position: absolute;
   left: 30px;
   top: 0;
@@ -82,38 +82,14 @@
       var(--accent-primary),
       var(--accent-secondary),
       transparent);
+  will-change: transform;
+  transform-origin: top;
 }
 
 .timeline-item {
   position: relative;
   padding-left: 80px;
   margin-bottom: 3rem;
-  opacity: 0;
-  transform: translateX(-30px);
-  animation: slideIn 0.6s ease forwards;
-}
-
-.timeline-item:nth-child(1) {
-  animation-delay: 0.2s;
-}
-
-.timeline-item:nth-child(2) {
-  animation-delay: 0.4s;
-}
-
-.timeline-item:nth-child(3) {
-  animation-delay: 0.6s;
-}
-
-.timeline-item:nth-child(4) {
-  animation-delay: 0.8s;
-}
-
-@keyframes slideIn {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 
 .timeline-dot {
@@ -126,6 +102,17 @@
   border-radius: var(--radius-full);
   box-shadow: 0 0 0 6px var(--primary-bg), 0 0 20px var(--accent-primary);
   transition: all var(--transition-normal);
+  will-change: transform, opacity;
+}
+
+/* Pulsing ripple effect */
+.dot-pulse {
+  position: absolute;
+  inset: -5px;
+  border: 2px solid var(--accent-primary);
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity;
 }
 
 .timeline-item:hover .timeline-dot {
@@ -140,6 +127,9 @@
   border: 1px solid var(--card-border);
   transition: all var(--transition-normal);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  will-change: transform, opacity, box-shadow;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .timeline-content:hover {
