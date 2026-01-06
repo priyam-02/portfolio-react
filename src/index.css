@@ -7,18 +7,18 @@
 }
 
 :root {
-  /* Slate & Stone Color Palette */
-  --primary-bg: #0F172A;
-  --secondary-bg: #1E293B;
-  --bg-secondary: #1E293B;
-  --card-bg: rgba(51, 65, 85, 0.4);
-  --card-border: rgba(148, 163, 184, 0.15);
-  --text-primary: #F1F5F9;
-  --text-secondary: #CBD5E1;
-  --text-muted: #64748B;
-  --accent-primary: #7C9CB5;
-  --accent-secondary: #94A3B8;
-  --accent-gradient: linear-gradient(135deg, #475569 0%, #64748B 100%);
+  /* Dark Mode Color Palette (Default) */
+  --primary-bg: #0a0a0a;
+  --secondary-bg: #111111;
+  --bg-secondary: #1a1a1a;
+  --card-bg: rgba(30, 30, 30, 0.6);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text-primary: #ffffff;
+  --text-secondary: #e5e5e5;
+  --text-muted: #a0a0a0;
+  --accent-primary: #90b4d1;
+  --accent-secondary: #a8bcc8;
+  --accent-gradient: linear-gradient(135deg, #6b8ba4 0%, #8ca9be 100%);
   --success: #10b981;
   --warning: #f59e0b;
   --error: #ef4444;
@@ -626,40 +626,6 @@ html {
 
   html {
     scroll-behavior: auto !important;
-  }
-}
-
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Darker backgrounds for true dark mode */
-    --primary-bg: #0a0a0a;
-    --secondary-bg: #111111;
-    --bg-secondary: #1a1a1a;
-
-    /* Adjusted card colors for better contrast */
-    --card-bg: rgba(30, 30, 30, 0.6);
-    --card-border: rgba(255, 255, 255, 0.08);
-
-    /* Brighter text for better readability */
-    --text-primary: #ffffff;
-    --text-secondary: #e5e5e5;
-    --text-muted: #a0a0a0;
-
-    /* Slightly brighter accents for visibility */
-    --accent-primary: #90b4d1;
-    --accent-secondary: #a8bcc8;
-    --accent-gradient: linear-gradient(135deg, #6b8ba4 0%, #8ca9be 100%);
-  }
-
-  /* Contact section background */
-  .contact {
-    background: rgba(10, 10, 10, 0.9) !important;
-  }
-
-  /* Footer background */
-  .footer {
-    background: rgba(5, 5, 5, 0.98) !important;
   }
 }
 

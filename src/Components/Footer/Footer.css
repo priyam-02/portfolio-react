@@ -1,5 +1,5 @@
 .footer {
-    background: rgba(15, 23, 42, 0.95);
+    background: rgba(5, 5, 5, 0.98);
     border-top: 1px solid var(--card-border);
     padding: var(--spacing-3xl) 0 var(--spacing-xl);
     position: relative;
