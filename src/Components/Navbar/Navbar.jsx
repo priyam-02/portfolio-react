@@ -162,9 +162,14 @@ const Navbar = () => {
         <div className="navbar-content">
           {/* Left Section - Logo */}
           <div className="navbar-section-left">
-            <div className="navbar-logo">
+            <AnchorLink
+              className="navbar-logo"
+              offset={80}
+              href="#home"
+              onClick={() => setMenu("home")}
+            >
               <img src={logo} alt="Priyam Shah" className="logo-image" />
-            </div>
+            </AnchorLink>
           </div>
 
           {/* Center Section - Available for Work Indicator */}

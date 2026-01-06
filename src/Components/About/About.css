@@ -815,12 +815,14 @@
 .circular-bg {
     stroke: var(--card-border, #e0e0e0);
     stroke-width: 10;
+    fill: none;
 }
 
 .circular-bar {
     stroke: var(--accent-primary, #007bff);
     stroke-width: 10;
     stroke-linecap: round;
+    fill: none;
     transition: stroke-dashoffset 1s ease;
 }
 
