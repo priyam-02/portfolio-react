@@ -30,7 +30,7 @@ const ProjectCard = ({ work, index }) => {
       initial="hidden"
       whileInView="visible"
       variants={cardVariants}
-      viewport={{ once: true, margin: '-200px', amount: 0.2 }}
+      viewport={{ once: true, margin: '0px', amount: 0.1 }}
       whileHover={{
         y: -12,
         scale: 1.02,

@@ -1868,11 +1868,23 @@
   animation: minimalistReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.9s backwards;
 }
 
+.hero-minimalist .hero-actions-minimalist > div {
+  width: 100% !important;
+  display: flex !important;
+}
+
 .hero-minimalist .hero-actions-minimalist .anchor-link {
   width: 100% !important;
   display: flex !important;
   flex: 1 !important;
   text-decoration: none !important;
+}
+
+.hero-minimalist .hero-actions-minimalist button {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .hero-minimalist .btn-primary-minimalist {
@@ -1885,8 +1897,11 @@
   box-shadow: 0 4px 16px rgba(124, 156, 181, 0.3) !important;
   transition: all 0.3s ease;
   width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
   justify-content: center !important;
   box-sizing: border-box !important;
+  text-decoration: none !important;
 }
 
 .hero-minimalist .btn-primary-minimalist:hover {
@@ -1903,9 +1918,12 @@
   font-weight: 600 !important;
   transition: all 0.3s ease;
   width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
   justify-content: center !important;
   text-align: center !important;
   box-sizing: border-box !important;
+  text-decoration: none !important;
 }
 
 .hero-minimalist .btn-secondary-minimalist:hover {

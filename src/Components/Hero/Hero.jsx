@@ -70,12 +70,24 @@ const Hero = () => {
   const [isTyping, setIsTyping] = useState(true);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
   const typingTimeout = useRef();
   const switchTimeout = useRef();
   const dropdownRef = useRef();
   const heroRef = useRef(null);
 
   const reducedMotion = useReducedMotion();
+
+  // Detect mobile devices to disable rotation animation on stats
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 767 || window.matchMedia('(hover: none)').matches);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Parallax for profile image (reduced intensity)
   const { scrollYProgress } = useScroll({
@@ -271,11 +283,15 @@ const Hero = () => {
                   className="stat stat-minimalist"
                   variants={floatVariants}
                   custom={i}
-                  whileHover={{
-                    scale: 1.15,
-                    rotateZ: i % 2 === 0 ? 5 : -5,
-                    transition: { duration: 0.2 }
-                  }}
+                  whileHover={
+                    isMobile
+                      ? { scale: 1.15, transition: { duration: 0.2 } }
+                      : {
+                          scale: 1.15,
+                          rotateZ: i % 2 === 0 ? 5 : -5,
+                          transition: { duration: 0.2 }
+                        }
+                  }
                 >
                   <span className="stat-number stat-number-minimalist">
                     {stat.number}

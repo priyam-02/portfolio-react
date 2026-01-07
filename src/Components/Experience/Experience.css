@@ -182,14 +182,18 @@
     left: 15px;
   }
 
-  .timeline-item {
-    padding-left: 50px;
+  /* Hide timeline line and dots on mobile */
+  .timeline-line {
+    display: none;
   }
 
-  .timeline-dot {
-    left: 5px;
-    width: 18px;
-    height: 18px;
+  .timeline-dot,
+  .dot-pulse {
+    display: none !important;
+  }
+
+  .timeline-item {
+    padding-left: 0;
   }
 
   .timeline-content {
@@ -208,13 +212,13 @@
 
   .timeline-item {
     margin-bottom: 2rem;
-    padding-left: 40px;
+    padding-left: 0;
   }
 
-  .timeline-dot {
-    width: 14px;
-    height: 14px;
-    border-width: 2px;
+  /* Timeline line and dots already hidden by parent media query */
+  .timeline-dot,
+  .dot-pulse {
+    display: none !important;
   }
 
   .timeline-content {
