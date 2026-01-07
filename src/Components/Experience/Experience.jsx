@@ -6,9 +6,7 @@ import { springs } from '../../utils/scrollAnimations';
 import PropTypes from 'prop-types';
 
 // TimelineItem component to use hooks properly
-const TimelineItem = ({ item, index }) => {
-  const isEven = index % 2 === 0;
-
+const TimelineItem = ({ item }) => {
   return (
     <div className="timeline-item">
       {/* Animated dot with pulse */}
@@ -31,10 +29,10 @@ const TimelineItem = ({ item, index }) => {
       {/* Animated content card */}
       <motion.div
         className="timeline-content"
-        initial={{ x: isEven ? -15 : 15, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        viewport={{ once: true, margin: '-250px', amount: 0.1 }}
-        transition={{ duration: 0.35, ease: "easeOut" }}
+        initial={{ opacity: 0, y: 30, scale: 0.98 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, margin: '-200px', amount: 0.2 }}
+        transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
         whileHover={{
           scale: 1.03,
           boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
