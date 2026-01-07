@@ -36,9 +36,6 @@ const App = () => {
       <motion.div
         className="scroll-progress-bar"
         style={{ scaleX }}
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
       />
       <Navbar />
       <motion.div className="sections-container">

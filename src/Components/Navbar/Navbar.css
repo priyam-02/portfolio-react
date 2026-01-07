@@ -25,7 +25,7 @@
     backdrop-filter: blur(32px) saturate(180%);
     -webkit-backdrop-filter: blur(32px) saturate(180%);
     border-radius: 100px;
-    padding: 0.5rem 1.4rem 0.4rem 1.4rem;
+    padding: 0.45rem 1.4rem 0.35rem 1.4rem;
     border: 1.5px solid rgba(255, 255, 255, 0.15);
     box-shadow:
         0 0 0 1px rgba(59, 130, 246, 0.08),
@@ -676,7 +676,7 @@
 @media (min-width: 1400px) {
     .navbar-pill {
         max-width: 580px;
-        padding: 0.6rem 1.6rem 0.6rem 1.6rem;
+        padding: 0.55rem 1.6rem 0.45rem 1.6rem;
     }
 
     .navbar-pill.expanded {
@@ -706,7 +706,7 @@
 @media (max-width: 1399px) and (min-width: 1024px) {
     .navbar-pill {
         max-width: 520px;
-        padding: 0.5rem 1.3rem 0.5rem 1.3rem;
+        padding: 0.45rem 1.3rem 0.35rem 1.3rem;
     }
 
     .navbar-pill.expanded {
@@ -743,7 +743,7 @@
     }
 
     .navbar-pill {
-        padding: 0.5rem 1rem;
+        padding: 0.45rem 1rem 0.35rem 1rem;
         border-radius: 60px;
         max-width: 360px !important;
     }
@@ -825,7 +825,7 @@
     }
 
     .navbar-pill {
-        padding: 0.5rem 1rem;
+        padding: 0.45rem 1rem 0.35rem 1rem;
         border-radius: 60px;
         max-width: 360px !important;
     }
@@ -903,7 +903,7 @@
     }
 
     .navbar-pill {
-        padding: 0.5rem 1.15rem;
+        padding: 0.45rem 1.15rem 0.35rem 1.15rem;
         border-radius: 60px;
         max-width: 420px;
     }
@@ -978,7 +978,7 @@
     }
 
     .navbar-pill {
-        padding: 0.5rem 1rem;
+        padding: 0.45rem 1rem 0.35rem 1rem;
         border-radius: 50px;
         max-width: 380px;
     }
@@ -1057,7 +1057,7 @@
     }
 
     .navbar-pill {
-        padding: 0.45rem 0.85rem;
+        padding: 0.4rem 0.85rem 0.3rem 0.85rem;
         border-radius: 45px;
         max-width: 340px;
     }
@@ -1149,7 +1149,7 @@
     }
 
     .navbar-pill {
-        padding: 0.35rem 0.9rem;
+        padding: 0.35rem 0.9rem 0.25rem 0.9rem;
         border-radius: 40px;
     }
 
