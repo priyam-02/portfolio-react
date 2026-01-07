@@ -823,7 +823,7 @@
     stroke-width: 10;
     stroke-linecap: round;
     fill: none;
-    transition: stroke-dashoffset 1s ease;
+    /* Removed CSS transition - Framer Motion handles animation for cross-browser compatibility */
 }
 
 .circular-text {

@@ -6,7 +6,10 @@ export const springs = {
   magnetic: { stiffness: 200, damping: 15, mass: 0.8 },  // Bouncy, playful
   liquid: { stiffness: 100, damping: 25, mass: 1.2 },    // Smooth, fluid
   kinetic: { stiffness: 300, damping: 20, mass: 0.5 },   // Sharp, snappy
-  breath: { stiffness: 80, damping: 30, mass: 1.5 }      // Gentle, organic
+  breath: { stiffness: 80, damping: 30, mass: 1.5 },     // Gentle, organic
+  gentle: { stiffness: 120, damping: 28, mass: 1.0 },    // Balanced, refined
+  responsive: { stiffness: 180, damping: 18, mass: 0.6 }, // Quick, natural
+  smooth: { stiffness: 90, damping: 26, mass: 1.3 }      // Silky, elegant
 };
 
 // Layered parallax hook - creates dimensional depth

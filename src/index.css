@@ -65,6 +65,20 @@
   --transition-fast: 150ms ease;
   --transition-normal: 250ms ease;
   --transition-slow: 350ms ease;
+
+  /* Premium Motion Design System */
+  --motion-instant: 100ms;
+  --motion-fast: 200ms;
+  --motion-normal: 350ms;
+  --motion-slow: 500ms;
+  --motion-deliberate: 750ms;
+  --motion-cinematic: 1200ms;
+
+  /* Premium Easing Curves */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-elegant: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 body {
@@ -152,7 +166,6 @@ body::before {
 .app-container {
   position: relative;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 /* Sections Container */

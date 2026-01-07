@@ -22,85 +22,96 @@ const Navbar = () => {
   const overlayRef = useRef();
   const scrollTimeoutRef = useRef(null);
 
+  // Combined and throttled scroll handler for performance
   useEffect(() => {
+    let rafId = null;
+    let lastScrollY = 0;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-      setIsScrolling(true);
-
-      // Clear existing timeout
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
+      // Cancel previous RAF if it hasn't executed yet
+      if (rafId) {
+        cancelAnimationFrame(rafId);
       }
 
-      // Set timeout to detect when scrolling stops
-      scrollTimeoutRef.current = setTimeout(() => {
-        setIsScrolling(false);
-      }, 750); // Wait 750ms (0.75 seconds) after scrolling stops
-    };
+      // Use RAF to throttle to ~60fps max
+      rafId = requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-    };
-  }, []);
+        // Only update if scroll position changed significantly
+        if (Math.abs(currentScrollY - lastScrollY) < 5) {
+          rafId = null;
+          return;
+        }
 
-  // Scroll spy to update active menu based on scroll position
-  useEffect(() => {
-    const handleScrollSpy = () => {
-      // If at the very top, always select home
-      if (window.scrollY < 50) {
-        setMenu("home");
-        return;
-      }
+        lastScrollY = currentScrollY;
 
-      // Include contact section for tracking (but not in nav display)
-      const allSections = [...navItems, { id: "contact" }];
+        // Update scroll state
+        setIsScrolled(currentScrollY > 50);
+        setIsScrolling(true);
 
-      // Find the current section based on which one is most visible
-      let foundSection = null;
-      let maxVisibility = 0;
+        // Clear existing timeout
+        if (scrollTimeoutRef.current) {
+          clearTimeout(scrollTimeoutRef.current);
+        }
 
-      allSections.forEach((item) => {
-        const element = document.getElementById(item.id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const navbarHeight = 100; // Account for navbar height
+        // Set timeout to detect when scrolling stops
+        scrollTimeoutRef.current = setTimeout(() => {
+          setIsScrolling(false);
+        }, 750);
 
-          // Calculate how much of the section is visible in viewport
-          const viewportHeight = window.innerHeight;
-          const elementTop = rect.top - navbarHeight;
-          const elementBottom = rect.bottom;
+        // Scroll spy logic - only run if scrolled past top
+        if (currentScrollY < 50) {
+          setMenu("home");
+        } else {
+          // Expensive DOM operations - only do when needed
+          const allSections = [...navItems, { id: "contact" }];
+          let foundSection = null;
+          let maxVisibility = 0;
 
-          // Section is considered active if its top is in the upper 40% of viewport
-          if (
-            elementTop < viewportHeight * 0.4 &&
-            elementBottom > navbarHeight
-          ) {
-            // Calculate visibility score (prefer sections near top of viewport)
-            const visibility = viewportHeight - Math.abs(elementTop);
-            if (visibility > maxVisibility) {
-              maxVisibility = visibility;
-              // If contact section, keep the last nav item (milestones) active
-              foundSection = item.id === "contact" ? "milestones" : item.id;
+          allSections.forEach((item) => {
+            const element = document.getElementById(item.id);
+            if (element) {
+              const rect = element.getBoundingClientRect();
+              const navbarHeight = 100;
+              const viewportHeight = window.innerHeight;
+              const elementTop = rect.top - navbarHeight;
+              const elementBottom = rect.bottom;
+
+              if (
+                elementTop < viewportHeight * 0.4 &&
+                elementBottom > navbarHeight
+              ) {
+                const visibility = viewportHeight - Math.abs(elementTop);
+                if (visibility > maxVisibility) {
+                  maxVisibility = visibility;
+                  foundSection = item.id === "contact" ? "milestones" : item.id;
+                }
+              }
             }
+          });
+
+          if (foundSection) {
+            setMenu(foundSection);
           }
         }
-      });
 
-      // Only update if we found a valid section
-      if (foundSection) {
-        setMenu(foundSection);
-      }
+        rafId = null;
+      });
     };
 
-    window.addEventListener("scroll", handleScrollSpy);
-    handleScrollSpy(); // Call once on mount
+    // Passive listener - tells browser we won't preventDefault
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Call once on mount
 
-    return () => window.removeEventListener("scroll", handleScrollSpy);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
   }, []);
+
 
   // Auto-close mobile menu on resize to desktop
   useEffect(() => {

@@ -1,12 +1,14 @@
 import { useState } from "react";
 import "./Contact.css";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useRef } from "react";
+import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 const Contact = () => {
   const [result, setResult] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const contactRef = useRef(null);
+  const reducedMotion = useReducedMotion();
 
   // Parallax scroll progress
   const { scrollYProgress } = useScroll({
@@ -152,41 +154,58 @@ const Contact = () => {
             <form onSubmit={onSubmit} className="contact-form">
               <div className="form-group">
                 <label htmlFor="name">Name</label>
-                <input
+                <motion.input
                   type="text"
                   id="name"
                   placeholder="Enter your name"
                   name="name"
                   required
+                  whileFocus={reducedMotion ? {} : {
+                    scale: 1.01,
+                    boxShadow: "0 0 0 3px rgba(144, 180, 209, 0.1)",
+                  }}
+                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                 />
               </div>
 
               <div className="form-group">
                 <label htmlFor="email">Email</label>
-                <input
+                <motion.input
                   type="email"
                   id="email"
                   placeholder="Enter your email"
                   name="email"
                   required
+                  whileFocus={reducedMotion ? {} : {
+                    scale: 1.01,
+                    boxShadow: "0 0 0 3px rgba(144, 180, 209, 0.1)",
+                  }}
+                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                 />
               </div>
 
               <div className="form-group">
                 <label htmlFor="message">Message</label>
-                <textarea
+                <motion.textarea
                   id="message"
                   name="message"
                   rows="6"
                   placeholder="Write your message here..."
                   required
-                ></textarea>
+                  whileFocus={reducedMotion ? {} : {
+                    scale: 1.01,
+                    boxShadow: "0 0 0 3px rgba(144, 180, 209, 0.1)",
+                  }}
+                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                ></motion.textarea>
               </div>
 
-              <button
+              <motion.button
                 type="submit"
                 className="btn btn-primary contact-submit"
                 disabled={isSubmitting}
+                whileTap={reducedMotion ? {} : { scale: 0.97 }}
+                transition={{ duration: 0.1 }}
               >
                 {isSubmitting ? (
                   <>
@@ -199,15 +218,21 @@ const Contact = () => {
                     Send Message
                   </>
                 )}
-              </button>
+              </motion.button>
 
-              {result && (
-                <div
-                  className={`form-result ${result.includes("successfully") ? "success" : "error"}`}
-                >
-                  {result}
-                </div>
-              )}
+              <AnimatePresence mode="wait">
+                {result && (
+                  <motion.div
+                    className={`form-result ${result.includes("successfully") ? "success" : "error"}`}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    {result}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </form>
           </motion.div>
         </div>

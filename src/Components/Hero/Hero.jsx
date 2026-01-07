@@ -81,12 +81,14 @@ const Hero = () => {
   // Detect mobile devices to disable rotation animation on stats
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 767 || window.matchMedia('(hover: none)').matches);
+      setIsMobile(
+        window.innerWidth <= 767 || window.matchMedia("(hover: none)").matches
+      );
     };
 
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   // Parallax for profile image (reduced intensity)
@@ -107,18 +109,18 @@ const Hero = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.08, delayChildren: 0.3 }
-    }
+      transition: { staggerChildren: 0.08, delayChildren: 0.3 },
+    },
   };
 
   const magneticVariants = {
-    hidden: { scale: 0.8, opacity: 0, filter: 'blur(20px)' },
+    hidden: { scale: 0.8, opacity: 0, filter: "blur(20px)" },
     visible: {
       scale: 1,
       opacity: 1,
-      filter: 'blur(0px)',
-      transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
-    }
+      filter: "blur(0px)",
+      transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
+    },
   };
 
   const slideVariants = {
@@ -126,8 +128,8 @@ const Hero = () => {
     visible: (i) => ({
       x: 0,
       opacity: 1,
-      transition: { duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }
-    })
+      transition: { duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] },
+    }),
   };
 
   const floatVariants = {
@@ -139,18 +141,44 @@ const Hero = () => {
       transition: {
         duration: 0.9,
         delay: 0.6 + i * 0.05,
-        ease: [0.34, 1.56, 0.64, 1]
-      }
-    })
+        ease: [0.34, 1.56, 0.64, 1],
+      },
+    }),
   };
 
-  // Gradient mesh following cursor
+  // Gradient mesh following cursor (throttled for performance)
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
+    let timeoutId;
+    let lastExec = 0;
+
+    const throttle = (func, delay) => {
+      return function (...args) {
+        const elapsed = Date.now() - lastExec;
+
+        const exec = () => {
+          lastExec = Date.now();
+          func(...args);
+        };
+
+        clearTimeout(timeoutId);
+
+        if (elapsed > delay) {
+          exec();
+        } else {
+          timeoutId = setTimeout(exec, delay - elapsed);
+        }
+      };
     };
+
+    const handleMouseMove = throttle((e) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    }, 16); // ~60fps
+
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   // Typing animation effect
@@ -226,7 +254,7 @@ const Hero = () => {
       ref={heroRef}
       style={{
         opacity: reducedMotion ? 1 : smoothOpacity,
-        scale: reducedMotion ? 1 : smoothScale
+        scale: reducedMotion ? 1 : smoothScale,
       }}
     >
       {/* Gradient Mesh Background */}
@@ -257,7 +285,7 @@ const Hero = () => {
             whileHover={{
               scale: 1.02,
               rotateZ: 1,
-              transition: { duration: 0.3 }
+              transition: { duration: 0.3 },
             }}
           >
             {/* Profile Image */}
@@ -274,9 +302,9 @@ const Hero = () => {
             {/* Stats */}
             <div className="hero-stats hero-stats-minimalist">
               {[
-                { number: '2+', label: 'Years Exp' },
-                { number: '10+', label: 'Projects' },
-                { number: '15+', label: 'Technologies' }
+                { number: "2+", label: "Years Exp" },
+                { number: "10+", label: "Projects" },
+                { number: "15+", label: "Technologies" },
               ].map((stat, i) => (
                 <motion.div
                   key={i}
@@ -289,7 +317,7 @@ const Hero = () => {
                       : {
                           scale: 1.15,
                           rotateZ: i % 2 === 0 ? 5 : -5,
-                          transition: { duration: 0.2 }
+                          transition: { duration: 0.2 },
                         }
                   }
                 >
@@ -307,20 +335,26 @@ const Hero = () => {
             <div className="hero-actions hero-actions-minimalist">
               <motion.div variants={floatVariants} custom={3}>
                 <AnchorLink className="anchor-link" offset={80} href="#contact">
-                  <button className="btn btn-primary btn-primary-minimalist">
+                  <motion.button
+                    className="btn btn-primary btn-primary-minimalist"
+                    whileTap={reducedMotion ? {} : { scale: 0.97 }}
+                    transition={{ duration: 0.1 }}
+                  >
                     <i className="fas fa-paper-plane"></i>
                     Get In Touch
-                  </button>
+                  </motion.button>
                 </AnchorLink>
               </motion.div>
 
               <motion.a
-                href="https://drive.google.com/file/d/1rc-0tW_EeqmwNEf0ufJD3-PA24rawR2R/view?usp=drive_link"
+                href="https://drive.google.com/file/d/12toNjpj5AsTU-KIMstEIumZoUAOaR4wf/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary btn-secondary-minimalist"
                 variants={floatVariants}
                 custom={4}
+                whileTap={reducedMotion ? {} : { scale: 0.97 }}
+                transition={{ duration: 0.1 }}
               >
                 <i className="fas fa-download"></i>
                 Download Resume
@@ -331,9 +365,17 @@ const Hero = () => {
           {/* Main Left Content */}
           <div className="hero-text hero-text-minimalist">
             {/* Bold Typography Hero */}
-            <motion.h1 className="hero-title-minimalist" variants={slideVariants} custom={0}>
+            <motion.h1
+              className="hero-title-minimalist"
+              variants={slideVariants}
+              custom={0}
+            >
               <span className="hero-name-large">PRIYAM SHAH</span>
-              <motion.span className="hero-role" variants={slideVariants} custom={1}>
+              <motion.span
+                className="hero-role"
+                variants={slideVariants}
+                custom={1}
+              >
                 Full-Stack Engineer & AI Researcher
               </motion.span>
             </motion.h1>
@@ -346,20 +388,35 @@ const Hero = () => {
               transition={{
                 duration: 1.2,
                 delay: 0.8,
-                ease: [0.22, 1, 0.36, 1]
+                ease: [0.22, 1, 0.36, 1],
               }}
             />
 
             {/* Greeting Message */}
-            <motion.p className="hero-greeting" variants={slideVariants} custom={2}>
+            <motion.p
+              className="hero-greeting"
+              variants={slideVariants}
+              custom={2}
+            >
               Let&apos;s build something extraordinary!
             </motion.p>
 
             {/* Technology Pills - iPad Pro Only */}
             <div className="tech-stack-pills-minimalist tech-stack-ipad-pro">
-              {['React', 'Node.js', 'TypeScript', 'Python', 'LangChain',
-                'FastAPI', 'MongoDB', 'PostgreSQL', 'Terraform', 'Docker',
-                'AWS', 'Git'].map((tech, i) => (
+              {[
+                "React",
+                "Node.js",
+                "TypeScript",
+                "Python",
+                "LangChain",
+                "FastAPI",
+                "MongoDB",
+                "PostgreSQL",
+                "Terraform",
+                "Docker",
+                "AWS",
+                "Git",
+              ].map((tech, i) => (
                 <motion.span
                   key={tech}
                   className="tech-pill-minimalist"
@@ -368,12 +425,12 @@ const Hero = () => {
                   transition={{
                     duration: 0.5,
                     delay: 0.9 + i * 0.03,
-                    ease: [0.34, 1.56, 0.64, 1]
+                    ease: [0.34, 1.56, 0.64, 1],
                   }}
                   whileHover={{
                     scale: 1.1,
                     y: -5,
-                    transition: { duration: 0.2 }
+                    transition: { duration: 0.2 },
                   }}
                 >
                   {tech}
@@ -383,7 +440,7 @@ const Hero = () => {
 
             {/* Custom Dropdown for Language Selection */}
             <div className="hero-dropdown-row" ref={dropdownRef}>
-              <button
+              <motion.button
                 className={`hero-snippet-select custom ${dropdownOpen ? "open" : ""}`}
                 aria-haspopup="listbox"
                 aria-expanded={dropdownOpen}
@@ -392,10 +449,12 @@ const Hero = () => {
                 onClick={handleDropdownToggle}
                 onKeyDown={handleDropdownKeyDown}
                 type="button"
+                whileTap={reducedMotion ? {} : { scale: 0.97 }}
+                transition={{ duration: 0.1 }}
               >
                 {codeSnippets[snippetIndex].language}
                 <span className="dropdown-arrow" aria-hidden="true" />
-              </button>
+              </motion.button>
               {dropdownOpen && (
                 <ul className="hero-dropdown-list" role="listbox" tabIndex={-1}>
                   {codeSnippets.map((snippet, idx) => (
@@ -482,14 +541,14 @@ const Hero = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{
           opacity: [0, 1, 1, 0.7],
-          y: [20, 0, 0, 10]
+          y: [20, 0, 0, 10],
         }}
         transition={{
           duration: 2,
           delay: 1.5,
           repeat: Infinity,
           repeatType: "loop",
-          times: [0, 0.3, 0.7, 1]
+          times: [0, 0.3, 0.7, 1],
         }}
       >
         <div className="scroll-line"></div>

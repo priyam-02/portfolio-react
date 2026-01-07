@@ -3,22 +3,23 @@ import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import "./MyWork.css";
 import mywork_data from "../../assets/mywork_data.js";
+import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 // ProjectCard component with Framer Motion animations
-const ProjectCard = ({ work, index }) => {
+const ProjectCard = ({ work, index, reducedMotion }) => {
   const cardVariants = {
     hidden: {
       opacity: 0,
-      y: 30,
-      scale: 0.98
+      y: reducedMotion ? 0 : 30,
+      scale: reducedMotion ? 1 : 0.98
     },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.5,
-        delay: Math.min(index * 0.08, 0.4),
+        duration: reducedMotion ? 0 : 0.5,
+        delay: reducedMotion ? 0 : Math.min(index * 0.08, 0.4),
         ease: [0.4, 0, 0.2, 1]
       }
     }
@@ -31,7 +32,7 @@ const ProjectCard = ({ work, index }) => {
       whileInView="visible"
       variants={cardVariants}
       viewport={{ once: true, margin: '0px', amount: 0.1 }}
-      whileHover={{
+      whileHover={reducedMotion ? {} : {
         y: -12,
         scale: 1.02,
         transition: { duration: 0.15, ease: "easeOut" }
@@ -44,9 +45,28 @@ const ProjectCard = ({ work, index }) => {
 
       <div className="project-image">
         <img src={work.w_img} alt={work.w_name} loading="eager" />
-        <div className="image-overlay">
-          <div className="overlay-content">
-            <div className="project-meta">
+        <motion.div
+          className="image-overlay"
+          initial={{ opacity: reducedMotion ? 1 : 0 }}
+          whileHover={reducedMotion ? {} : { opacity: 1 }}
+          transition={{ duration: reducedMotion ? 0 : 0.3, ease: [0.4, 0, 0.2, 1] }}
+        >
+          <motion.div
+            className="overlay-content"
+            initial="hidden"
+            whileHover={reducedMotion ? "hidden" : "visible"}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: reducedMotion ? 0 : 0.05 } }
+            }}
+          >
+            <motion.div
+              className="project-meta"
+              variants={{
+                hidden: { opacity: reducedMotion ? 1 : 0, x: reducedMotion ? 0 : -10 },
+                visible: { opacity: 1, x: 0 }
+              }}
+            >
               <span className="project-number">
                 {(index + 1).toString().padStart(2, "0")}
               </span>
@@ -65,9 +85,9 @@ const ProjectCard = ({ work, index }) => {
                             ? "PDF Summarizer"
                             : "Web App"}
               </span>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
 
       <div className="project-content">
@@ -150,12 +170,14 @@ ProjectCard.propTypes = {
     w_link: PropTypes.string.isRequired,
     w_live: PropTypes.string
   }).isRequired,
-  index: PropTypes.number.isRequired
+  index: PropTypes.number.isRequired,
+  reducedMotion: PropTypes.bool.isRequired
 };
 
 const MyWork = () => {
   const [visibleProjects, setVisibleProjects] = useState(9);
   const [isExpanded, setIsExpanded] = useState(false);
+  const reducedMotion = useReducedMotion();
 
   const handleShowMore = () => {
     setVisibleProjects(mywork_data.length);
@@ -209,16 +231,18 @@ const MyWork = () => {
         {/* Projects Grid with Animated Cards */}
         <div className="projects-masonry">
           {mywork_data.slice(0, visibleProjects).map((work, index) => (
-            <ProjectCard key={index} work={work} index={index} />
+            <ProjectCard key={index} work={work} index={index} reducedMotion={reducedMotion} />
           ))}
         </div>
 
         {/* Show More/Less Button */}
         <div className="show-more-container">
           {!isExpanded ? (
-            <button
+            <motion.button
               className="elegant-btn show-more-btn"
               onClick={handleShowMore}
+              whileTap={reducedMotion ? {} : { scale: 0.97 }}
+              transition={{ duration: 0.1 }}
             >
               <span className="btn-text">Explore More</span>
               <div className="btn-icon">
@@ -231,11 +255,13 @@ const MyWork = () => {
                   <path d="M7 17l9.2-9.2M17 17V7H7" />
                 </svg>
               </div>
-            </button>
+            </motion.button>
           ) : (
-            <button
+            <motion.button
               className="elegant-btn show-less-btn"
               onClick={handleShowLess}
+              whileTap={reducedMotion ? {} : { scale: 0.97 }}
+              transition={{ duration: 0.1 }}
             >
               <span className="btn-text">Show Less</span>
               <div className="btn-icon">
@@ -248,7 +274,7 @@ const MyWork = () => {
                   <path d="M17 7l-9.2 9.2M7 7v10h10" />
                 </svg>
               </div>
-            </button>
+            </motion.button>
           )}
         </div>
       </div>
