@@ -1,7 +1,7 @@
 import "./About.css";
 import profile_img from "../../assets/profile_img7.svg";
 import PropTypes from "prop-types";
-import { motion, useScroll, useTransform, useInView, useSpring } from "motion/react";
+import { motion, useScroll, useTransform, useSpring } from "motion/react";
 import { useRef } from "react";
 import { springs } from '../../utils/scrollAnimations';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
@@ -47,46 +47,36 @@ CircularProgressBar.propTypes = {
 
 // PublicationItem component for timeline animation
 const PublicationItem = ({ publication }) => {
-  const itemRef = useRef(null);
-  const itemInView = useInView(itemRef, {
-    once: true,
-    margin: '-80px',
-    amount: 0.4
-  });
-
   return (
-    <div className="timeline-item" ref={itemRef}>
+    <div className="timeline-item">
       {/* Animated dot with pulse */}
       <motion.div
         className="timeline-dot"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={itemInView ? {
-          scale: [0, 1.4, 1],
-          opacity: 1,
-        } : {}}
-        transition={{ duration: 0.6, delay: 0.2, ease: [0.34, 1.56, 0.64, 1] }}
+        initial={{ scale: 0.5, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
       >
         <motion.div
           className="dot-pulse"
-          initial={{ scale: 1, opacity: 0.6 }}
-          animate={itemInView ? {
+          animate={{
             scale: [1, 1.8, 1],
             opacity: [0.6, 0, 0.6],
-          } : {}}
-          transition={{ duration: 2, repeat: Infinity, delay: 0.4 }}
+          }}
+          transition={{ duration: 2, repeat: Infinity }}
         />
       </motion.div>
 
       {/* Animated content card */}
       <motion.div
         className="timeline-content"
-        initial={{ x: -60, opacity: 0, scale: 0.95 }}
-        animate={itemInView ? { x: 0, opacity: 1, scale: 1 } : {}}
-        transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 1, 0.5, 1] }}
+        initial={{ x: -15, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        viewport={{ once: true, margin: '-250px', amount: 0.1 }}
+        transition={{ duration: 0.35, ease: "easeOut" }}
         whileHover={{
           scale: 1.03,
           boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
-          transition: { duration: 0.3 }
+          transition: { duration: 0.15 }
         }}
       >
         <span className="timeline-year">{publication.conference}</span>

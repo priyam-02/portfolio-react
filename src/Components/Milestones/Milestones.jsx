@@ -1,25 +1,17 @@
 import "./Milestones.css";
 import Milestones_Data from "../../assets/milestones_data";
-import { motion, useInView } from 'motion/react';
-import { useRef } from 'react';
+import { motion } from 'motion/react';
 import PropTypes from 'prop-types';
 
 // MilestoneCard component to use hooks properly
 const MilestoneCard = ({ milestone, index }) => {
-  const cardRef = useRef(null);
-  const cardInView = useInView(cardRef, {
-    once: true,
-    margin: '-50px',
-    amount: 0.3
-  });
-
   // Cascade animation with rotation
   const cascadeVariants = {
     hidden: {
       opacity: 0,
-      y: 60,
-      scale: 0.9,
-      rotateZ: index % 2 === 0 ? -5 : 5
+      y: 30,
+      scale: 0.95,
+      rotateZ: index % 2 === 0 ? -3 : 3
     },
     visible: {
       opacity: 1,
@@ -27,31 +19,54 @@ const MilestoneCard = ({ milestone, index }) => {
       scale: 1,
       rotateZ: 0,
       transition: {
-        duration: 0.7,
-        delay: index * 0.15,
+        duration: 0.5,
+        delay: index * 0.1,
         ease: [0.25, 1, 0.5, 1]
+      }
+    }
+  };
+
+  const iconVariants = {
+    hidden: { scale: 0, rotateZ: -90 },
+    visible: {
+      scale: 1,
+      rotateZ: 0,
+      transition: {
+        duration: 0.4,
+        delay: index * 0.1 + 0.15,
+        ease: [0.34, 1.56, 0.64, 1]
+      }
+    }
+  };
+
+  const numberVariants = {
+    hidden: { scale: 0 },
+    visible: {
+      scale: 1,
+      transition: {
+        duration: 0.4,
+        delay: index * 0.1 + 0.2,
+        ease: [0.34, 1.56, 0.64, 1]
       }
     }
   };
 
   return (
     <motion.div
-      ref={cardRef}
       className="milestone-card"
       initial="hidden"
-      animate={cardInView ? "visible" : "hidden"}
+      whileInView="visible"
       variants={cascadeVariants}
+      viewport={{ once: true, margin: '-200px', amount: 0.2 }}
       whileHover={{
         y: -12,
         scale: 1.05,
-        transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] }
+        transition: { duration: 0.15, ease: "easeOut" }
       }}
     >
       <motion.div
         className="milestone-icon"
-        initial={{ scale: 0, rotateZ: -180 }}
-        animate={cardInView ? { scale: 1, rotateZ: 0 } : {}}
-        transition={{ duration: 0.6, delay: index * 0.15 + 0.2, ease: [0.34, 1.56, 0.64, 1] }}
+        variants={iconVariants}
         whileHover={{
           scale: 1.2,
           rotateZ: 360,
@@ -62,9 +77,7 @@ const MilestoneCard = ({ milestone, index }) => {
       </motion.div>
       <motion.div
         className="milestone-number"
-        initial={{ scale: 0 }}
-        animate={cardInView ? { scale: 1 } : {}}
-        transition={{ duration: 0.5, delay: index * 0.15 + 0.3, ease: [0.34, 1.56, 0.64, 1] }}
+        variants={numberVariants}
       >
         {index + 1}
       </motion.div>
@@ -85,9 +98,6 @@ MilestoneCard.propTypes = {
 };
 
 const Milestones = () => {
-  const headerRef = useRef(null);
-  const headerInView = useInView(headerRef, { once: true, margin: '-100px' });
-
   return (
     <motion.section id="milestones" className="milestones section">
       {/* Background Elements */}
@@ -109,10 +119,10 @@ const Milestones = () => {
 
       <div className="container">
         <motion.div
-          ref={headerRef}
-          initial={{ opacity: 0, y: -40 }}
-          animate={headerInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-200px' }}
+          transition={{ duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
         >
           <h2 className="section-title">
             My <span className="title-accent">Journey</span>

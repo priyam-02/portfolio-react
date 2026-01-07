@@ -128,7 +128,7 @@ body::before {
   background: var(--text-secondary);
 }
 
-/* Smooth Scroll Progress Bar - Apple-like */
+/* Smooth Scroll Progress Bar - Optimized */
 .scroll-progress-bar {
   position: fixed;
   top: 0;
@@ -137,10 +137,15 @@ body::before {
   height: 3px;
   background: var(--accent-gradient);
   transform-origin: 0%;
-  z-index: 9999;
+  z-index: 10001;
   box-shadow: 0 2px 20px rgba(59, 130, 246, 0.15);
-  backdrop-filter: blur(10px);
   pointer-events: none;
+
+  /* GPU Acceleration */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* App Container */

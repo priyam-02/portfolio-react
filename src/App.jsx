@@ -40,50 +40,50 @@ const App = () => {
       <Navbar />
       <motion.div className="sections-container">
         <motion.section
-          initial={{ opacity: 0, y: 100 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-200px" }}
         >
           <Hero />
         </motion.section>
         <motion.section
-          initial={{ opacity: 0, y: 100 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-200px" }}
         >
           <About />
         </motion.section>
         <motion.section
-          initial={{ opacity: 0, y: 100 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-200px" }}
         >
           <Experience />
         </motion.section>
         <motion.section
-          initial={{ opacity: 0, y: 100 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
-          viewport={{ once: true, margin: "-100px" }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-200px" }}
         >
           <MyWork />
         </motion.section>
         <motion.section
-          initial={{ opacity: 0, y: 100 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
-          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-200px" }}
         >
           <Milestones />
         </motion.section>
         <motion.section
-          initial={{ opacity: 0, y: 100 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
-          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-200px" }}
         >
           <Contact />
         </motion.section>

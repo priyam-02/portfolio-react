@@ -877,26 +877,31 @@
 }
 
 .timeline-dot {
-    position: absolute;
-    left: 20px;
-    top: 0;
-    width: 20px;
-    height: 20px;
-    background: var(--accent-primary);
-    border-radius: var(--radius-full);
-    box-shadow: 0 0 0 6px var(--primary-bg), 0 0 20px var(--accent-primary);
+    position: absolute !important;
+    left: 20px !important;
+    top: 0 !important;
+    width: 20px !important;
+    height: 20px !important;
+    background: #90b4d1 !important;
+    border-radius: 50% !important;
+    box-shadow: 0 0 0 6px var(--primary-bg), 0 0 20px #90b4d1 !important;
     transition: all var(--transition-normal);
     will-change: transform, opacity;
+    overflow: visible !important;
+    z-index: 10 !important;
+    display: block !important;
 }
 
 /* Pulsing ripple effect */
 .dot-pulse {
-    position: absolute;
-    inset: -5px;
-    border: 2px solid var(--accent-primary);
-    border-radius: 50%;
+    position: absolute !important;
+    inset: -5px !important;
+    border: 2px solid #90b4d1 !important;
+    border-radius: 50% !important;
     pointer-events: none;
     will-change: transform, opacity;
+    z-index: 1 !important;
+    display: block !important;
 }
 
 .timeline-item:hover .timeline-dot {

@@ -1,6 +1,6 @@
 import Vital_Tech from "../assets/Vital_Tech.svg";
 import Planet_Escape from "../assets/Planet_Escape.svg";
-import VentureOut from "../assets/Outdoor.svg";
+import VentureOut from "../assets/Outdoor.webp";
 import Quickbite from "../assets/Quickbite.svg";
 import Weatherly from "../assets/Weatherly.svg";
 import Temple from "../assets/Temple.svg";
@@ -9,7 +9,7 @@ import pdf from "../assets/pdf.svg";
 import ClusterNews from "../assets/ClusterNews.png";
 import Polyglot from "../assets/Polyglot.png";
 import Testeval from "../assets/Testeval.svg";
-import Don_Peppe from "../assets/Don_Peppe.svg";
+import Don_Peppe from "../assets/Don_Peppe.webp";
 
 const mywork_data = [
   {
