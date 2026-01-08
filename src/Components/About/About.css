@@ -1,7 +1,6 @@
-/* GPU acceleration for animated elements */
+/* GPU acceleration for animated circular elements only */
 .circular-skill,
-.circular-progress,
-.about-skills {
+.circular-progress {
   will-change: transform, opacity;
   transform: translateZ(0);
   backface-visibility: hidden;
@@ -396,11 +395,12 @@
     color: var(--text-muted);
 }
 
-/* Skills Section */
+/* Skills Section - removed competing transforms */
 .about-skills {
     position: relative;
     z-index: 2;
     margin-top: 0;
+    /* Removed: will-change, transform - let child marquee handle GPU layers */
 }
 
 .about-skills h3 {

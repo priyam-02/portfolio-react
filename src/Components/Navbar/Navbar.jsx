@@ -22,18 +22,15 @@ const Navbar = () => {
   const overlayRef = useRef();
   const scrollTimeoutRef = useRef(null);
 
-  // Combined and throttled scroll handler for performance
+  // Optimized scroll handler + Intersection Observer (no layout thrashing)
   useEffect(() => {
     let rafId = null;
     let lastScrollY = 0;
 
+    // Lightweight scroll handler ONLY for navbar styling (no DOM queries)
     const handleScroll = () => {
-      // Cancel previous RAF if it hasn't executed yet
-      if (rafId) {
-        cancelAnimationFrame(rafId);
-      }
+      if (rafId) cancelAnimationFrame(rafId);
 
-      // Use RAF to throttle to ~60fps max
       rafId = requestAnimationFrame(() => {
         const currentScrollY = window.scrollY;
 
@@ -45,70 +42,63 @@ const Navbar = () => {
 
         lastScrollY = currentScrollY;
 
-        // Update scroll state
+        // Update scroll state for navbar appearance
         setIsScrolled(currentScrollY > 50);
         setIsScrolling(true);
 
-        // Clear existing timeout
-        if (scrollTimeoutRef.current) {
-          clearTimeout(scrollTimeoutRef.current);
-        }
-
-        // Set timeout to detect when scrolling stops
+        if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
         scrollTimeoutRef.current = setTimeout(() => {
           setIsScrolling(false);
         }, 750);
-
-        // Scroll spy logic - only run if scrolled past top
-        if (currentScrollY < 50) {
-          setMenu("home");
-        } else {
-          // Expensive DOM operations - only do when needed
-          const allSections = [...navItems, { id: "contact" }];
-          let foundSection = null;
-          let maxVisibility = 0;
-
-          allSections.forEach((item) => {
-            const element = document.getElementById(item.id);
-            if (element) {
-              const rect = element.getBoundingClientRect();
-              const navbarHeight = 100;
-              const viewportHeight = window.innerHeight;
-              const elementTop = rect.top - navbarHeight;
-              const elementBottom = rect.bottom;
-
-              if (
-                elementTop < viewportHeight * 0.4 &&
-                elementBottom > navbarHeight
-              ) {
-                const visibility = viewportHeight - Math.abs(elementTop);
-                if (visibility > maxVisibility) {
-                  maxVisibility = visibility;
-                  foundSection = item.id === "contact" ? "milestones" : item.id;
-                }
-              }
-            }
-          });
-
-          if (foundSection) {
-            setMenu(foundSection);
-          }
-        }
 
         rafId = null;
       });
     };
 
-    // Passive listener - tells browser we won't preventDefault
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Call once on mount
+    // Intersection Observer for active section detection (NO forced layouts!)
+    const observerOptions = {
+      root: null,
+      rootMargin: '-100px 0px -60% 0px', // Navbar height offset + bottom threshold
+      threshold: [0, 0.25, 0.5, 0.75, 1.0]
+    };
+
+    let activeSection = 'home';
+
+    const observerCallback = (entries) => {
+      let maxRatio = 0;
+      let mostVisibleSection = null;
+
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+          maxRatio = entry.intersectionRatio;
+          mostVisibleSection = entry.target.id;
+        }
+      });
+
+      if (mostVisibleSection && mostVisibleSection !== activeSection) {
+        activeSection = mostVisibleSection;
+        setMenu(mostVisibleSection === 'contact' ? 'milestones' : mostVisibleSection);
+      }
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Observe all sections
+    const allSections = [...navItems, { id: 'contact' }];
+    allSections.forEach(item => {
+      const element = document.getElementById(item.id);
+      if (element) observer.observe(element);
+    });
+
+    // Passive listener for scroll
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial call
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
       if (rafId) cancelAnimationFrame(rafId);
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
+      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+      observer.disconnect();
     };
   }, []);
 
