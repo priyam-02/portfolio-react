@@ -493,7 +493,7 @@ html {
   }
 
   .section-title {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-4xl);
     text-align: center;
   }
 
@@ -536,7 +536,7 @@ html {
   }
 
   .section-title {
-    font-size: var(--font-size-3xl) !important;
+    font-size: var(--font-size-4xl) !important;
     padding: 0 var(--spacing-md);
   }
 

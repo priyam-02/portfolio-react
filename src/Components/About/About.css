@@ -333,10 +333,18 @@
 }
 
 .about-experience h4 {
-    font-size: var(--font-size-xl);
-    font-weight: 600;
-    color: var(--text-primary);
+    font-size: clamp(1.875rem, 4.5vw, 2.5rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 0%, #90b4d1 50%, #a8bcc8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: var(--spacing-lg);
+    margin-top: 0;
+    text-align: center;
+    letter-spacing: -0.02em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-weight: 800;
 }
 
 .experience-list {
@@ -724,8 +732,9 @@
         font-size: var(--font-size-xl);
     }
 
-    .about-experience h4 {
-        font-size: var(--font-size-lg);
+    .about-experience h4,
+    .about-experience-timeline h4 {
+        font-size: clamp(1.5rem, 4.5vw, 2rem);
     }
 }
 
@@ -740,7 +749,7 @@
 
     .about-intro h3,
     .section-title {
-        font-size: var(--font-size-2xl) !important;
+        font-size: var(--font-size-3xl) !important;
         word-wrap: break-word !important;
         overflow-wrap: break-word !important;
     }
@@ -805,8 +814,9 @@
         font-size: var(--font-size-lg);
     }
 
-    .about-experience h4 {
-        font-size: var(--font-size-base);
+    .about-experience h4,
+    .about-experience-timeline h4 {
+        font-size: clamp(1.5rem, 4.5vw, 2rem);
     }
 
     .skill-card {
@@ -1092,7 +1102,7 @@
 /* --- Premium Section Headings with Gradient Text --- */
 .about-skills h3,
 .about-experience-timeline h4 {
-    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-size: clamp(1.875rem, 4.5vw, 2.5rem);
     font-weight: 700;
     background: linear-gradient(135deg, #ffffff 0%, #90b4d1 50%, #a8bcc8 100%);
     -webkit-background-clip: text;
@@ -1125,7 +1135,7 @@
 .about-experience-timeline {
     margin-top: 0;
     margin-bottom: 0;
-    padding: 0;
+    padding: var(--spacing-2xl) 0;
     background: linear-gradient(
         180deg,
         rgba(10, 10, 10, 0) 0%,

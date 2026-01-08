@@ -406,7 +406,7 @@
 
     .contact-header h3,
     .section-title {
-        font-size: var(--font-size-2xl) !important;
+        font-size: var(--font-size-3xl) !important;
         word-wrap: break-word !important;
         overflow-wrap: break-word !important;
     }
