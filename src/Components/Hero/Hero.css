@@ -473,7 +473,7 @@
 /* Scroll Indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: calc(var(--spacing-7xl) + var(--spacing-sm));
+  bottom: calc(var(--spacing-6xl) + var(--spacing-xs));
   left: 50%;
   transform: translateX(-50%);
   display: flex;
