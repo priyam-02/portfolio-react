@@ -1692,7 +1692,7 @@
 .hero-minimalist .hero-name-large {
   display: block !important;
   font-family: 'Inter', sans-serif !important;
-  font-size: clamp(48px, 7vw, 96px) !important;
+  font-size: clamp(32px, 7vw, 96px) !important;
   font-weight: 800 !important;
   line-height: 0.9 !important;
   letter-spacing: -0.05em !important;
@@ -1701,7 +1701,8 @@
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
   margin-bottom: 0.75rem !important;
-  white-space: nowrap !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
   animation: minimalistReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s backwards;
 }
 
@@ -2137,6 +2138,50 @@
   .hero-minimalist .hero-greeting {
     font-size: clamp(14px, 3vw, 16px);
     margin: 0.5rem 0 1.25rem 0;
+  }
+}
+
+/* iPhone 15 Pro, iPhone 14 Pro, Modern Mobile (376px - 420px) */
+@media (min-width: 376px) and (max-width: 420px) {
+  /* Fix hero title visibility and wrapping */
+  .hero-minimalist .hero-name-large {
+    font-size: clamp(36px, 9vw, 56px) !important;
+    line-height: 1.05 !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+  }
+
+  .hero-minimalist .hero-role {
+    font-size: clamp(16px, 4vw, 22px) !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+  }
+
+  .hero-title,
+  .hero-name {
+    font-size: clamp(28px, 8vw, 48px) !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Prevent horizontal overflow */
+  .hero-minimalist,
+  .hero-content {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+  }
+
+  .hero-minimalist .hero-image-minimalist {
+    max-width: 180px !important;
+  }
+
+  .hero-minimalist .hero-profile-minimalist {
+    width: 180px !important;
+    height: 180px !important;
   }
 }
 

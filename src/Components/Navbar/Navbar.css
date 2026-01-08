@@ -1050,6 +1050,23 @@
     }
 }
 
+/* iPhone 15 Pro, iPhone 14 Pro, Modern Mobile (376px - 420px) */
+@media (min-width: 376px) and (max-width: 420px) {
+    .nav-item {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: nowrap;
+    }
+
+    .navbar {
+        overflow-x: hidden !important;
+    }
+
+    .navbar-pill {
+        max-width: 100% !important;
+    }
+}
+
 /* Mobile Small */
 @media (max-width: 375px) {
     .navbar {
