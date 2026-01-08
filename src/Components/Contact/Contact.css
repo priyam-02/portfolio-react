@@ -38,11 +38,10 @@
 
 /* Availability Section */
 .contact-availability {
-    background: var(--card-bg);
+    background: rgba(30, 30, 30, 0.95);
     border: 1px solid var(--card-border);
     border-radius: var(--radius-xl);
     padding: var(--spacing-xl);
-    backdrop-filter: blur(16px);
 }
 
 .availability-badge {
@@ -87,12 +86,11 @@
     align-items: center;
     gap: var(--spacing-lg);
     padding: var(--spacing-lg);
-    background: var(--card-bg);
+    background: rgba(30, 30, 30, 0.95);
     border: 1px solid var(--card-border);
     border-radius: var(--radius-lg);
     text-decoration: none;
     transition: all var(--transition-normal);
-    backdrop-filter: blur(16px);
 }
 
 .contact-item:hover {
