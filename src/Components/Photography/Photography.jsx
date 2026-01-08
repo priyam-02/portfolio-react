@@ -179,7 +179,7 @@ const Photography = () => {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-200px" }}
+          viewport={{ once: true, margin: "0px" }}
           transition={{ duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
         >
           <h2 className="section-title">
@@ -207,7 +207,7 @@ const Photography = () => {
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-50px", amount: 0.2 }}
+              viewport={{ once: true, margin: "0px", amount: 0.2 }}
               whileHover={
                 reducedMotion
                   ? {}

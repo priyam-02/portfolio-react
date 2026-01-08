@@ -110,7 +110,7 @@ const TechStackMarquee = () => {
         className="marquee-header"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "0px" }}
         transition={{ duration: 0.6 }}
       >
         <h3 className="marquee-title">Technical Skills</h3>

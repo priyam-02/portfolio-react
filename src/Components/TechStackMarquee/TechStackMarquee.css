@@ -317,7 +317,7 @@
   }
 
   .tech-stack-marquee {
-    overflow-x: hidden !important;
+    max-width: 100%;
   }
 }
 

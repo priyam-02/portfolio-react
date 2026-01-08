@@ -17,7 +17,8 @@
   display: flex;
   align-items: center;
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
   /* Extra bottom padding to compensate for scroll indicator visual offset */
   padding-bottom: calc(var(--spacing-7xl) + var(--spacing-2xl)) !important;
 }
@@ -490,7 +491,8 @@
   background: var(--accent-gradient);
   border-radius: var(--radius-full);
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .scroll-line::after {
@@ -1169,7 +1171,8 @@
     0 20px 60px rgba(15, 23, 42, 0.5),
     0 0 0 1px rgba(148, 163, 184, 0.05) inset;
   border: 1px solid rgba(148, 163, 184, 0.2);
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
   max-width: 450px;
   min-width: 260px;
   width: 100%;
@@ -1479,7 +1482,8 @@
   height: 1px;
   padding: 0;
   margin: -1px;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
@@ -2168,10 +2172,9 @@
     line-height: 1.15 !important;
   }
 
-  /* Prevent horizontal overflow */
+  /* Ensure content fits viewport */
   .hero-minimalist,
   .hero-content {
-    overflow-x: hidden !important;
     max-width: 100% !important;
   }
 
@@ -2726,5 +2729,22 @@
 
   .hero-minimalist .hero-role {
     font-size: clamp(13px, 3vw, 16px) !important;
+  }
+}
+/* Mobile iPhone 15 Pro - Fix scroll and height issues */
+@media (min-width: 376px) and (max-width: 420px) {
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--spacing-4xl) + 60px);
+    padding-bottom: var(--spacing-4xl) !important;
+  }
+}
+
+/* Mobile Small - Fix scroll and height issues */
+@media (max-width: 375px) {
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--spacing-3xl) + 60px);
+    padding-bottom: var(--spacing-3xl) !important;
   }
 }

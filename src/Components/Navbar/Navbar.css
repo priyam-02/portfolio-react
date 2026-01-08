@@ -1059,7 +1059,7 @@
     }
 
     .navbar {
-        overflow-x: hidden !important;
+        max-width: 100%;
     }
 
     .navbar-pill {

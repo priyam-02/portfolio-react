@@ -115,7 +115,7 @@ const Experience = () => {
           className="section-title"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-200px' }}
+          viewport={{ once: true, margin: '0px' }}
           transition={{ duration: 0.4 }}
         >
           My <span className="title-accent">Experience</span>
@@ -124,7 +124,7 @@ const Experience = () => {
           className="section-subtitle"
           initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-200px' }}
+          viewport={{ once: true, margin: '0px' }}
           transition={{ duration: 0.4 }}
         >
           A journey through my professional career in software engineering and

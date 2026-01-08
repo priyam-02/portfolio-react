@@ -221,7 +221,7 @@
   }
 
   .experience-section {
-    overflow-x: hidden !important;
+    max-width: 100%;
   }
 }
 
