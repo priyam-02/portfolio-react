@@ -43,7 +43,7 @@ const App = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-200px" }}
+          viewport={{ once: true, amount: 0 }}
         >
           <Hero />
         </motion.section>
@@ -51,7 +51,7 @@ const App = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-200px" }}
+          viewport={{ once: true, amount: 0.15 }}
         >
           <About />
         </motion.section>
@@ -59,7 +59,7 @@ const App = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-200px" }}
+          viewport={{ once: true, amount: 0.15 }}
         >
           <Experience />
         </motion.section>
@@ -67,7 +67,7 @@ const App = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-200px" }}
+          viewport={{ once: true, amount: 0.15 }}
         >
           <MyWork />
         </motion.section>
@@ -75,7 +75,7 @@ const App = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-200px" }}
+          viewport={{ once: true, amount: 0.15 }}
         >
           <Milestones />
         </motion.section>
@@ -83,7 +83,7 @@ const App = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-200px" }}
+          viewport={{ once: true, amount: 0.15 }}
         >
           <Contact />
         </motion.section>

@@ -295,7 +295,7 @@ const Hero = () => {
                 alt="Priyam Shah"
                 className="hero-profile-minimalist"
                 style={{ y }}
-                loading="lazy"
+                fetchpriority="high"
               />
             </div>
 
