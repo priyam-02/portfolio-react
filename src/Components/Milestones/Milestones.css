@@ -3,6 +3,7 @@
     position: relative;
     z-index: 1;
     overflow: hidden;
+    padding-bottom: var(--spacing-7xl);
 }
 
 /* Background Elements */

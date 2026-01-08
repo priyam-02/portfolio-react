@@ -3,9 +3,9 @@ import profile_img from "../../assets/profile_img7.svg";
 import PropTypes from "prop-types";
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
 import { useRef } from "react";
-import { springs } from '../../utils/scrollAnimations';
-import { useReducedMotion } from '../../hooks/useReducedMotion';
-import TechStackMarquee from '../TechStackMarquee/TechStackMarquee';
+import { springs } from "../../utils/scrollAnimations";
+import { useReducedMotion } from "../../hooks/useReducedMotion";
+import TechStackMarquee from "../TechStackMarquee/TechStackMarquee";
 
 // PublicationItem component for timeline animation
 const PublicationItem = ({ publication }) => {
@@ -33,12 +33,12 @@ const PublicationItem = ({ publication }) => {
         className="timeline-content"
         initial={{ opacity: 0, y: 30, scale: 0.98 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: true, margin: '0px', amount: 0.1 }}
+        viewport={{ once: true, margin: "0px", amount: 0.05 }}
         transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
         whileHover={{
           scale: 1.03,
-          boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
-          transition: { duration: 0.15 }
+          boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
+          transition: { duration: 0.15 },
         }}
       >
         <span className="timeline-year">{publication.conference}</span>
@@ -54,8 +54,8 @@ PublicationItem.propTypes = {
   publication: PropTypes.shape({
     conference: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired
-  }).isRequired
+    description: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const About = () => {
@@ -71,7 +71,7 @@ const About = () => {
   // Scroll tracking for publications timeline
   const { scrollYProgress: publicationsProgress } = useScroll({
     target: publicationsRef,
-    offset: ["start center", "end center"]
+    offset: ["start center", "end center"],
   });
 
   const publicationsScale = useSpring(
@@ -166,13 +166,11 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
             <h4>Publications</h4>
-            <p>
-              Research contributions advancing AI and software engineering
-            </p>
+            <p>Research contributions advancing AI and software engineering</p>
           </motion.div>
           <div className="timeline">
             {/* Animated timeline line */}
@@ -180,30 +178,30 @@ const About = () => {
               className="timeline-line"
               style={{
                 scaleY: reducedMotion ? 1 : publicationsScale,
-                transformOrigin: 'top'
+                transformOrigin: "top",
               }}
             />
 
             {[
               {
                 conference: "40th IEEE/ACM International Conference (ASE '25)",
-                title: "Polyglot: Benchmarking Code Translation with LLMs via an Extensible Framework",
-                description: "Marco Vieira, Priyam Ashish Shah, Bhavain Shah, and Rrezarta Krasniqi. 2025. Polyglot: An Extensible Framework to Benchmark Code Translation with LLMs. Presented at the 40th IEEE/ACM International Conference on Automated Software Engineering (ASE '25)."
+                title:
+                  "Polyglot: Benchmarking Code Translation with LLMs via an Extensible Framework",
+                description:
+                  "Marco Vieira, Priyam Ashish Shah, Bhavain Shah, and Rrezarta Krasniqi. 2025. Polyglot: An Extensible Framework to Benchmark Code Translation with LLMs. Presented at the 40th IEEE/ACM International Conference on Automated Software Engineering (ASE '25).",
               },
               {
                 conference: "33rd IEEE International Conference (SANER '26)",
-                title: "TestForge: A Benchmarking Framework for LLM-Based Test Case Generation",
-                description: "Marco Vieira, Bhavain Shah, Priyam Ashish Shah, and Vineet Khadloya. 2026. TestForge: A Benchmarking Framework for LLM-Based Test Case Generation. Accepted for presentation at the 33rd IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER '26)."
-              }
+                title:
+                  "TestForge: A Benchmarking Framework for LLM-Based Test Case Generation",
+                description:
+                  "Marco Vieira, Bhavain Shah, Priyam Ashish Shah, and Vineet Khadloya. 2026. TestForge: A Benchmarking Framework for LLM-Based Test Case Generation. Accepted for presentation at the 33rd IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER '26).",
+              },
             ].map((publication, index) => (
-              <PublicationItem
-                key={index}
-                publication={publication}
-              />
+              <PublicationItem key={index} publication={publication} />
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );

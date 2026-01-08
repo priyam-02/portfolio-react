@@ -30,7 +30,7 @@ const ProjectCard = ({ work, index, reducedMotion }) => {
       initial="hidden"
       whileInView="visible"
       variants={cardVariants}
-      viewport={{ once: true, margin: '0px', amount: 0.1 }}
+      viewport={{ once: true, margin: '0px', amount: 0.05 }}
       whileHover={reducedMotion ? {} : {
         y: -12,
         scale: 1.02,

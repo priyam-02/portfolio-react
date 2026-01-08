@@ -57,7 +57,7 @@ const MilestoneCard = ({ milestone, index }) => {
       initial="hidden"
       whileInView="visible"
       variants={cascadeVariants}
-      viewport={{ once: true, margin: '0px', amount: 0.1 }}
+      viewport={{ once: true, margin: '0px', amount: 0.05 }}
       whileHover={{
         y: -12,
         scale: 1.05,

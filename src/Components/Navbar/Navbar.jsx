@@ -9,6 +9,7 @@ const navItems = [
   { id: "experience", label: "Experience" },
   { id: "mywork", label: "Projects" },
   { id: "milestones", label: "Milestones" },
+  { id: "photography", label: "Photography" },
 ];
 
 const Navbar = () => {
@@ -21,85 +22,85 @@ const Navbar = () => {
   const menuref = useRef();
   const overlayRef = useRef();
   const scrollTimeoutRef = useRef(null);
-
-  // Optimized scroll handler + Intersection Observer (no layout thrashing)
+  // Scroll handler for navbar styling (blur, expand/collapse)
   useEffect(() => {
-    let rafId = null;
-    let lastScrollY = 0;
-
-    // Lightweight scroll handler ONLY for navbar styling (no DOM queries)
     const handleScroll = () => {
-      if (rafId) cancelAnimationFrame(rafId);
+      setIsScrolled(window.scrollY > 50);
+      setIsScrolling(true);
 
-      rafId = requestAnimationFrame(() => {
-        const currentScrollY = window.scrollY;
+      // Clear existing timeout
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
 
-        // Only update if scroll position changed significantly
-        if (Math.abs(currentScrollY - lastScrollY) < 5) {
-          rafId = null;
-          return;
-        }
-
-        lastScrollY = currentScrollY;
-
-        // Update scroll state for navbar appearance
-        setIsScrolled(currentScrollY > 50);
-        setIsScrolling(true);
-
-        if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
-        scrollTimeoutRef.current = setTimeout(() => {
-          setIsScrolling(false);
-        }, 750);
-
-        rafId = null;
-      });
+      // Set timeout to detect when scrolling stops
+      scrollTimeoutRef.current = setTimeout(() => {
+        setIsScrolling(false);
+      }, 750);
     };
 
-    // Intersection Observer for active section detection (NO forced layouts!)
-    const observerOptions = {
-      root: null,
-      rootMargin: '-100px 0px -60% 0px', // Navbar height offset + bottom threshold
-      threshold: [0, 0.25, 0.5, 0.75, 1.0]
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
     };
+  }, []);
 
-    let activeSection = 'home';
+  // Scroll spy to update active menu based on visibility
+  useEffect(() => {
+    const handleScrollSpy = () => {
+      // If at the very top, always select home
+      if (window.scrollY < 50) {
+        setMenu("home");
+        return;
+      }
 
-    const observerCallback = (entries) => {
-      let maxRatio = 0;
-      let mostVisibleSection = null;
+      // Include contact section for tracking (but not in nav display)
+      const allSections = [...navItems, { id: "contact" }];
 
-      entries.forEach(entry => {
-        if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
-          maxRatio = entry.intersectionRatio;
-          mostVisibleSection = entry.target.id;
+      // Find the current section based on which one is most visible
+      let foundSection = null;
+      let maxVisibility = 0;
+
+      allSections.forEach((item) => {
+        const element = document.getElementById(item.id);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const navbarHeight = 100; // Account for navbar height
+
+          // Calculate how much of the section is visible in viewport
+          const viewportHeight = window.innerHeight;
+          const elementTop = rect.top - navbarHeight;
+          const elementBottom = rect.bottom;
+
+          // Section is considered active if its top is in the upper 40% of viewport
+          if (
+            elementTop < viewportHeight * 0.4 &&
+            elementBottom > navbarHeight
+          ) {
+            // Calculate visibility score (prefer sections near top of viewport)
+            const visibility = viewportHeight - Math.abs(elementTop);
+            if (visibility > maxVisibility) {
+              maxVisibility = visibility;
+              // Map contact to photography (since contact isn't in nav menu)
+              foundSection = item.id === "contact" ? "photography" : item.id;
+            }
+          }
         }
       });
 
-      if (mostVisibleSection && mostVisibleSection !== activeSection) {
-        activeSection = mostVisibleSection;
-        setMenu(mostVisibleSection === 'contact' ? 'milestones' : mostVisibleSection);
+      // Only update if we found a valid section
+      if (foundSection) {
+        setMenu(foundSection);
       }
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    window.addEventListener("scroll", handleScrollSpy, { passive: true });
+    handleScrollSpy(); // Call once on mount
 
-    // Observe all sections
-    const allSections = [...navItems, { id: 'contact' }];
-    allSections.forEach(item => {
-      const element = document.getElementById(item.id);
-      if (element) observer.observe(element);
-    });
-
-    // Passive listener for scroll
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial call
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (rafId) cancelAnimationFrame(rafId);
-      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
-      observer.disconnect();
-    };
+    return () => window.removeEventListener("scroll", handleScrollSpy);
   }, []);
 
 

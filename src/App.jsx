@@ -6,6 +6,7 @@ import About from "./Components/About/About";
 import Experience from "./Components/Experience/Experience";
 import Milestones from "./Components/Milestones/Milestones";
 import MyWork from "./Components/MyWork/MyWork";
+import Photography from "./Components/Photography/Photography";
 import Contact from "./Components/Contact/Contact";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
@@ -51,7 +52,7 @@ const App = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.05 }}
         >
           <About />
         </motion.section>
@@ -59,7 +60,7 @@ const App = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.05 }}
         >
           <Experience />
         </motion.section>
@@ -67,7 +68,7 @@ const App = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.05 }}
         >
           <MyWork />
         </motion.section>
@@ -75,7 +76,7 @@ const App = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.05 }}
         >
           <Milestones />
         </motion.section>
@@ -83,7 +84,15 @@ const App = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.05 }}
+        >
+          <Photography />
+        </motion.section>
+        <motion.section
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.05 }}
         >
           <Contact />
         </motion.section>
