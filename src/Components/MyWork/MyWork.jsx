@@ -43,7 +43,7 @@ const ProjectCard = ({ work, index, reducedMotion }) => {
       </div>
 
       <div className="project-image">
-        <img src={work.w_img} alt={work.w_name} loading="eager" />
+        <img src={work.w_img} alt={work.w_name} loading="lazy" />
         <motion.div
           className="image-overlay"
           initial={{ opacity: reducedMotion ? 1 : 0 }}
