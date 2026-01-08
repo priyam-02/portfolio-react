@@ -142,8 +142,8 @@
     grid-template-columns: 1fr 1.5fr;
     gap: 10rem;
     align-items: center;
-    margin-top: 6rem;
-    margin-bottom: var(--spacing-4xl);
+    margin-top: 0;
+    margin-bottom: 0;
     max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
@@ -323,6 +323,11 @@
     margin-bottom: var(--spacing-lg);
 }
 
+/* Premium spacing override for About section */
+.about .section-subtitle {
+    margin-bottom: var(--spacing-4xl);  /* 64px - premium spacing */
+}
+
 /* Experience Section */
 .about-experience {
     margin-bottom: var(--spacing-6xl);
@@ -395,7 +400,7 @@
 .about-skills {
     position: relative;
     z-index: 2;
-    margin-top: 50px;
+    margin-top: 0;
 }
 
 .about-skills h3 {
@@ -851,7 +856,7 @@
 /* --- Timeline for Professional Experience --- */
 .timeline {
     position: relative;
-    padding: 2rem 0;
+    padding: 0;
 }
 
 /* Animated timeline line */
@@ -1063,51 +1068,88 @@
     }
 }
 
-/* --- Consistent Section Headings as Sub-headings --- */
+/* --- Premium Section Headings with Gradient Text --- */
 .about-skills h3,
 .about-experience-timeline h4 {
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: #fff;
-    margin-bottom: 2rem;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 0%, #90b4d1 50%, #a8bcc8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-sm);
     margin-top: 0;
     text-align: center;
-    letter-spacing: 0.01em;
-    background: none;
-    -webkit-background-clip: unset;
-    -webkit-text-fill-color: unset;
-    background-clip: unset;
+    letter-spacing: -0.02em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-weight: 800;
+}
+
+/* Subtitle styling for Publications */
+.about-experience-timeline > div > p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    opacity: 0.8;
+    margin-top: var(--spacing-sm);
 }
 
 /* --- Section Spacing --- */
 .about-skills {
-    margin-top: var(--spacing-6xl);
-    margin-bottom: var(--spacing-8xl);
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .about-experience-timeline {
-    margin-top: 8rem;
-    margin-bottom: var(--spacing-6xl);
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(10, 10, 10, 0) 0%,
+        rgba(20, 25, 35, 0.2) 50%,
+        rgba(10, 10, 10, 0) 100%
+    );
 }
 
-.about- spacer {
-    height: 48px;
-    width: 100%;
-    display: block;
+.about-experience-timeline > div:first-child {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.about-experience-timeline h4 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 0%, #90b4d1 50%, #a8bcc8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-sm);
+    margin-top: 0;
+    letter-spacing: -0.02em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-weight: 800;
+}
+
+.about-experience-timeline > div:first-child > p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    opacity: 0.8;
+    margin-top: 0;
 }
 
 @media (max-width: 600px) {
-
-    .about-skills h3,
-    .about-experience-timeline h4 {
-        font-size: 1rem;
-        margin-bottom: 1.2rem;
-    }
-
     .about-skills,
     .about-experience-timeline {
-        margin-top: var(--spacing-3xl);
-        margin-bottom: var(--spacing-3xl);
+        margin-top: 0;
+    }
+
+    .about-experience-timeline > div:first-child > p {
+        font-size: 0.9rem;
+        padding: 0 var(--spacing-md);
     }
 }
 
@@ -1211,8 +1253,8 @@
         font-size: 0.95rem;
     }
 
-    /* Increase spacing before Publications section */
+    /* Remove margin override - let section padding handle it */
     .about-experience-timeline {
-        margin-top: 8rem;
+        margin-top: 0;
     }
 }

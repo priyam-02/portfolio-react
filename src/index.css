@@ -32,6 +32,10 @@
   --spacing-2xl: 3rem;
   --spacing-3xl: 4rem;
   --spacing-4xl: 5rem;
+  --spacing-5xl: 6rem;
+  --spacing-6xl: 8rem;
+  --spacing-7xl: 10rem;
+  --spacing-8xl: 12rem;
 
   /* Typography */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -263,14 +267,28 @@ html {
 
 /* Section Styling */
 .section {
-  padding: var(--spacing-3xl) 0;
+  padding: var(--spacing-5xl) 0;
+}
+
+/* Responsive section padding */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .section {
+    padding: var(--spacing-4xl) 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: var(--spacing-2xl) 0;
+  }
 }
 
 .section-title {
   font-size: var(--font-size-6xl);
   font-weight: 700;
   text-align: center;
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--spacing-xl);
+  margin-top: 0;
   position: relative;
 }
 
@@ -290,7 +308,8 @@ html {
   font-size: var(--font-size-lg);
   color: var(--text-secondary);
   text-align: center;
-  margin-bottom: var(--spacing-3xl);
+  margin-bottom: var(--spacing-2xl);
+  margin-top: 0;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -432,10 +451,6 @@ html {
     max-width: 900px;
   }
 
-  .section {
-    padding: var(--spacing-2xl) 0;
-  }
-
   .section-title {
     font-size: var(--font-size-5xl);
     text-align: center;
@@ -451,10 +466,6 @@ html {
 @media (max-width: 767px) and (min-width: 481px) {
   .container {
     max-width: 600px;
-  }
-
-  .section {
-    padding: var(--spacing-xl) 0;
   }
 
   .section-title {
@@ -474,10 +485,6 @@ html {
     max-width: 400px;
   }
 
-  .section {
-    padding: var(--spacing-lg) 0;
-  }
-
   .section-title {
     font-size: var(--font-size-3xl);
     text-align: center;
@@ -493,10 +500,6 @@ html {
 @media (max-width: 375px) {
   .container {
     max-width: 320px;
-  }
-
-  .section {
-    padding: var(--spacing-md) 0;
   }
 
   .section-title {
@@ -515,10 +518,6 @@ html {
   .container {
     max-width: 90%;
     padding: 0 var(--spacing-lg);
-  }
-
-  .section {
-    padding: var(--spacing-2xl) 0;
   }
 }
 

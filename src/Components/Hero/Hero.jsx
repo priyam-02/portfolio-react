@@ -535,20 +535,23 @@ const Hero = () => {
         </div>
       </motion.div>
 
-      {/* Scroll Indicator with pulse */}
+      {/* Scroll Indicator with subtle bounce */}
       <motion.div
         className="scroll-indicator"
         initial={{ opacity: 0, y: -20 }}
         animate={{
-          opacity: [0, 1, 1, 0.7],
-          y: [20, 0, 0, 10],
+          opacity: 1,
+          y: [0, 8, 0],
         }}
         transition={{
-          duration: 2,
-          delay: 1.5,
-          repeat: Infinity,
-          repeatType: "loop",
-          times: [0, 0.3, 0.7, 1],
+          opacity: { duration: 0.6, delay: 1.5 },
+          y: {
+            duration: 2,
+            delay: 2,
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut"
+          }
         }}
       >
         <div className="scroll-line"></div>

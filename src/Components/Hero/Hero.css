@@ -17,8 +17,9 @@
   display: flex;
   align-items: center;
   position: relative;
-  padding-top: 10vh;
   overflow: hidden;
+  /* Extra bottom padding to compensate for scroll indicator visual offset */
+  padding-bottom: calc(var(--spacing-7xl) + var(--spacing-2xl)) !important;
 }
 
 /* Background Particles */
@@ -472,7 +473,7 @@
 /* Scroll Indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: var(--spacing-2xl);
+  bottom: calc(var(--spacing-7xl) + var(--spacing-sm));
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -663,10 +664,9 @@
 
 /* iPad Mini, Air & Pro - Mobile Style Layout */
 @media (max-width: 1366px) and (min-width: 768px) {
+  /* Hero padding is handled by .section class for consistent spacing */
   .hero {
-    padding-top: 140px;
     text-align: center;
-    padding-bottom: 80px;
   }
 
   .hero-content {
@@ -828,10 +828,10 @@
 
 /* Tablet Portrait */
 @media (max-width: 767px) and (min-width: 481px) {
+  /* Responsive bottom padding for mobile */
   .hero {
-    padding-top: 130px;
     text-align: center;
-    padding-bottom: 80px;
+    padding-bottom: calc(var(--spacing-4xl) + var(--spacing-xl)) !important;
   }
 
   .hero-content {
@@ -902,10 +902,10 @@
 
 /* Mobile Large */
 @media (max-width: 480px) and (min-width: 376px) {
+  /* Responsive bottom padding for mobile */
   .hero {
-    padding-top: 110px;
     text-align: center;
-    padding-bottom: 80px;
+    padding-bottom: calc(var(--spacing-4xl) + var(--spacing-xl)) !important;
   }
 
   .hero-content {
@@ -981,10 +981,10 @@
 
 /* Mobile Small */
 @media (max-width: 375px) {
+  /* Responsive bottom padding for mobile */
   .hero {
-    padding-top: 100px;
     text-align: center;
-    padding-bottom: 70px;
+    padding-bottom: calc(var(--spacing-4xl) + var(--spacing-xl)) !important;
   }
 
   .hero-content {
@@ -1062,11 +1062,10 @@
   }
 }
 
-/* Landscape Mobile */
+/* Landscape Mobile - Hero padding is handled by .section class for consistent spacing */
 @media (max-height: 500px) and (orientation: landscape) {
   .hero {
     min-height: 100vh;
-    padding-top: 60px;
   }
 
   .hero-content {
@@ -1127,8 +1126,9 @@
     display: none;
   }
 
+  /* Responsive bottom padding for tablet */
   .hero {
-    padding-bottom: var(--spacing-3xl);
+    padding-bottom: calc(var(--spacing-6xl) + var(--spacing-xl)) !important;
   }
 
   .hero-codebox {

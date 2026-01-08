@@ -1,6 +1,5 @@
 .experience {
   position: relative;
-  padding: var(--spacing-3xl) 0;
   overflow: hidden;
 }
 
@@ -61,13 +60,13 @@
 /* Timeline Styles */
 .experience-timeline {
   position: relative;
-  margin: 4rem auto 0;
+  margin: 0 auto;
 }
 
 
 .timeline {
   position: relative;
-  padding: 2rem 0;
+  padding: 0;
 }
 
 /* Animated timeline line - replaces ::before */
@@ -207,7 +206,7 @@
 
 @media (max-width: 480px) {
   .experience-timeline {
-    margin-top: 2rem;
+    margin-top: 0;
   }
 
   .timeline-item {
@@ -240,4 +239,9 @@
   .timeline-content p {
     font-size: var(--font-size-sm);
   }
+}
+
+/* Premium spacing override for Experience section */
+.experience .section-subtitle {
+    margin-bottom: var(--spacing-4xl);  /* 64px - premium spacing */
 }

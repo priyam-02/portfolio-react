@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import "./MyWork.css";
@@ -175,22 +174,10 @@ ProjectCard.propTypes = {
 };
 
 const MyWork = () => {
-  const [visibleProjects, setVisibleProjects] = useState(9);
-  const [isExpanded, setIsExpanded] = useState(false);
   const reducedMotion = useReducedMotion();
 
-  const handleShowMore = () => {
-    setVisibleProjects(mywork_data.length);
-    setIsExpanded(true);
-  };
-
-  const handleShowLess = () => {
-    setVisibleProjects(9);
-    setIsExpanded(false);
-  };
-
   return (
-    <section className="mywork-section" id="mywork">
+    <section className="mywork-section section" id="mywork">
       {/* Background Elements - static */}
       <div className="background-elements">
         <div className="floating-shape shape-1"></div>
@@ -230,52 +217,9 @@ const MyWork = () => {
 
         {/* Projects Grid with Animated Cards */}
         <div className="projects-masonry">
-          {mywork_data.slice(0, visibleProjects).map((work, index) => (
+          {mywork_data.map((work, index) => (
             <ProjectCard key={index} work={work} index={index} reducedMotion={reducedMotion} />
           ))}
-        </div>
-
-        {/* Show More/Less Button */}
-        <div className="show-more-container">
-          {!isExpanded ? (
-            <motion.button
-              className="elegant-btn show-more-btn"
-              onClick={handleShowMore}
-              whileTap={reducedMotion ? {} : { scale: 0.97 }}
-              transition={{ duration: 0.1 }}
-            >
-              <span className="btn-text">Explore More</span>
-              <div className="btn-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M7 17l9.2-9.2M17 17V7H7" />
-                </svg>
-              </div>
-            </motion.button>
-          ) : (
-            <motion.button
-              className="elegant-btn show-less-btn"
-              onClick={handleShowLess}
-              whileTap={reducedMotion ? {} : { scale: 0.97 }}
-              transition={{ duration: 0.1 }}
-            >
-              <span className="btn-text">Show Less</span>
-              <div className="btn-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M17 7l-9.2 9.2M7 7v10h10" />
-                </svg>
-              </div>
-            </motion.button>
-          )}
         </div>
       </div>
     </section>

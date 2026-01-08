@@ -1,0 +1,400 @@
+/* Tech Stack Marquee - Premium Style, Integrated Layout */
+
+.tech-stack-marquee {
+  position: relative;
+  width: 100%;
+  padding: var(--spacing-2xl) 0;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0) 0%,
+    rgba(20, 25, 35, 0.2) 50%,
+    rgba(10, 10, 10, 0) 100%
+  );
+}
+
+/* Header Section - Premium styling with About integration */
+.marquee-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  position: relative;
+  z-index: 2;
+}
+
+.marquee-title {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 0%, #90b4d1 50%, #a8bcc8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: -0.02em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-weight: 800;
+}
+
+.marquee-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  opacity: 0.8;
+}
+
+/* Marquee Rows */
+.marquee-row {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: var(--spacing-lg);
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.marquee-content {
+  display: flex;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-md) 0;
+  will-change: transform;
+  transform: translate3d(0, 0, 0); /* GPU acceleration */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Production-Grade Infinite Scroll - Dynamic Width Calculation */
+@keyframes scrollLeft {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(calc(-1 * var(--scroll-width, 50%)), 0, 0);
+  }
+}
+
+@keyframes scrollRight {
+  from {
+    transform: translate3d(calc(-1 * var(--scroll-width, 50%)), 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.scroll-left {
+  animation: scrollLeft var(--scroll-duration, 30s) linear infinite;
+  /* Force hardware acceleration and prevent jank */
+  transform: translate3d(0, 0, 0);
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+.scroll-right {
+  animation: scrollRight var(--scroll-duration, 35s) linear infinite;
+  /* Force hardware acceleration and prevent jank */
+  transform: translate3d(calc(-1 * var(--scroll-width, 50%)), 0, 0);
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+/* Pause on hover */
+.marquee-row:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+/* No animation for reduced motion */
+.no-animation {
+  animation: none !important;
+}
+
+/* Tech Cards - Glass Morphism */
+.tech-card {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xl) var(--spacing-2xl);
+  min-width: 180px;
+  height: 140px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  overflow: hidden;
+
+  /* Performance optimizations */
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  contain: layout style paint;
+
+  /* Smooth transitions - only transform and opacity */
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    var(--tech-color, rgba(144, 180, 209, 0.1)) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  border-radius: 20px;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.tech-card:hover::before {
+  opacity: 0.15;
+}
+
+.tech-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 12px 48px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translate3d(0, -4px, 0);
+}
+
+/* Tech Icon */
+.tech-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  will-change: transform;
+}
+
+.tech-icon-wrapper i {
+  font-size: 2.5rem;
+  color: var(--tech-color, var(--accent-primary));
+  filter: drop-shadow(0 2px 8px var(--tech-color, var(--accent-primary)));
+  position: relative;
+  z-index: 2;
+
+  /* GPU acceleration */
+  will-change: transform, filter;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  /* Optimized transition */
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-card:hover .tech-icon-wrapper i {
+  transform: translate3d(0, 0, 0) scale(1.08);
+  filter: drop-shadow(0 4px 16px var(--tech-color, var(--accent-primary)));
+}
+
+/* Icon Glow Effect */
+.tech-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 1;
+  will-change: opacity;
+  transition: opacity 0.2s ease;
+}
+
+.tech-card:hover .tech-glow {
+  opacity: 0.6;
+}
+
+/* Tech Name */
+.tech-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  will-change: color;
+  transition: color 0.2s ease;
+}
+
+.tech-card:hover .tech-name {
+  color: #ffffff;
+}
+
+/* Gradient Fade Edges */
+.marquee-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-fade-left {
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 10, 10, 1) 0%,
+    rgba(10, 10, 10, 0.8) 20%,
+    transparent 100%
+  );
+}
+
+.marquee-fade-right {
+  right: 0;
+  background: linear-gradient(
+    270deg,
+    rgba(10, 10, 10, 1) 0%,
+    rgba(10, 10, 10, 0.8) 20%,
+    transparent 100%
+  );
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tech-stack-marquee {
+    padding: var(--spacing-xl) 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .marquee-header {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .marquee-title {
+    font-size: 1.5rem;
+  }
+
+  .marquee-subtitle {
+    font-size: 0.9rem;
+    padding: 0 var(--spacing-md);
+  }
+
+  .tech-card {
+    min-width: 150px;
+    height: 120px;
+    padding: var(--spacing-lg) var(--spacing-xl);
+  }
+
+  .tech-icon-wrapper {
+    width: 48px;
+    height: 48px;
+  }
+
+  .tech-icon-wrapper i {
+    font-size: 2rem;
+  }
+
+  .tech-name {
+    font-size: 0.85rem;
+  }
+
+  .marquee-fade {
+    width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-card {
+    min-width: 130px;
+    height: 110px;
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+
+  .tech-icon-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+
+  .tech-icon-wrapper i {
+    font-size: 1.75rem;
+  }
+
+  .tech-name {
+    font-size: 0.8rem;
+  }
+
+  .marquee-content {
+    gap: var(--spacing-md);
+  }
+
+  .marquee-fade {
+    width: 40px;
+  }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-content {
+    animation: none !important;
+  }
+
+  .tech-card:hover {
+    transform: none;
+  }
+
+  .tech-icon-wrapper i {
+    transition: none;
+  }
+}
+
+/* Performance - Force GPU Acceleration on Safari */
+@media (prefers-color-scheme: dark) {
+  .tech-stack-marquee {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Optimize rendering on high-DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .tech-card {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
