@@ -541,20 +541,26 @@ const Hero = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{
           opacity: 1,
-          y: [0, 8, 0],
+          y: 0,
         }}
         transition={{
-          opacity: { duration: 0.6, delay: 1.5 },
-          y: {
-            duration: 2,
+          opacity: { duration: 0.8, delay: 1.5 },
+          y: { duration: 0.6, delay: 1.5 },
+        }}
+      >
+        <motion.div
+          className="scroll-line"
+          animate={{
+            y: [0, 8, 0],
+          }}
+          transition={{
+            duration: 1.5,
             delay: 2,
             repeat: Infinity,
             repeatType: "loop",
             ease: "easeInOut"
-          }
-        }}
-      >
-        <div className="scroll-line"></div>
+          }}
+        ></motion.div>
         <span className="scroll-text">Scroll down</span>
       </motion.div>
     </motion.section>
