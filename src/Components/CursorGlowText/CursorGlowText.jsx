@@ -83,11 +83,12 @@ const CursorGlowText = () => {
             id="fillGlow"
             cx={svgMousePos.x}
             cy={svgMousePos.y}
-            r="250"
+            r="350"
             gradientUnits="userSpaceOnUse"
           >
             <stop offset="0%" className="fill-glow-inner" />
-            <stop offset="50%" className="fill-glow-mid" />
+            <stop offset="25%" className="fill-glow-mid" />
+            <stop offset="45%" className="fill-glow-outer" />
             <stop offset="100%" className="fill-glow-outer" />
           </radialGradient>
 
@@ -96,17 +97,18 @@ const CursorGlowText = () => {
             id="strokeGlow"
             cx={svgMousePos.x}
             cy={svgMousePos.y}
-            r="200"
+            r="300"
             gradientUnits="userSpaceOnUse"
           >
             <stop offset="0%" className="stroke-glow-inner" />
-            <stop offset="50%" className="stroke-glow-mid" />
+            <stop offset="20%" className="stroke-glow-mid" />
+            <stop offset="40%" className="stroke-glow-outer" />
             <stop offset="100%" className="stroke-glow-outer" />
           </radialGradient>
 
           {/* Blur filter for soft glow */}
-          <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="8" result="blur" />
+          <filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="50" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
@@ -141,10 +143,10 @@ const CursorGlowText = () => {
         {/* Layer 1: Outer stroke with cursor glow */}
         <g>
           <rect
-            x={svgMousePos.x - 200}
-            y={svgMousePos.y - 200}
-            width="400"
-            height="400"
+            x={svgMousePos.x - 300}
+            y={svgMousePos.y - 300}
+            width="600"
+            height="600"
             fill="url(#strokeGlow)"
             mask="url(#strokeMask)"
             style={{
@@ -160,10 +162,10 @@ const CursorGlowText = () => {
         {/* Layer 3: Fill glow effect - clipped to text shape */}
         <g clipPath="url(#textClip)">
           <rect
-            x={svgMousePos.x - 250}
-            y={svgMousePos.y - 250}
-            width="500"
-            height="500"
+            x={svgMousePos.x - 350}
+            y={svgMousePos.y - 350}
+            width="700"
+            height="700"
             fill="url(#fillGlow)"
             filter="url(#softGlow)"
             style={{
