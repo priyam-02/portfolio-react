@@ -508,7 +508,13 @@
     max-height: 350px;
     opacity: 1;
     pointer-events: auto;
-    overflow-y: visible;
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.nav-menu.mobile.open::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .nav-menu.mobile .nav-item {
