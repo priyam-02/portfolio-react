@@ -1,0 +1,224 @@
+/* Cursor Glow Text Component */
+.cursor-glow-text-container {
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3xl) 0 0 0;
+  margin-top: var(--spacing-4xl);
+  min-height: 200px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Bottom gradient glow effect - U-shaped (taller on edges) */
+.cursor-glow-text-container::before {
+  content: '';
+  position: absolute;
+  bottom: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180%;
+  height: 1000px;
+  background: radial-gradient(ellipse 100% 65% at center bottom,
+      rgba(144, 180, 209, 0.55) 0%,
+      rgba(144, 180, 209, 0.42) 15%,
+      rgba(107, 139, 164, 0.3) 28%,
+      rgba(107, 139, 164, 0.18) 42%,
+      rgba(107, 139, 164, 0.1) 58%,
+      transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+}
+
+.cursor-glow-text-svg {
+  width: 95%;
+  height: auto;
+  display: block;
+  max-width: 1400px;
+  position: relative;
+  z-index: 4;
+}
+
+/* Gradient Stops - Base Text (subtle) */
+.base-gradient-start {
+  stop-color: hsl(220, 15%, 18%);
+  stop-opacity: 0.33;
+}
+
+.base-gradient-end {
+  stop-color: hsl(220, 15%, 25%);
+  stop-opacity: 0.33;
+}
+
+/* Fill Glow Gradient - Interior cursor effect */
+.fill-glow-inner {
+  stop-color: rgb(180, 180, 180);
+  stop-opacity: 0.7;
+}
+
+.fill-glow-mid {
+  stop-color: rgb(150, 150, 150);
+  stop-opacity: 0.35;
+}
+
+.fill-glow-outer {
+  stop-color: transparent;
+  stop-opacity: 0;
+}
+
+/* Stroke Glow Gradient - Outer border cursor effect */
+.stroke-glow-inner {
+  stop-color: rgb(255, 255, 255);
+  stop-opacity: 1;
+}
+
+.stroke-glow-mid {
+  stop-color: rgb(240, 240, 240);
+  stop-opacity: 0.9;
+}
+
+.stroke-glow-outer {
+  stop-color: transparent;
+  stop-opacity: 0;
+}
+
+/* Responsive Design */
+
+/* Large Desktop (1400px+) */
+@media (min-width: 1400px) {
+  .cursor-glow-text-container {
+    padding: var(--spacing-4xl) 0 0 0;
+    margin-top: var(--spacing-3xl);
+    min-height: 250px;
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .cursor-glow-text-svg {
+    width: 90%;
+  }
+}
+
+/* Desktop (1024px - 1399px) */
+@media (max-width: 1399px) and (min-width: 1024px) {
+  .cursor-glow-text-container {
+    padding: var(--spacing-3xl) 0 0 0;
+    margin-top: var(--spacing-3xl);
+    min-height: 230px;
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .cursor-glow-text-svg {
+    width: 95%;
+  }
+}
+
+/* Tablet Landscape (768px - 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .cursor-glow-text-container {
+    padding: var(--spacing-2xl) 0 0 0;
+    margin-top: var(--spacing-2xl);
+    min-height: 180px;
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .cursor-glow-text-svg {
+    width: 95%;
+  }
+}
+
+/* Tablet Portrait (481px - 767px) */
+@media (max-width: 767px) and (min-width: 481px) {
+  .cursor-glow-text-container {
+    padding: var(--spacing-xl) 0 0 0;
+    margin-top: var(--spacing-xl);
+    min-height: 150px;
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .cursor-glow-text-svg {
+    width: 98%;
+  }
+}
+
+/* Mobile Large (376px - 480px) */
+@media (max-width: 480px) and (min-width: 376px) {
+  .cursor-glow-text-container {
+    padding: var(--spacing-lg) 0 0 0;
+    margin-top: var(--spacing-xl);
+    min-height: 130px;
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .cursor-glow-text-svg {
+    width: 98%;
+  }
+}
+
+/* Mobile Small (≤375px) */
+@media (max-width: 375px) {
+  .cursor-glow-text-container {
+    padding: var(--spacing-lg) 0 0 0;
+    margin-top: var(--spacing-lg);
+    min-height: 110px;
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .cursor-glow-text-svg {
+    width: 100%;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .cursor-glow-text-container {
+    padding: var(--spacing-lg) 0 0 0;
+    margin-top: var(--spacing-lg);
+    min-height: 90px;
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .cursor-glow-text-svg {
+    width: 95%;
+  }
+}
+
+/* Touch Device Optimizations - Disable hover effects on mobile */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-glow-text-container {
+    /* Show the base text without requiring hover on touch devices */
+    pointer-events: none;
+  }
+}
+
+/* Performance Optimizations */
+.cursor-glow-text-svg {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .cursor-glow-text-svg rect {
+    transition: none !important;
+  }
+}

@@ -2,6 +2,7 @@ import "./Footer.css";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { motion } from "framer-motion";
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import CursorGlowText from '../CursorGlowText/CursorGlowText';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -143,6 +144,16 @@ const Footer = () => {
             <a href="#privacy">Privacy Policy</a>
             <a href="#terms">Terms of Service</a>
           </div>
+        </motion.div>
+
+        {/* Cursor-Reactive Text */}
+        <motion.div
+          initial={reducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+          whileInView={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <CursorGlowText />
         </motion.div>
       </div>
     </motion.footer>
