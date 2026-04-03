@@ -1,9 +1,9 @@
 import "./Experience.css";
-import { motion, useScroll, useTransform, useSpring } from 'motion/react';
-import { useRef } from 'react';
-import { useReducedMotion } from '../../hooks/useReducedMotion';
-import { springs } from '../../utils/scrollAnimations';
-import PropTypes from 'prop-types';
+import { motion, useScroll, useTransform, useSpring } from "motion/react";
+import { useRef } from "react";
+import { useReducedMotion } from "../../hooks/useReducedMotion";
+import { springs } from "../../utils/scrollAnimations";
+import PropTypes from "prop-types";
 
 // TimelineItem component to use hooks properly
 const TimelineItem = ({ item }) => {
@@ -31,12 +31,12 @@ const TimelineItem = ({ item }) => {
         className="timeline-content"
         initial={{ opacity: 0, y: 30, scale: 0.98 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: true, margin: '0px', amount: 0.05 }}
+        viewport={{ once: true, margin: "0px", amount: 0.05 }}
         transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
         whileHover={{
           scale: 1.03,
-          boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
-          transition: { duration: 0.15 }
+          boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
+          transition: { duration: 0.15 },
         }}
       >
         <span className="timeline-year">{item.year}</span>
@@ -53,9 +53,9 @@ TimelineItem.propTypes = {
     year: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     company: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired
+    description: PropTypes.string.isRequired,
   }).isRequired,
-  index: PropTypes.number.isRequired
+  index: PropTypes.number.isRequired,
 };
 
 const Experience = () => {
@@ -66,44 +66,52 @@ const Experience = () => {
   // Scroll tracking for timeline drawing effect
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start center", "end center"]
+    offset: ["start center", "end center"],
   });
 
   const timelineScale = useSpring(
     useTransform(scrollYProgress, [0, 0.9], [0, 1]),
-    springs.liquid
+    springs.liquid,
   );
 
   // Timeline data
   const timelineItems = [
     {
-      year: "May 2025 – Current",
-      title: "Founding Engineer (Mobile & Product)",
-      company: "Jorts",
-      description: "Leading the 0-to-1 build of a geospatial social app, taking it from initial wireframes to a full React Native implementation. Handling core engineering tasks like secure authentication, location-based data fetching, and setting up clean state management patterns to keep the app fast and responsive."
+      year: "March 2026 – Current",
+      title: "Senior Associate - AI Strategy & Automation",
+      company: "The Exit Group",
+      description:
+        "Architecting AI-driven automation and data infrastructure for a private equity and M&A advisory firm. From building and maintaining client-facing portals and data pipelines to designing LLM-powered workflows that accelerate deal sourcing and investor reporting, turning manual processes into intelligent systems.",
     },
     {
-      year: "March 2025 – May 2025",
-      title: "Software Developer Intern",
-      company: "StarterYou",
-      description: "Delivered full-stack features for job and rideshare platforms, building complex components like a geospatial matching engine and a Socket.IO chat system. Improved application performance through lazy loading, raised test coverage to over 85%, and supported a cloud migration from AWS to Azure."
+      year: "May 2025 – February 2026",
+      title: "Founding Engineer (Mobile & Product)",
+      company: "Jorts",
+      description:
+        "Leading the 0-to-1 build of a geospatial social app, taking it from initial wireframes to a full React Native implementation. Handling core engineering tasks like secure authentication, location-based data fetching, and setting up clean state management patterns to keep the app fast and responsive.",
     },
     {
       year: "January 2025 – June 2025",
       title: "LLM Research Engineer",
       company: "UNC Charlotte",
-      description: "Developed extensible frameworks to benchmark how LLMs handle code translation and unit test generation. Executed over 100,000+ deterministic trials converting 250+ C programs into Java, Python, and Rust across 7 models to assess translation quality. Additionally, implemented an asynchronous pipeline using Celery and LangChain to generate and validate 17,000 JUnit test cases across different prompting techniques."
+      description:
+        "Developed extensible frameworks to benchmark how LLMs handle code translation and unit test generation. Executed over 100,000+ deterministic trials converting 250+ C programs into Java, Python, and Rust across 7 models to assess translation quality. Additionally, implemented an asynchronous pipeline using Celery and LangChain to generate and validate 17,000 JUnit test cases across different prompting techniques.",
     },
     {
       year: "June 2021 – June 2023",
       title: "Software Developer",
       company: "Cybernative",
-      description: "Built backend services including an inventory sync engine that lowered API failures by 30%. Implemented secure authentication flows and designed a real-time dashboard to track issues, which improved error resolution speeds by 27%. Maintained strict code quality and met delivery goals in an Agile environment."
-    }
+      description:
+        "Built backend services including an inventory sync engine that lowered API failures by 30%. Implemented secure authentication flows and designed a real-time dashboard to track issues, which improved error resolution speeds by 27%. Maintained strict code quality and met delivery goals in an Agile environment.",
+    },
   ];
 
   return (
-    <motion.section id="experience" className="experience section" ref={sectionRef}>
+    <motion.section
+      id="experience"
+      className="experience section"
+      ref={sectionRef}
+    >
       {/* Background Effects */}
       <div className="experience-background">
         <div className="experience-gradient gradient-1"></div>
@@ -115,7 +123,7 @@ const Experience = () => {
           className="section-title"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '0px' }}
+          viewport={{ once: true, margin: "0px" }}
           transition={{ duration: 0.4 }}
         >
           My <span className="title-accent">Experience</span>
@@ -124,7 +132,7 @@ const Experience = () => {
           className="section-subtitle"
           initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '0px' }}
+          viewport={{ once: true, margin: "0px" }}
           transition={{ duration: 0.4 }}
         >
           A journey through my professional career in software engineering and
@@ -139,16 +147,12 @@ const Experience = () => {
               className="timeline-line"
               style={{
                 scaleY: reducedMotion ? 1 : timelineScale,
-                transformOrigin: 'top'
+                transformOrigin: "top",
               }}
             />
 
             {timelineItems.map((item, index) => (
-              <TimelineItem
-                key={index}
-                item={item}
-                index={index}
-              />
+              <TimelineItem key={index} item={item} index={index} />
             ))}
           </div>
         </div>

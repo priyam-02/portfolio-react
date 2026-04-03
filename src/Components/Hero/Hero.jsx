@@ -82,7 +82,7 @@ const Hero = () => {
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(
-        window.innerWidth <= 767 || window.matchMedia("(hover: none)").matches
+        window.innerWidth <= 767 || window.matchMedia("(hover: none)").matches,
       );
     };
 
@@ -228,7 +228,7 @@ const Hero = () => {
         setSnippetIndex((prev) => (prev + 1) % codeSnippets.length);
       } else if (e.key === "ArrowUp") {
         setSnippetIndex(
-          (prev) => (prev - 1 + codeSnippets.length) % codeSnippets.length
+          (prev) => (prev - 1 + codeSnippets.length) % codeSnippets.length,
         );
       } else if (e.key === "Enter" || e.key === " ") {
         setDropdownOpen(false);
@@ -347,7 +347,7 @@ const Hero = () => {
               </motion.div>
 
               <motion.a
-                href="https://drive.google.com/file/d/12toNjpj5AsTU-KIMstEIumZoUAOaR4wf/view?usp=sharing"
+                href="https://drive.google.com/file/d/1SqHXCUoax7r2T6hrvm1YBe_r9chWZ95F/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary btn-secondary-minimalist"
@@ -558,7 +558,7 @@ const Hero = () => {
             delay: 2,
             repeat: Infinity,
             repeatType: "loop",
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         ></motion.div>
         <span className="scroll-text">Scroll down</span>
