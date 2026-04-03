@@ -376,7 +376,7 @@ const Hero = () => {
                 variants={slideVariants}
                 custom={1}
               >
-                Full-Stack Engineer & AI Researcher
+                Full-Stack Engineer | AI Strategy & Automation
               </motion.span>
             </motion.h1>
 

@@ -76,7 +76,7 @@ const About = () => {
 
   const publicationsScale = useSpring(
     useTransform(publicationsProgress, [0, 0.9], [0, 1]),
-    springs.liquid
+    springs.liquid,
   );
 
   // Parallax transforms
@@ -137,21 +137,21 @@ const About = () => {
           <div className="about-text">
             <div className="about-intro">
               <h3>
-                Founding Engineer{" "}
+                AI Strategy & Automation{" "}
                 <span className="title-accent">
                   | 2x Published AI Researcher{" "}
                 </span>
               </h3>
               <p>
-                I am a Full-Stack Engineer with 2+ years of experience and a
-                Master’s in CS (4.0 GPA). I specialize in bridging the gap
-                between scalable application architecture and applied AI.
-                Currently, I am building a 0-to-1 geospatial social platform
-                that helps users connect with real-time events happening in
-                their local neighborhood using React Native. At the same time, I
-                continue to advance the field of LLM benchmarking through
-                published research at top-tier conferences like ASE’25 and
-                SANER’26.
+                I’m a Full-Stack + AI Engineer with 2+ years of experience and a
+                Master’s in CS (4.0 GPA) from UNC Charlotte. I specialize in
+                bridging scalable application architecture with applied AI.
+                Currently, I lead AI Strategy & Automation at The Exit Group,
+                designing LLM-powered workflows and data infrastructure that
+                streamline deal sourcing and operations for private equity and
+                M&A. Previously, I built a 0-to-1 geospatial social platform in
+                React Native and continue to publish LLM benchmarking research
+                at top-tier conferences like ASE’25 and SANER’26.
               </p>
             </div>
           </div>
