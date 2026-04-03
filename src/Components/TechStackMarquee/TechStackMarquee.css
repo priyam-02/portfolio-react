@@ -12,12 +12,7 @@
   content-visibility: auto;
   contain-intrinsic-size: auto 500px;
 
-  background: linear-gradient(
-    180deg,
-    rgba(10, 10, 10, 0) 0%,
-    rgba(20, 25, 35, 0.2) 50%,
-    rgba(10, 10, 10, 0) 100%
-  );
+  background: transparent;
 }
 
 /* Header Section - Premium styling with About integration */
@@ -271,34 +266,9 @@
   color: #ffffff;
 }
 
-/* Gradient Fade Edges */
+/* Gradient Fade Edges - hidden since .marquee-row uses mask-image */
 .marquee-fade {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 200px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.marquee-fade-left {
-  left: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(10, 10, 10, 1) 0%,
-    rgba(10, 10, 10, 0.8) 20%,
-    transparent 100%
-  );
-}
-
-.marquee-fade-right {
-  right: 0;
-  background: linear-gradient(
-    270deg,
-    rgba(10, 10, 10, 1) 0%,
-    rgba(10, 10, 10, 0.8) 20%,
-    transparent 100%
-  );
+  display: none;
 }
 
 /* iPhone 15 Pro, iPhone 14 Pro, Modern Mobile (376px - 420px) */
