@@ -35,4 +35,11 @@ export default [
       ],
     },
   },
+  {
+    // React Three Fiber uses Three.js JSX props that ESLint doesn't recognize
+    files: ['**/Constellation3D.{js,jsx}'],
+    rules: {
+      'react/no-unknown-property': 'off',
+    },
+  },
 ]

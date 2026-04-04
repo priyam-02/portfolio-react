@@ -1,51 +1,89 @@
-const Milestones_Data = [
+const nodes = [
+  // Primary nodes — large glowing spheres with full content
   {
-    s_year: "📜 June 2025",
-    s_name: "Research Paper Presented at ASE 2025",
-    s_desc:
-      "Polyglot: An Extensible Framework to Benchmark Code Translation with LLMs",
+    id: "bachelors",
+    type: "primary",
+    label: "Bachelor's",
+    tagline: "Where it all began",
+    year: "2023",
+    icon: "fa-graduation-cap",
+    blurb:
+      "B.Tech in Information Technology from Indus Institute. Built my first web apps and discovered the joy of building things that work.",
+    pos: [-4.2, 0, 0],
   },
   {
-    s_year: "🎓 May 2025",
-    s_name: "Computer Science (M.S.)",
-    s_desc: "University of North Carolina at Charlotte",
+    id: "masters",
+    type: "primary",
+    label: "Master's",
+    tagline: "Leveling up in CS",
+    year: "2025",
+    icon: "fa-university",
+    blurb:
+      "M.S. in Computer Science at UNC Charlotte. Dove deep into AI/ML, software engineering research, and advanced systems.",
+    pos: [-0.5, 0, 0.5],
   },
   {
-    s_year: "🏆 May 2025",
-    s_name: "Best Teaching Assistant Award",
-    s_desc: "Awarded for outstanding teaching support among 50+ graduate TAs",
+    id: "llm-research",
+    type: "primary",
+    label: "LLM Research",
+    tagline: "CS meets AI, hands-on",
+    year: "2025",
+    icon: "fa-flask",
+    blurb:
+      "Published at ASE 2025: Polyglot \u2014 an extensible framework for benchmarking code translation with LLMs.",
+    pos: [3.2, 1.5, -0.5],
   },
   {
-    s_year: "💼 March 2025",
-    s_name: "First Industry Experience in U.S.",
-    s_desc: "Software Develolper Intern at StarterYou",
+    id: "ai-strategy",
+    type: "primary",
+    label: "AI Strategy",
+    tagline: "Building the future",
+    year: "2026",
+    icon: "fa-robot",
+    blurb:
+      "Senior Associate \u2014 AI Strategy & Automation at The Exit Group. Applying AI to real business problems and driving strategy with data.",
+    pos: [4.5, -1.8, 0.8],
+  },
+
+  // Secondary nodes — small glowing dots
+  {
+    id: "web-dev",
+    type: "secondary",
+    label: "Web Dev",
+    pos: [-3.0, 1.8, 1],
   },
   {
-    s_year: "🕹️ Dec 2023",
-    s_name: "First Video Game",
-    s_desc: "Planet Escape - A 2D side-scroller survival game.",
+    id: "swe",
+    type: "secondary",
+    label: "Software Eng.",
+    pos: [-3.0, -1.5, -1],
   },
   {
-    s_year: "🎓 May 2023",
-    s_name: "Information Tech (B.Tech)",
-    s_desc: "Indus Institue of Technology and Engineering",
+    id: "ai-ml",
+    type: "secondary",
+    label: "AI / ML",
+    pos: [1.5, 2.2, 0.5],
   },
   {
-    s_year: "📅 April 2023",
-    s_name: "Cleared GRE & TOEFL",
-    s_desc:
-      "Scored 310/340 in GRE and 95/120 in TOEFL as part of graduate admissions process.",
-  },
-  {
-    s_year: "💼 Jan 2023",
-    s_name: "First Internship in India",
-    s_desc: "Web development Intern at Sparks to Ideas",
-  },
-  {
-    s_year: "📋 Jan 2021",
-    s_name: "First Web App",
-    s_desc: "Hostel Management System - To manage the student, hostel details.",
+    id: "teaching",
+    type: "secondary",
+    label: "Teaching",
+    pos: [1.5, -2, -1],
   },
 ];
 
-export default Milestones_Data;
+const edges = [
+  { from: "bachelors", to: "web-dev" },
+  { from: "web-dev", to: "masters" },
+  { from: "bachelors", to: "swe" },
+  { from: "swe", to: "masters" },
+  { from: "masters", to: "ai-ml" },
+  { from: "ai-ml", to: "llm-research" },
+  { from: "masters", to: "teaching" },
+  { from: "llm-research", to: "ai-strategy" },
+  { from: "masters", to: "ai-strategy" },
+  { from: "swe", to: "llm-research" },
+  { from: "ai-ml", to: "ai-strategy" },
+];
+
+export default { nodes, edges };

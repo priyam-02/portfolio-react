@@ -15,10 +15,12 @@
 .hero {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   overflow-x: clip;
   overflow-y: visible;
+  /* Push hero content down from navbar */
+  padding-top: 13rem !important;
   /* Extra bottom padding to compensate for scroll indicator visual offset */
   padding-bottom: calc(var(--spacing-7xl) + var(--spacing-2xl)) !important;
 }
@@ -108,9 +110,20 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-3xl);
-  align-items: center;
+  align-items: stretch; /* So both columns exactly match height */
   position: relative;
   z-index: 2;
+}
+
+.hero-sidebar-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Automatically aligns top to top, bottom to bottom */
+  align-items: center;
+  height: 100%;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 /* Hero Text Section */
@@ -169,7 +182,8 @@
 .hero-stats {
   display: flex;
   gap: var(--spacing-2xl);
-  margin-bottom: var(--spacing-2xl);
+  margin-top: auto; /* Pushes stats to the bottom group */
+  margin-bottom: 2rem !important; /* Space between stats and buttons */
   animation: fadeInUp 0.8s ease-out 0.8s both;
 }
 
@@ -196,7 +210,7 @@
 .hero-actions {
   display: flex;
   gap: var(--spacing-lg);
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: 0; /* Let space-between position it at the bottom */
   flex-wrap: wrap;
   animation: fadeInUp 0.8s ease-out 1s both;
 }
@@ -253,8 +267,8 @@
 }
 
 .profile-image {
-  width: 320px;
-  height: 320px;
+  width: 230px;
+  height: 230px;
   border-radius: var(--radius-2xl);
   object-fit: cover;
   position: relative;
@@ -267,8 +281,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
-  height: 400px;
+  width: 280px;
+  height: 280px;
   background: var(--accent-gradient);
   border-radius: var(--radius-2xl);
   opacity: 0.1;
@@ -404,8 +418,8 @@
 }
 
 .ring-1 {
-  width: 450px;
-  height: 450px;
+  width: 310px;
+  height: 310px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -413,8 +427,8 @@
 }
 
 .ring-2 {
-  width: 500px;
-  height: 500px;
+  width: 360px;
+  height: 360px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -422,8 +436,8 @@
 }
 
 .ring-3 {
-  width: 550px;
-  height: 550px;
+  width: 410px;
+  height: 410px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -474,7 +488,7 @@
 /* Scroll Indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: calc(var(--spacing-6xl) + var(--spacing-xs));
+  bottom: var(--spacing-2xl);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -617,28 +631,28 @@
   }
 
   .profile-image {
-    width: 380px;
-    height: 380px;
+    width: 260px;
+    height: 260px;
   }
 
   .image-background {
-    width: 480px;
-    height: 480px;
+    width: 310px;
+    height: 310px;
   }
 
   .ring-1 {
-    width: 500px;
-    height: 500px;
+    width: 350px;
+    height: 350px;
   }
 
   .ring-2 {
-    width: 550px;
-    height: 550px;
+    width: 400px;
+    height: 400px;
   }
 
   .ring-3 {
-    width: 600px;
-    height: 600px;
+    width: 450px;
+    height: 450px;
   }
 }
 
@@ -657,13 +671,13 @@
   }
 
   .profile-image {
-    width: 300px;
-    height: 300px;
+    width: 220px;
+    height: 220px;
   }
 
   .image-background {
-    width: 380px;
-    height: 380px;
+    width: 260px;
+    height: 260px;
   }
 }
 
@@ -1666,7 +1680,7 @@
 .hero-minimalist .hero-content-minimalist {
   display: flex !important;
   flex-direction: row !important;
-  align-items: flex-end !important;
+  align-items: stretch !important;
   justify-content: space-between !important;
   max-width: 100% !important;
   width: 100% !important;
@@ -1683,16 +1697,17 @@
 
 /* Right Sidebar - Profile, Stats, Buttons */
 .hero-minimalist .hero-sidebar-left {
-  position: sticky !important;
-  top: 120px !important;
+  position: relative !important;
   display: flex !important;
   flex-direction: column !important;
+  justify-content: space-between !important;
   align-items: center !important;
-  gap: 3rem !important;
+  gap: 0 !important;
   width: 420px !important;
   flex-shrink: 0 !important;
   z-index: 10 !important;
   order: 1 !important;
+  height: auto !important; /* Will stretch to fill row */
   /* Ensure it appears second (on the right) */
 }
 
@@ -1765,13 +1780,13 @@
 /* Minimalist Profile Image - In Sidebar */
 .hero-minimalist .hero-image-minimalist {
   width: 100% !important;
-  max-width: 420px !important;
+  max-width: 320px !important;
   animation: minimalistReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
 }
 
 .hero-minimalist .hero-profile-minimalist {
-  width: 420px !important;
-  height: 420px !important;
+  width: 320px !important;
+  height: 320px !important;
   border-radius: 50% !important;
   object-fit: cover !important;
   border: 4px solid var(--accent-primary) !important;

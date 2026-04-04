@@ -11,6 +11,7 @@ import Contact from "./Components/Contact/Contact";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 import Footer from "./Components/Footer/Footer";
+import MeshBackground from "./Components/MeshBackground/MeshBackground";
 
 const App = () => {
   const { scrollYProgress } = useScroll();
@@ -33,6 +34,7 @@ const App = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
+      <MeshBackground />
       {/* Smooth scroll progress bar */}
       <motion.div
         className="scroll-progress-bar"

@@ -110,40 +110,30 @@ body {
   }
 }
 
-/* Global Grid Pattern Background */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image:
-    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
-  background-size: 50px 50px;
-  background-position: center;
-  pointer-events: none;
-  z-index: 0;
+/* Global Background styling removed to favor WebGL MeshBackground */
+
+/* Auto-hiding Scrollbar — visible only while scrolling */
+html {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(148, 163, 184, 0.3) transparent;
 }
 
-
-/* Scrollbar Styling */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--secondary-bg);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--text-muted);
-  border-radius: var(--radius-full);
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
+  background: rgba(148, 163, 184, 0.5);
 }
 
 /* Smooth Scroll Progress Bar - Optimized */
