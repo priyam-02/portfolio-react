@@ -110,7 +110,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-3xl);
-  align-items: stretch; /* So both columns exactly match height */
+  align-items: stretch;
+  /* So both columns exactly match height */
   position: relative;
   z-index: 2;
 }
@@ -118,7 +119,8 @@
 .hero-sidebar-left {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Automatically aligns top to top, bottom to bottom */
+  justify-content: space-between;
+  /* Automatically aligns top to top, bottom to bottom */
   align-items: center;
   height: 100%;
   will-change: transform, opacity;
@@ -182,8 +184,10 @@
 .hero-stats {
   display: flex;
   gap: var(--spacing-2xl);
-  margin-top: auto; /* Pushes stats to the bottom group */
-  margin-bottom: 2rem !important; /* Space between stats and buttons */
+  margin-top: auto;
+  /* Pushes stats to the bottom group */
+  margin-bottom: 2rem !important;
+  /* Space between stats and buttons */
   animation: fadeInUp 0.8s ease-out 0.8s both;
 }
 
@@ -210,7 +214,8 @@
 .hero-actions {
   display: flex;
   gap: var(--spacing-lg);
-  margin-bottom: 0; /* Let space-between position it at the bottom */
+  margin-bottom: 0;
+  /* Let space-between position it at the bottom */
   flex-wrap: wrap;
   animation: fadeInUp 0.8s ease-out 1s both;
 }
@@ -488,7 +493,7 @@
 /* Scroll Indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: var(--spacing-2xl);
+  bottom: var(--spacing-6xl);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -1707,7 +1712,8 @@
   flex-shrink: 0 !important;
   z-index: 10 !important;
   order: 1 !important;
-  height: auto !important; /* Will stretch to fill row */
+  height: auto !important;
+  /* Will stretch to fill row */
   /* Ensure it appears second (on the right) */
 }
 
